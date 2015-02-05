@@ -1,0 +1,36 @@
+@charset "utf-8";
+@import "custom.css";
+#body_user_register .form-container {
+  margin: 70px auto 0;
+  width: 800px;
+}
+#body_user_forgot .form-container,
+#body_user_login .form-container {
+  width: 380px;
+  margin: 100px auto 0;
+}
+#body_user_forgot .form-container h1,
+#body_user_login .form-container h1 {
+  margin-bottom: 20px;
+  text-shadow: 1px 0px 0px #fff;
+}
+.content {
+  padding: 10px 30px 0;
+}
+.controls input.login-field {
+  font-size: 18px;
+  padding: 10px;
+  width: 260px;
+}
+.controls .add-on {
+  padding: 10px;
+}
+.login-actions {
+  margin-top: 20px;
+}
+.login-extra {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 16px;
+  text-shadow: 1px 1px 0px #fff;
+}

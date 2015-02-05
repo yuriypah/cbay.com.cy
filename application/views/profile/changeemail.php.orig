@@ -1,0 +1,32 @@
+
+<?php echo Form::open( NULL , array('method' => 'post', 'class' => 'form-horizontal', 'id' => 'form_profle_delete') ); ?>
+<?php echo Form::hidden('token', Security::token()); ?>
+	<fieldset>
+		<legend><?php echo __('Enter your new e-mail'); ?></legend>
+		<br />
+		<p>If you click on "Delete my account", then your account and all your ads will be deleted.</p>
+		<p>To restore your account and posts will be impossible.</p>
+		<p>Re-registration and submission of ads on your current e-mail will also be impossible.</p>
+		<br /><br />
+		<div class="control-group <?php echo Arr::path($messages_array, 'errors.email') ? 'error' : ''; ?>">
+			<label class="control-label"><?php echo __( 'New E-mail address' ); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::input('email', Arr::get($data, 'email'), array(
+						'id' => 'profile_email', 'class' => 'input-xlarge'
+					));
+				?>
+
+				<?php if(Arr::path($messages_array, 'errors.email')):  ?>
+				<span class="help-inline"><?php echo Arr::path($messages_array, 'errors.email'); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+	</fieldset>
+
+	<div class="form-actions">
+		<button type="submit" name="delete" value="confirm" class="btn btn-large">
+			<?php echo __('Change') ; ?>
+		</button>
+	</div>
+<?php echo Form::close(); ?>

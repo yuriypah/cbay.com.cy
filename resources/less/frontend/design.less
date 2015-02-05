@@ -1,0 +1,368 @@
+@import "reset.css";
+
+@import "frontend/variables.less";
+@import "frontend/mixins.less";
+@import "frontend/custom.less";
+@import "frontend/grid.less";
+@import "frontend/type.less";
+@import "frontend/form.less";
+@import "frontend/tables.less";
+@import "frontend/sprites.less";
+@import "frontend/alerts.less";
+@import "frontend/thumbnails.less";
+@import "frontend/labels.less";
+@import "frontend/buttons.less";
+@import "frontend/wells.less";
+@import "frontend/progress-bars.less";
+@import "frontend/utilities.less";
+
+body {
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @baseColor;
+	width: 100%; min-width: 1011px;
+	height: 100%;
+}
+
+.wrapper {
+	width: 1011px;
+	.center-block();
+}
+
+/*==============================================================================
+=================================== Header ===================================*/
+#header {
+	margin-top: 25px;
+	height: 45px;
+	position: relative;
+}
+
+#logo_text {
+	font-style: italic;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #707070;
+	width: 190px;
+	line-height: 12px;
+	.absolute(-3px, 210px);
+}
+
+#buttons {
+	.absolute(-2px, auto);
+	right: 0;
+}
+
+#langs {
+	.absolute(-5px, auto);
+	right: 0;
+	
+	a {
+		margin-left: 10px;
+	}
+}
+
+
+/*==============================================================================
+================================= Панель меню ================================*/
+#header-panel {
+
+	#header-menu {
+		@lh: 30px;
+		@p: 20px;
+		
+		height: @lh;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: -1px;
+
+		li {
+			float: left;
+			z-index: 2;
+			margin-bottom: -1px;
+
+			&.separator {
+				width: 1px;
+				height: @lh;
+				background: url(../images/header-menu-separator.png) top left no-repeat;
+			}
+
+			a {
+				font-size: 13px;
+				line-height: @lh;
+				display: block;
+				padding: 0 @p;
+				color: #416288;
+				font-weight: bold;
+				text-decoration: none;
+
+				&:hover {
+					color: #416288;
+					text-decoration: underline;
+				}
+			}
+
+			&.current {
+				a {
+					color: #fff;
+					//.box-gradient(#86e2ff, #6AD3F6);
+					background: #2E8BAE;
+					
+
+					&:hover {
+						color: #fff;
+						text-decoration: none;
+					}
+				}
+			}
+
+			&:first-child {
+				&.current {
+					a {
+						padding-left: @p;
+					}
+				}
+				a {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	#search-panel {
+
+		//.box-gradient(#6AD3F6, #2D95C5);
+		background: #2E8BAE;
+		border-bottom: 2px solid #1c6485;
+		padding: 10px 0;
+
+		form {
+			margin-bottom: 0;
+		}
+
+		#search-button {
+			width: 154px;
+			height: 30px;
+			background: url('../images/search-button.png') no-repeat;
+			border: 0;
+			text-indent: -99999px;
+			overflow: hidden;
+		}
+	}
+
+	#sub-menu {
+		@lh: 30px;
+		@pt: 3px;
+
+		background: #2E8BAE;
+		//.box-gradient(#6AD3F6, #51c1ec);
+		border-bottom: 1px solid #1c6485;
+		padding: 0;
+
+		ul {
+
+			li {
+				float: left;
+				padding-top: @pt;
+				margin-bottom: -1px;
+				z-index: 2;
+
+				a {
+					color: #fff;
+					//color: #0e485d;
+					text-shadow: 0 1px 0 darken(#2E8BAE);
+					line-height: @lh;
+					display: inline-block;
+					padding: @pt 20px 0;
+					font-size: 14px;
+					text-decoration: none;
+
+					&:hover {
+						
+					}
+				}
+
+				&.current {
+					a {
+						text-shadow: none;
+						background: #fff;
+						color: #0e485d;
+						.border-radius(5px 5px 0 0);
+						border: 1px solid #1c6485;
+						border-bottom-width: 0;
+
+						padding-top: 0px;
+						margin-top: @pt;
+					}
+				}
+
+				&.separator {
+					width: 2px;
+					height: @lh + @pt;
+					background: url(../images/sub-menu-separator.png) top left repeat-y;
+				}
+			}
+		}
+	}
+}
+
+/*==============================================================================
+================================== Content ===================================*/
+#container {
+	width: 100%;
+	float: left;
+	overflow: show;
+	margin-top: 15px;
+	
+	.rightSidebar {
+		margin-right: @sidebar-right;
+		padding-right: 30px;
+	}
+
+	.leftSidebar {
+		margin-left: @sidebar-left;
+		padding-left: 30px;
+	}
+
+	.leftSidebarBig {
+		margin-left: @sidebar-left-big;
+		padding-left: 30px;
+	}
+	
+	#container-content {}
+}
+
+
+#breadcrumbs {
+	.shadow-block(#e8e8e8);
+	.border-radius(3px);
+
+	padding: 0 10px;
+	margin: 10px 0;
+
+	.box-gradient(#ededed, #dbdbdb);
+
+	span {
+		color: #666;
+	}
+
+	a, .separator {
+		display: inline-block;
+		.ie7-inline-block();
+		line-height: 30px;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.separator {
+		margin: 0 5px;
+		width: 5px;
+		background: url(../images/crumbs-separator.png) no-repeat center center;
+	}
+
+	.navigator {
+		float: right;
+		
+		border-left: 1px solid #ccc;
+
+		div {
+			border-left: 2px solid #eee;
+			padding: 0 0 0 20px;
+		}
+
+		span {
+			margin: 0 20px;
+		}
+	}
+}
+
+
+/*==============================================================================
+================================ Боковое меню ================================*/
+.sidebar {
+	.sidebar-head {
+		color: #fff;
+		font-size: 14px;
+		.box-gradient(#ededed, #dbdbdb);
+		border-bottom: 1px solid #cacaca;
+		padding: 0 15px;
+		line-height: 30px;
+
+		&.yellow {
+			.box-gradient(#fcefc2, #fbe8a1);
+			color: #000;
+		}
+	}
+
+	.sidebar-inner {
+		padding: 10px 5px 0;
+
+		.shadow-block();
+	}
+
+	margin-bottom: 20px;
+}
+
+/*==============================================================================
+=============================== Sidebar Left ================================*/
+#sideLeft {
+	float: left;
+	width: @sidebar-left;
+	margin-left: -100%;
+	position: relative;
+	margin-top: 15px;
+}
+
+#sideLeftBig {
+	float: left;
+	width: @sidebar-left-big;
+	margin-left: -100%;
+	position: relative;
+	margin-top: 15px;
+}
+
+/*==============================================================================
+=============================== Sidebar Right ================================*/
+#sideRight {
+	float: left;
+	width: @sidebar-right;
+	margin-left: -@sidebar-right - 10;
+	position: relative;
+	margin-top: 15px;
+}
+
+
+.icon-sort {
+	display: inline-block;
+	.ie7-inline-block();
+	vertical-align: middle;
+	height: 30px; width: 10px;
+	line-height: 30px;
+	background: url(../images/sort-icon.png) no-repeat center center;
+}
+
+/*==============================================================================
+================================== Footer ====================================*/
+#footer {
+	margin: 20px 0;
+	.shadow-block();
+	padding: 20px 15px 15px;
+
+	background: #fbfbfb;
+
+	.links {
+		margin: 0 0 15px;
+		a {
+			margin: 0 15px 0 0;
+		}
+	}
+
+	.about {
+		color: #b2b2b2;
+	}
+}

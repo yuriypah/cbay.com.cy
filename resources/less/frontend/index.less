@@ -1,0 +1,148 @@
+#body_index {
+	background: #eff6fd url(@{imagesUri}bg-pattern.jpg) top center repeat-x;
+	
+	#water_bg {
+		width: 100%;
+		height: 838px;
+		overflow: hidden;
+		background: url(@{imagesUri}bg_old.jpg) top center no-repeat;
+	}
+
+	#slogan {
+		.absolute(50px);
+		font-size: 30px;
+		line-height: 33px;
+		z-index: 101;
+	}
+	
+	#content {
+		height: 610px;
+		margin-top: 25px;
+		position: relative;
+		
+		#tags {
+			font-size: 16px;
+			color: #1d1d2a;
+			width: 320px;
+			line-height: 20px;
+			.text-shadow();
+			.absolute(130px);
+			z-index: 101;
+		}
+
+		.digital-nums {
+			position: absolute;
+			top: 220px; left: 0;
+			z-index: 101;
+		}
+
+		
+		#lands-list {
+			.absolute(205px, 880px);
+			z-index: 101;
+			
+			li {
+				margin-bottom: 5px;
+
+				a {
+					line-height: 30px;
+					font-size: 16px;
+					color: #27596b;
+					
+					img {
+						vertical-align: middle;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+
+		#island {
+			.absolute(61px, 64px);
+			z-index: 100;
+		}
+		
+		#islandmap_cont {
+			z-index: 101;
+		}
+
+		#lands-points {
+			position: relative;
+			z-index: 101;
+
+			.point {
+				position: absolute;
+				
+				
+				a {
+					color: #fff;
+					font-family: Tahoma;
+					font-style: italic;
+					font-size: 14px;
+					text-decoration: none;
+				}
+
+				span {
+					margin-left: -10px;
+					line-height: 14px;
+					vertical-align: super;
+				}
+			}
+
+			.t-center {
+				text-align: center;
+				img {
+					margin-left: 5px;
+				}
+
+				span {
+					line-height: 14px;
+					display: block;
+				}
+			}
+		}
+	}
+	
+	#footer-index {
+		.center-block();
+		
+		margin-top: 60px;
+		width: 961px;
+		padding: 25px 20px 0;
+		
+		.text {
+			text-align: justify;
+			color: #828282;
+		}
+		
+		.links {
+			margin: 10px 0;
+			float: left;
+
+			a {
+				font-size: 10px;
+				text-transform: uppercase;
+				color: #5d8cbb;
+				margin: 0 10px;
+			}
+		}
+		
+		.about {
+			text-align: center;
+			font-size: 10px;
+			color: #828282;
+		}
+	}
+}
+
+#point-polis { top: 350px; left: 120px; }
+#point-paphos { top: 475px; left: 125px; }
+#point-protaras { top: 330px; left: 770px; }
+#point-paralimni { top: 350px; left: 760px; }
+#point-famagusta { top: 220px; left: 680px; }
+#point-kyrenia { top: 215px; left: 477px; }
+#point-nicosia { top: 286px; left: 495px; }
+
+#point-agia_napa { top: 370px; left: 780px; }
+#point-larnaca { top: 400px; left: 620px; }
+#point-limassol { top: 510px; left: 360px; }

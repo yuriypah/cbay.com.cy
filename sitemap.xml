@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://cbay.com.cy/?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/place?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/place?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/place?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/register?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/register?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/register?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/login?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/login?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/login?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/about?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/about?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/about?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/adverts?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/adverts?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/adverts?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/categories?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/categories?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/categories?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/bookmarks?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/bookmarks?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/bookmarks?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/help?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/help?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/help?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/120?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/120?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/120?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/128?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/128?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/128?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/129?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/129?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/129?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/130?lang=en</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/130?lang=ru</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://cbay.com.cy/advert/130?lang=gr</loc>
+    <lastmod>2014-10-01T14:44:31 03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

@@ -1,0 +1,18 @@
+<table class="table" id="values">
+	<thead>
+		<tr>
+			<th><?php echo HTML::icon('chevron-right') . ' ' . $option->locale()->title; ?></th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($values as $value): ?>
+			<tr>
+				<td><?php echo HTML::icon('minus') . ' ' . HTML::anchor('action-value-edit/' . $value->id, $value->title); ?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php echo HTML::icon('plus') . ' ' . HTML::anchor('action-value-add/' . $option->pk(), __("Add value for this option")); ?>
+&nbsp;
+<?php echo HTML::icon('arrow-left'). ' '. HTML::anchor('backend/options/list/'.$option->category_id , __('Back to options')); ?>

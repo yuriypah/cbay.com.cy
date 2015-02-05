@@ -1,0 +1,15 @@
+<?php echo Form::open( '/form-value-save', array('class' => 'form-horizontal ajax', 'id' => 'form_value_add') ); ?>
+	<?php echo Form::hidden( 'value[id]', ( Request::current()->action() == 'add' ) ? 0 : $value->pk() ); ?>
+	<?php echo Form::hidden( 'value[option_id]', $option->pk() ); ?>
+	<?php echo Form::hidden( 'token', Security::token() ); ?>
+
+	<?php echo View::factory('lang/head', array(
+		'parts' => $parts
+	)); ?>
+
+	<div class="form-actions">
+	<?php echo Form::button( 'submit', 'Сохранить', array('icon' => HTML::icon( 'ok', TRUE )) ); ?>
+	</div>
+<?php echo Form::close(); ?>
+
+<?php echo HTML::icon( 'arrow-left' ) . ' ' . HTML::anchor( 'backend/values/list/' . $option->pk(), __( 'Back to values list' ) ); ?>

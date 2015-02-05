@@ -1,0 +1,96 @@
+<?php echo HTML::doctype('html5'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php echo $ctx->page->meta_title !== NULL ? $ctx->page->meta_title.' | ' : '' ?></title>
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
+	<meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	
+	<script type="text/javascript">
+		var resources_path = "/<?php echo $resources_path; ?>";
+		var directory = "<?php echo Request::current()->directory(); ?>";
+		var controller = "<?php echo Request::current()->controller(); ?>";
+		var action = "<?php echo Request::current()->action(); ?>";
+	</script>
+<?php  
+	foreach($styles as $style)  { echo "\t".Html::style($resources_path.$style)."\n"; }
+	foreach($scripts as $script) { echo "\t".Html::script($resources_path.$script)."\n"; } 
+?>
+	<?php Observer::notify('page_layout_head'); ?>
+</head>
+<!-- 
+Created by ButscH & Dimon December 2011
+-->
+<body id="body_<?php echo URL::title(str_replace('/', ' ', $ctx->uri), '_'); ?>">
+<?php echo $navigation; ?>
+	
+<?php Block::run('header_block'); ?>
+
+<div class="container">
+	<section id="middle">
+
+		<div id="container">
+			<div id="content" class="<?php if($left_sidebar === TRUE): ?>leftSidebar<?php endif; ?> <?php if($right_sidebar === TRUE): ?>rightSidebar<?php endif; ?>">
+				<?php echo $messages; ?>
+				<div class="page-header"><h1><?php echo $ctx->page->label; ?> </h1></div>
+				<div class="well">
+					<?php echo $content; ?>
+
+					<?php if(isset($pagination)): ?>
+					<?php echo $pagination; ?>
+					<?php endif; ?>
+				</div>
+			</div><!-- #content--> 
+		</div><!-- #container--> 
+		
+		<?php if($left_sidebar === TRUE): ?>
+		<div class="sidebar" id="sideLeft">
+		<?php if(  class_exists( 'Object' )): ?>
+			<?php Block::run('left_menu_top'); ?>
+			<?php Block::run('left_menu_middle'); ?>
+			<?php Block::run('left_menu_bottom'); ?>
+		<?php endif; ?>	
+		</div><!-- .sidebar#sideLeft -->
+		<?php endif; ?>
+		<?php if($right_sidebar === TRUE): ?>
+		<div class="sidebar" id="sideRight">
+		<?php if(  class_exists( 'Object' )): ?>
+			<?php Block::run('right_menu_top'); ?>
+			<?php Block::run('right_menu_middle'); ?>
+			<?php Block::run('right_menu_bottom'); ?>
+		<?php endif; ?>
+		</div><!-- .sidebar#sideRight -->
+		<?php endif; ?>
+	</section>
+
+	<footer class="footer">
+		<div class="clearfix"></div>
+		<hr />
+
+		<ul class="nav nav-pills">
+			<li><?php echo HTML::anchor('advert/place', __('Place advert')); ?></li>
+			<li><?php echo HTML::anchor('adverts', __('Adverts')); ?></li>
+			<li><?php echo HTML::anchor('adverts/categories', __('Advert categories')); ?></li>
+			<li><?php echo HTML::anchor('about', __('About')); ?></li>
+			<li><?php echo HTML::anchor('help', __('Help')); ?></li>
+			<li><?php echo HTML::anchor('site-map', __('Sitemap')); ?></li>	
+		</ul>
+
+		<div class="copyrights">© cbay.com.cy — Board private ads. All rights reserved.</div>
+		
+		<?php Observer::notify('page_layout_footer'); ?>
+	</footer>
+	
+	<?php if(Kohana::$profiling):?>
+	<hr />
+	<div id="kohana-profiler"><?php echo View::factory('profiler/stats') ?></div>
+	<?php endif; ?> 
+	</div>
+</div>
+<?php Observer::notify('page_layout_bottom'); ?>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?php
+
+defined( 'SYSPATH' ) or die( 'No direct script access.' );
+
+class Controller_Backend_Options extends Controller_System_Backend {
+
+	public function action_list()
+	{
+		$category_id = (int) $this->request->param( 'id' );
+		$category = ORM::factory( 'advert_category', $category_id );
+		if ( $category_id === 0 || !$category->loaded() )
+		{
+			throw new HTTP_Exception_404( 'Category not found' );
+		}
+
+		$this->template->content->category = $category;
+
+		$options = ORM::factory( 'advert_category_option' )
+				->select()
+				->where( 'advert_category_option.category_id', '=', $category_id )
+				->with_locale()
+				->find_all();
+
+		$this->template->content->options = $options;
+	}
+
+}

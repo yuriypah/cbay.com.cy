@@ -1,0 +1,52 @@
+<?php echo Form::open('/form-category-save', array('class' => 'form-horizontal ajax', 'id' => 'form_category_add')); ?>
+	<?php echo Form::hidden('category[id]', $category->pk()); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+
+	<?php echo View::factory('lang/head', array(
+		'parts' => $parts
+	)); ?>
+
+	<fieldset>
+		<legend><?php echo __('Category options'); ?></legend>
+		
+		<div class="control-group">
+			<?php echo Form::label('form_advert_category_group_id', __('Group'), array(
+				'class' => 'control-label'
+			)); ?>
+			<div class="controls">
+				<?php echo Form::select( 'category[group_id]', $groups,  $category->group_id, array(
+					'class' => 'input-title', 'id' => 'form_advert_category_group_id')
+				); ?>
+				
+				<?php echo HTML::popup('/action-group-add', __('Add group'), array('id' => 'form_advert_category_group_add')); ?>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<?php echo Form::label('form_advert_category_ration', __('Ratio'), array(
+				'class' => 'control-label'
+			)); ?>
+			<div class="controls">
+				<?php echo Form::input( 'category[ratio]', 1, array(
+					'class' => 'input-title', 'id' => 'form_advert_category_ratio')
+				); ?>
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend><?php echo __('Packages'); ?></legend>
+		<div class="control-group">
+			<div class="controls">
+				<?php echo Form::select( 'packages[]', $packages, $current_packages, array('size' => 10, 'id' => 'form_package_id')); ?>
+				
+				<?php echo HTML::popup('/action-package-add', __('Add package'), array('id' => 'form_package_add')); ?>
+			</div>
+		</div>
+	</fieldset>
+
+	<div class="form-actions">
+		<?php echo Form::button('submit', 'Сохранить', array('icon' => HTML::icon('ok', TRUE))); ?>
+	</div>
+
+<?php echo Form::close(); ?>

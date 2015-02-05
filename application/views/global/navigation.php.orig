@@ -1,0 +1,93 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<?php echo HTML::anchor(URL::base(), 'CBAY', array(
+				'class' => 'brand'
+			)); ?>
+			
+			<ul class="nav">
+				<?php foreach ( $navigation as $page ): ?>
+				<?php
+					if ( $page['secured'] === FALSE AND count( $page['children'] ) == 0 )
+						continue;
+
+					$li_class = $a_class = array();
+
+					if ( $page['active'] )
+					{
+						$li_class[] = 'active';
+					}
+
+					if ( $page['class'] )
+					{
+						$li_class[] = 'header_menu_' . $page['class'];
+					}
+					
+					if ( $page['icon'] )
+					{
+						$page['label'] = HTML::icon($page['icon'] . ' icon-white') . ' ' . $page['label'];
+					}
+
+					if ( !empty( $page['children'] ) )
+					{
+						$li_class[] = 'dropdown';
+						$page['label'] .= '<b class="caret"></b>';
+						$a_class[] = 'dropdown-toggle';
+						$page['href'] = '#';
+					}
+				?>
+				<li class="<?php echo implode( ' ', $li_class ); ?>">
+					<?php echo HTML::anchor( $page['href'], $page['label'], array('class' => implode( ' ', $a_class ), 'data-toggle' => "dropdown") ); ?>
+					<?php echo recurse_menu( $page, $resources_path ); ?>
+				</li>
+				<?php endforeach; ?>
+				
+				<li class="header_menu_login">
+					<?php echo Form::select('lang', Model_Lang_Part::$languages, I18n::lang(), array('id' => 'lang-select')); ?>
+				</li>
+				
+				<?php Observer::notify( 'page_layout_navigation_li' ); ?>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<?php
+
+function recurse_menu( $page, $resources_path )
+{
+	if ( empty( $page['children'] ) )
+		return '';
+
+	$menu = '<ul class="dropdown-menu">';
+	foreach ( $page['children'] as $child )
+	{
+		$class = array();
+		$params = array();
+		if ( $child['active'] )
+		{
+			$class[] = 'active';
+		}
+
+		if ( $child['icon'] )
+		{
+			$class[] = 'icon';
+			$child['label'] = HTML::icon($child['icon']) . ' ' . $child['label'];
+		}
+
+		$params['class'] = implode( ' ', $class );
+
+		$menu .= '<li>';
+		$menu .= HTML::anchor( $child['href'], $child['label'], $params );
+		$menu .= recurse_menu( $child, $resources_path );
+		$menu .= '</li>';
+		if ( $child['separator'] )
+		{
+			$menu .= '<li class="divider"></li>';
+		}
+	}
+	$menu .= '</ul>';
+
+	return $menu;
+}
+?>

@@ -1,0 +1,34 @@
+<div id="geo_form">
+<?php if(empty($city_id)): ?>
+<script type="text/JavaScript">
+$(document).ready(function(){
+	Map
+		.init('form_<?php echo $field; ?>')
+		.getRegions();
+});
+</script>
+<?php else: ?>
+<script type="text/JavaScript">
+$(document).ready(function(){
+	Map
+		.init('form_<?php echo $field; ?>', 1,  <?php echo $region_id; ?>, <?php echo $city_id; ?>)
+		.getRegions();
+});
+</script>
+<?php endif; ?>
+
+	<div class="control-group" id="form_<?php echo $field; ?>_region_block">
+		<?php echo Form::label('form_'.$field.'_region', __('Region'), array('class' => 'control-label')); ?>
+		<div class="controls">
+			<?php echo Form::select('region_id', NULL, NULL, array('id' => 'form_'.$field.'_region', 'class' => 'no-script', 'data-type' => 'region')); ?>
+		</div>
+	</div>
+
+	<div class="control-group" id="form_<?php echo $field; ?>_city_block">
+		<?php echo Form::label('form_'.$field.'_city', __('City'), array('class' => 'control-label')); ?>
+		<div class="controls">
+			<?php echo Form::select($field === NULL ? 'city_id' : $field.'[city_id]', NULL, NULL, array('id' => 'form_'.$field.'_city', 'class' => 'no-script', 'data-type' => 'city')); ?>
+		</div>
+	</div>
+
+</div>

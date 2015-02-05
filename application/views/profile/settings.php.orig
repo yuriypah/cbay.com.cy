@@ -1,0 +1,224 @@
+<div class="form-horizontal">
+	<fieldset>
+		<legend><?php echo __( 'Personal information' ); ?></legend>
+
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'Username' ); ?></label>
+			<div class="controls">
+				<label class="checkbox"><?php echo $ctx->user->username; ?></label>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'E-mail' ); ?></label>
+			<div class="controls">
+				<div class="checkbox row">
+					<div class="span2">
+						<?php echo $ctx->user->email; ?>
+					</div>
+					<div class="span3">
+						<?php echo HTML::anchor('profile/changeemail', __('Change email adress'), array('class' => 'btn btn-mini btn-info')); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'Registered' ); ?></label>
+			<div class="controls">
+				<label class="checkbox"><?php echo Date::format( $ctx->user->profile->created, 'd F Y' ); ?></label>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'Profile type' ); ?></label>
+			<div class="controls">
+				<label class="checkbox"><?php echo __( Model_User_Profile::$types[$ctx->user->profile->type] ); ?></label>
+			</div>
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<legend><?php echo __( 'Data' ); ?></legend>
+		
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'Adverts' ); ?></label>
+			<div class="controls">
+				<div class="checkbox row">
+					<div class="span2">
+						<?php echo $count_adverts; ?>
+					</div>
+					<div class="span3">
+						<?php echo HTML::anchor('advert/place', __('Place advert') , array('class' => 'btn btn-mini btn-info')); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label"><?php echo __( 'Wallet' ); ?></label>
+			<div class="controls">
+				<div class="checkbox row">
+					<div class="span2">
+						<?php echo $ctx->user->amount; ?> <?php echo __('Euro'); ?>
+					</div>
+					<div class="span3">
+						<?php echo HTML::anchor('wallet',  __('Go to wallet'), array('class' => 'btn btn-mini btn-info')); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+</div>
+
+<div class="well">
+<?php echo Form::open( '/form-profile-contacts', array('method' => 'post', 'class' => 'form-horizontal ajax', 'id' => 'form_profle_edit_contacts') ); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+	<fieldset>
+		<legend><?php echo __( 'Contacts information' ); ?></legend>
+		
+		<div class="control-group">
+			<label class="control-label" for="profile_name"><?php echo __('Name'); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::input('profile[name]', $ctx->user->profile->name, array(
+						'id' => 'profile_name', 'class' => 'input-xlarge'
+					));
+				?>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="profile_phone"><?php echo __('Phone'); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::input('profile[phone]', $ctx->user->profile->phone, array(
+						'id' => 'profile_phone', 'class' => 'input-xlarge'
+					));
+				?>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="profile_language"><?php echo __('Language'); ?></label>
+			<div class="controls">
+				<?php
+					echo Form::select('profile[default_locale]', Model_Lang_Part::$languages, $ctx->user->profile->default_locale, array(
+						'id' => 'profile_language'
+					));
+				?>
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend><?php echo __('Region and city'); ?></legend>
+		<br />
+		<?php echo View::factory('map/form', array(
+			'city_id' => $ctx->user->profile->city_id,
+			'region_id' => $ctx->user->profile->city->region->id,
+			'field' => 'profile'
+		));?>
+	</fieldset>
+	<div class="form-actions">
+		<button type="submit" class="btn btn-info"><?php echo __('Save') . ' ' . HTML::icon('chevron-right'); ?></button>
+	</div>
+<?php echo Form::close(); ?>
+</div>
+
+<div class="well">
+	<?php echo Form::open( '/form-profile-password_change', array('method' => 'post', 'class' => 'form-horizontal', 'id' => 'form_profle_edit_contacts') ); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+	<fieldset>
+		<legend><?php echo __( 'Password change' ); ?></legend>
+		
+		<div class="control-group <?php echo Arr::path($messages_array, 'errors.current_password') ? 'error' : ''; ?>">
+			<label class="control-label" for="profile_password_current"><?php echo __('Current password'); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::password('current_password', NULL, array('id' => 'profile_password_current'));
+				?>
+				
+				<?php if(Arr::path($messages_array, 'errors.current_password')):  ?>
+				<span class="help-inline"><?php echo Arr::path($messages_array, 'errors.current_password'); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		
+		<div class="control-group <?php echo Arr::path($messages_array, 'errors.password') ? 'error' : ''; ?>">
+			<label class="control-label" for="profile_password"><?php echo __('New password'); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::password('password', NULL, array('id' => 'profile_password'));
+				?>
+				
+				<?php if(Arr::path($messages_array, 'errors.password')):  ?>
+				<span class="help-inline"><?php echo Arr::path($messages_array, 'errors.password'); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		
+		<div class="control-group <?php echo Arr::path($messages_array, 'errors.password_confirm') ? 'error' : ''; ?>">
+			<label class="control-label" for="profile_password_confirm"><?php echo __('Confirm password'); ?></label>
+			<div class="controls">
+				<?php 
+					echo Form::password('password_confirm', NULL, array('id' => 'profile_password_confirm'));
+				?>
+				
+				<?php if(Arr::path($messages_array, 'errors.password_confirm')):  ?>
+				<span class="help-inline"><?php echo Arr::path($messages_array, 'errors.password_confirm'); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+	</fieldset>
+	
+	
+	<div class="form-actions">
+		<button type="submit" class="btn btn-info"><?php echo __('Change') . ' ' . HTML::icon('chevron-right'); ?></button>
+	</div>
+<?php echo Form::close(); ?>
+</div>
+
+<div class="well">
+<?php echo Form::open( '/form-profile-messages', array('method' => 'post', 'class' => 'form-horizontal ajax', 'id' => 'form_profle_edit_messages') ); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+	<fieldset>
+		<legend><?php echo __( 'Messages' ); ?></legend>
+		<br />
+		<p>Mark the messages you want to receive e-mail:</p>
+		
+		<div class="control-group">
+			<label class="control-label" for="message_notice"><?php echo __('Notice'); ?></label>
+			<div class="controls">
+				<div class="checkbox">
+					<?php echo Form::checkbox('message[notice]', 1, $ctx->user->profile->notice == 1, array('id' => 'message_notice')); ?>
+				</div>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="message_remiders"><?php echo __('Remiders'); ?></label>
+			<div class="controls">
+				<div class="checkbox">
+					<?php echo Form::checkbox('message[remiders]', 1, $ctx->user->profile->remiders == 1, array('id' => 'message_remiders')); ?>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<div class="form-actions">
+		<button type="submit" class="btn btn-info"><?php echo __('Save') . ' ' . HTML::icon('chevron-right'); ?></button>
+	</div>
+<?php echo Form::close(); ?>
+</div>
+
+<div class="well">
+	<?php echo Form::open( 'profile/delete', array('method' => 'post', 'class' => 'form-horizontal', 'id' => 'form_profle_delete') ); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+	<fieldset>
+		<legend><?php echo __( 'Delete profile' ); ?></legend>
+		<br />
+		<p>If you want to permanently delete your account and all ads, then click on "Go to the removal of the account."</p>
+		<button type="submit" name="delete" value="process" class="btn btn-danger"><?php echo __('Process to remove') . ' ' . HTML::icon('trash icon-white'); ?></button>
+	</fieldset>
+	<?php echo Form::close(); ?>

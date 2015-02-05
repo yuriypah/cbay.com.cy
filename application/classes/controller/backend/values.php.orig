@@ -1,0 +1,31 @@
+<?php defined( 'SYSPATH' ) or die( 'No direct script access.' );
+
+class Controller_Backend_Values extends Controller_System_Backend {
+
+	public function action_list()
+	{
+		$option_id = (int) $this->request->param( 'id' );
+		$option = ORM::factory( 'advert_category_option', $option_id );
+		
+		if ( $option_id === 0 || !$option->loaded() )
+		{
+			$option = ORM::factory( 'advert_category_option', $option_id );
+		}
+
+		if ( !$option->loaded() )
+		{
+			throw new HTTP_Exception_404( 'Category option not found' );
+		}
+
+		$this->template->content->option = $option;
+
+		$values = ORM::factory( 'advert_category_option_value' )
+				->select()
+				->where( 'advert_category_option_value.option_id', '=', $option_id )
+				->with_locale()
+				->find_all();
+
+		$this->template->content->values = $values;
+	}
+
+}

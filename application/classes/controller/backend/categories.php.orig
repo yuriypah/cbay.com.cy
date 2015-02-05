@@ -1,0 +1,31 @@
+<?php defined( 'SYSPATH' ) or die( 'No direct script access.' );
+
+class Controller_Backend_Categories extends Controller_System_Backend {
+
+	public function action_index()
+	{
+		$locale = I18n::lang();
+
+		$categories = ORM::factory('advert_category')
+			->select(array('group_locale.title', 'group_title'))
+			->join('advert_category_groups', 'left')
+				->on('advert_category_groups.id', '=', 'advert_category.group_id')
+			->join(array('lang_parts', 'group_locale'), 'left')
+				->on('advert_category_groups.id', '=', 'group_locale.related_id')
+				->on('group_locale.related_table', '=', DB::expr('"advert_category_groups"'))
+				->on('group_locale.locale', '=', DB::expr('"'.$locale.'"'))
+			->with_locale()
+			->find_all();
+		
+		$select = array();
+		foreach ( $categories as $category )
+		{
+			$select[$category->group_id]['title'] = $category->group_title;
+			$select[$category->group_id]['categories'][$category->id] = $category->title;
+		}
+		
+		$this->template->content->categories = $categories;
+		$this->template->content->select = $select;
+	}
+
+}

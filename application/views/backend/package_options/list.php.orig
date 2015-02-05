@@ -1,0 +1,36 @@
+<table class="table table-striped">
+	<colgroup>
+		<col />
+		<col width="100px" />
+		<col width="100px" />
+		<col width="100px" />
+		<col width="100px" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th><?php echo __( 'Title' ); ?></th>
+			<th><?php echo __( 'Type' ); ?></th>
+			<th><?php echo __( 'Duration' ); ?></th>
+			<th><?php echo __( 'Amount' ); ?></th>
+			<th><?php echo __( 'Actions' ); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $options as $opt ): ?>
+		<tr>
+			<th>
+				<?php if ( $opt->icon != NULL ): ?>
+					<img src="/resources/images/pack_options/<?php echo $opt->icon; ?>" />
+				<?php endif; ?>
+				<?php echo HTML::anchor('/action-package_option-edit/'.$opt->id, $opt->title); ?>
+			</th>
+			<td><?php echo __( Model_Package_option::$types[$opt->type] ); ?></td>
+			<td><?php echo $opt->duration(); ?></td>
+			<td><?php echo $opt->amount; ?></td>
+			<td>
+				<a class="btn btn-danger" href="package_options/delete/<?php echo $opt->id; ?>"><i class="icon-trash icon-white"></i> <?php echo __( 'Delete' ) ?></a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>

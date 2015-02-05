@@ -1,0 +1,14 @@
+<div class="alert alert-block">
+	<h4 class="alert-heading"><?php echo __('Warning'); ?>!</h4>
+	<p>If you click on "Delete my account", then your account and all your ads will be deleted. To restore your account and posts will be impossible. Re-registration and submission of ads on your current e-mail will also be impossible.</p>
+</div>
+
+
+<?php echo Form::open( NULL , array('method' => 'post', 'class' => 'form-horizontal', 'id' => 'form_profle_delete') ); ?>
+<?php echo Form::hidden('token', Security::token()); ?>
+
+	<button type="submit" name="delete" value="confirm" class="btn btn-danger btn-large">
+		<?php echo __('Confirm profile removing') . ' ' . HTML::icon('trash icon-white'); ?>
+	</button>
+
+<?php echo Form::close(); ?>

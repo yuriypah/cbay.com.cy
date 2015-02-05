@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /profile/
+Disallow: /backend/
+Disallow: /error
+Disallow: /advert/confirm
+Disallow: /advert/finish
+Disallow: /advert/update
+Disallow: /advert/edit
+Disallow: /messages/
+Disallow: /adverts/unpublish/
+Disallow: /adverts/publish/
+Disallow: /adverts/publish/
+Disallow: /packages/
+Sitemap: http://cbay.com.cy/sitemap.xml

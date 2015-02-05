@@ -1,0 +1,85 @@
+<?php echo HTML::doctype('html5'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php echo $ctx->page->meta_title !== NULL ? $ctx->page->meta_title.' | ' : '' ?></title>
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
+	<meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	
+	<script type="text/javascript">
+		var resources_path = "/<?php echo $resources_path; ?>";
+		var directory = "<?php echo Request::current()->directory(); ?>";
+		var controller = "<?php echo Request::current()->controller(); ?>";
+		var action = "<?php echo Request::current()->action(); ?>";
+	</script>
+<?php  
+	foreach($styles as $style)  { echo "\t".Html::style($resources_path.$style)."\n"; }
+	foreach($scripts as $script) { echo "\t".Html::script($resources_path.$script)."\n"; } 
+?>
+	<?php Observer::notify('page_layout_head'); ?>
+</head>
+<!-- 
+Created by ButscH & Dimon December 2011
+-->
+<body id="body_index">
+	<div id="water_bg">
+		<div id="content">
+			<a href="/"><img src="/<?php echo $resources_path; ?>images/logo.png" id="logo" /></a>
+			
+			<div id="logo_text"><?php echo __('The largest free ads Cyprus'); ?></div>
+			
+			<div id="buttons">
+				<a href="/advert/place/" class="button green first last"><?php echo __('Advert place'); ?></a>
+				
+				<?php if(!$ctx->auth->logged_in()): ?>
+				<a href="/register/" class="button blue first sep"><?php echo __('Registration'); ?></a>
+				<a href="/login/" class="button blue last"><?php echo __('Login'); ?></a>
+				<?php endif; ?>
+			</div>
+			
+			<div id="langs">
+				<a href="?lang=en"><img src="/<?php echo $resources_path; ?>images/lang-en.png" /></a>
+				<a href="?lang=ru"><img src="/<?php echo $resources_path; ?>images/lang-ru.png" /></a>
+				<a href="?lang=gr"><img src="/<?php echo $resources_path; ?>images/lang-gr.png" /></a>
+			</div>
+			
+			<img src="/<?php echo $resources_path; ?>images/slogan.png" id="slogan" />
+			
+			<div id="tags"><?php echo __('Pets, domestic appliances, electronics, real estate, cars, clothes and much more.'); ?></div>
+			
+			<ul id="lands-list">
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Никосия</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Лимасол</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Ларнака</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Пафос</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Айя-напа</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Киринея</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Фамагуста</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Полис</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Протарас</a></li>
+				<li><a href="#"><img src="<?php echo $resources_path; ?>images/land/icon.png" />Паралимни</a></li>
+			</ul>
+		</div>
+		<div id="footer">
+			<p class="text">On board cbay.com.cy free ads to buy and sell all kinds of goods. Rooms and apartments, parking lots and garages, land, cottages, motorcycles and automobiles, home appliances, furniture, electronics, laptops, computers, cameras, phones, shoes, clothes, cats and dogs, magazines and books, bicycles, musical instruments and more more. Also on cbay.com.cy you can create a dating or finding a new job.</p>
+		
+			<ul class="links">
+				<li><a href="#">Подать объявление</a></li>
+				<li><a href="#">Объявления о продаже</a></li>
+				<li><a href="#">Категории</a></li>
+				<li><a href="#">О проекте</a></li>
+				<li><a href="#">Помощь</a></li>
+				<li><a href="#">Карта сайта</a></li>
+				<li><a href="#">Реклама на сайте</a></li>
+			</ul>
+			
+			<div class="clear"></div>
+			
+			<div class="copyrights">© cbay.com.cy — доска частных объявлений. Все права защищены.</div>
+		</div>
+	</div>
+</body>
+</html>

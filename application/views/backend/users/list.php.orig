@@ -1,0 +1,35 @@
+<table class="table table-striped">
+	<colgroup>
+		<col width="30px" />
+		<col />
+		<col width="100px" />
+		<col width="100px" />
+		<col width="100px" />
+		<col width="100px" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th><?php echo __( '#ID' ); ?></th>
+			<th><?php echo __( 'Name' ); ?></th>
+			<th><?php echo __( 'Email' ); ?></th>
+			<th><?php echo __( 'User name' ); ?></th>
+			<th><?php echo __( 'Last login' ); ?></th>
+			<th><?php echo __( 'Actions' ); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ( $users as $user ): ?>
+			<tr>
+				<th><?php echo $user->id; ?></th>
+				<td><?php echo $user->profile->name; ?></td>
+				<td><?php echo $user->email; ?></td>
+				<td><?php echo $user->username; ?></td>
+				<td><?php echo Date::format( (int) $user->last_login, "d.m.Y H:i:s" ); ?></td>
+				<td>
+					<a class="btn btn-danger" href="users/delete/<?php echo $user->id; ?>"><i class="icon-trash icon-white"></i> <?php echo __( 'Delete' ) ?></a>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php echo $page_links; ?>

@@ -1,0 +1,38 @@
+<fieldset>
+	<legend><?php echo __('General information'); ?></legend>
+	<br />
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+		<?php foreach (Model_Lang_Part::$languages as $locale => $language) : ?>
+		<li <?php if($locale == I18n::lang()):?>class="active"<?php endif; ?>><a href="#tab<?php echo $locale; ?>" data-toggle="tab"><?php echo $language; ?></a></li>
+		<?php endforeach; ?>
+		</ul>
+		<div class="tab-content">
+		<?php foreach (Model_Lang_Part::$languages as $locale => $language) : ?>
+			<div class="tab-pane <?php if($locale == I18n::lang()):?>active<?php endif; ?>" id="tab<?php echo $locale; ?>">
+				<div class="control-group">
+					<?php echo Form::label('form_title_'.$locale, __('Title'), array(
+						'class' => 'control-label'
+					)); ?>
+					<div class="controls">
+						<?php echo Form::input( 'lang_part['.$locale.'][title]', isset($parts[$locale]) ? $parts[$locale]->title : NULL, array(
+							'class' => 'input-title', 'id' => 'form_title_'.$locale
+						)); ?>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<?php echo Form::label('form_description_'.$locale, __('Description'), array(
+						'class' => 'control-label'
+					)); ?>
+					<div class="controls">
+						<?php echo Form::textarea( 'lang_part['.$locale.'][description]', isset($parts[$locale]) ? $parts[$locale]->description : NULL, array(
+							'id' => 'form_description_'.$locale, 'rows' => 3, 'class' => 'input-xlarge'
+						)); ?>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+		</div>
+	</div>
+</fieldset>

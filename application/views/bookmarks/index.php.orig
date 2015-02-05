@@ -1,0 +1,5 @@
+<div id="adverts-list">
+<?php echo View::factory( 'adverts/list', array(
+	'adverts' => $adverts
+)); ?>
+</div>

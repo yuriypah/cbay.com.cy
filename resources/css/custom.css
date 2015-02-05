@@ -1,0 +1,120 @@
+/*body {
+	background: whitesmoke url(../images/body-bg.png);
+}
+
+#thumbnails .delete {
+	margin-top: 5px;
+}
+
+.label a {
+	color: #fff;
+}
+
+	.label a:hover {
+		text-decoration: none;
+	}
+
+.navbar .brand {
+	color: #fff;
+}
+
+.form-actions .btn {
+	margin-right: 5px;
+}
+
+.form-horizontal .well {
+	padding-left: 0;
+	padding-bottom: 0;
+	background: #fff;
+}
+
+#contentSidebar {
+	padding: 19px;
+	background: whitesmoke;
+}
+
+.well .form-actions {
+	margin-bottom: 0;
+}
+
+.form-horizontal .help-block,
+.help-block {
+	font-size: 80%;
+	color: gray;
+	margin-top: 3px;
+}
+
+input.title {
+	width: 98%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+
+.input-plarge {
+	width: 100%;
+}
+
+#tabbyArea textarea {
+	width: 98%;
+	padding: 10px;
+}
+
+#sidebar-nav .well {
+	padding: 10px 0;
+}
+
+.well {
+	border: 1px solid #DDD;
+	background: #fff;
+}
+
+.page-header, .breadcrumb {
+	margin: 0 0 15px;
+	padding-bottom: 10px;
+}
+
+form:last-child {
+	margin: 0;
+}
+
+.control-group .title {
+	line-height: 30px;
+	font-size: 120%;
+}
+*/
+#search_filters {
+    color: #FFF;
+    display: none;
+}
+#search_filters select {
+    width: 200px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+#pre-filters{
+    margin-bottom: 10px
+}
+#langs a img {
+    opacity: 0.5
+}
+#langs a.current img, #langs a:hover img {
+    opacity: 1
+}
+#search_filters input[type=number],#search_filters input[type=text] {
+    width: 200px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+#search_filters .form_item {
+    display:inline-block;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    width:200px;
+    min-height:30px;
+
+}
+#search_filters input[type=checkbox] {
+    width:20px;
+    vertical-align: -3px;
+}

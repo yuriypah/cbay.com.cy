@@ -1,0 +1,19 @@
+<table class="table" id="options">
+	<thead>
+		<tr>
+			<th><?php echo HTML::icon('chevron-right') . ' ' . $category->locale()->title; ?></th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($options as $option): ?>
+			<tr>
+				<td><?php echo HTML::icon('minus') . ' ' . HTML::anchor('action-option-edit/' . $option->id, $option->title); ?>
+					<?php echo HTML::anchor('backend/values/list/'.$option->id, '', array('class'=>"icon-list-alt icon")); ?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php echo HTML::icon('plus') . ' ' . HTML::anchor('action-option-add/' . $category->pk(), __("Add category option")); ?>
+&nbsp;
+<?php echo HTML::icon('arrow-left'). ' '. HTML::anchor('backend/categories' , __('Back to categories')); ?>

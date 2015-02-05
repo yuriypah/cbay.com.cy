@@ -1,0 +1,13 @@
+<?php echo Form::open('/form-group-save', array('class' => 'form-horizontal ajax', 'id' => 'form_group_add')); ?>
+	<?php echo Form::hidden('group[id]', $group->pk()); ?>
+	<?php echo Form::hidden('token', Security::token()); ?>
+
+	<?php echo View::factory('lang/head', array(
+		'parts' => $parts
+	)); ?>
+
+	<div class="form-actions">
+		<?php echo Form::button('submit', 'Сохранить', array('icon' => HTML::icon('ok', TRUE))); ?>
+	</div>
+
+<?php echo Form::close(); ?>

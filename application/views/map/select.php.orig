@@ -1,0 +1,4 @@
+<option value="0"><?php echo $title; ?></option>
+<?php foreach ( $data as $id => $value ): ?>
+<option value="<?php echo $id; ?>" <?php echo $selected_id == $id ? 'selected' : ''; ?>><?php echo $value; ?></option>
+<?php endforeach; ?>

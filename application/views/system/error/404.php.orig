@@ -1,0 +1,8 @@
+<div class="page-header">
+	<h1><?php echo $ctx->page->title; ?> (<?php echo $action; ?>)</h1>
+</div>
+<p>К сожалению, такой страницы не существует. Вероятно, она была удалена автором с сервера, либо её здесь никогда не было.</p>
+
+<?php if(isset($message) AND !empty($message)): ?>
+<p class="well">Возможная причина: <i><?php echo $message; ?></i></p>
+<?php endif; ?>

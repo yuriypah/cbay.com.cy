@@ -1,0 +1,11 @@
+<?php if(!empty($messages)): ?>
+<?php foreach ( $messages as $type => $texts ): ?>
+<div class="alert alert-block">
+	<ul>
+		<?php foreach ( $texts as $field => $text ): ?>
+		<li><?php echo $text; ?></li>
+		<?php endforeach; ?>
+	</ul>
+</div>
+<?php endforeach; ?>
+<?php endif; ?>
