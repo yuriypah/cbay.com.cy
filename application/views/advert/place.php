@@ -208,6 +208,6 @@
         </div>
 	<div class="form-actions">
 		<button name="action" value="next" class="btn btn-success"><?php echo __('place.label.next') . ' ' . HTML::icon('chevron-right'); ?></button>
-		
+
 	</div>
 <?php echo Form::close(); ?>
