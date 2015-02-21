@@ -254,3 +254,58 @@
 --
 #0 [internal function]: Kohana_Core::shutdown_handler()
 #1 {main}
+2015-02-21 19:25:40 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 19:25:40 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:26:01 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 19:26:01 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:26:03 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 19:26:03 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:27:51 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+2015-02-21 19:27:51 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:27:53 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+2015-02-21 19:27:53 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:27:53 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+2015-02-21 19:27:53 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:27:54 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+2015-02-21 19:27:54 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 19:28:03 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+2015-02-21 19:28:03 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '[' ~ APPPATH\classes\i18n.php [ 4 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 20:43:26 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 20:43:26 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 20:46:03 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 20:46:03 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2015-02-21 20:49:37 --- ERROR: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+2015-02-21 20:49:37 --- STRACE: ErrorException [ 1 ]: Call to undefined function qw() ~ MODPATH\database\classes\kohana\database\mysql.php [ 63 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
