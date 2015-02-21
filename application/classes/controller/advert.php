@@ -167,9 +167,9 @@ class Controller_Advert extends Controller_System_Page
     public function action_confirm()
     {
         $data = $this->session->get('advert_place_data');
-        if(count($data['option']) > 0) {
-            foreach($data['option'] as $key =>$value) {
-                if($value == '') {
+        if (count($data['option']) > 0) {
+            foreach ($data['option'] as $key => $value) {
+                if ($value == '') {
                     unset($data['option'][$key]);
                 }
             }
@@ -390,7 +390,7 @@ class Controller_Advert extends Controller_System_Page
 
         $advert_data['user_id'] = $user->id;
         $advert_data['created'] = date('Y-m-d H:i:s'); // Дата создания.
-
+        $advert_data['moderated'] = 0; // при редактировании, сбросить модерацию
         $advert_data['status'] = $this->ctx->config['advert']['moderation'] === TRUE ? Model_Advert::STATUS_MODERATION : Model_Advert::STATUS_PUBLISHED;
         try {
             Database::instance()->begin();
@@ -402,7 +402,7 @@ class Controller_Advert extends Controller_System_Page
             }
 
             $advert->values($advert_data, array(
-                'user_id', 'city_id', 'allow_mails', 'phone', 'skype', 'amount', 'category_id', 'created', 'status'
+                'user_id', 'city_id', 'allow_mails', 'phone', 'skype', 'amount', 'category_id', 'created', 'moderated', 'status'
             ))
                 ->save();
 

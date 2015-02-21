@@ -66,7 +66,7 @@ class Model_Advert extends ORM
     public function viewd_statuses()
     {
         return array(
-            self::STATUS_MODERATION, self::STATUS_PUBLISHED
+            self::STATUS_PUBLISHED
         );
     }
 
@@ -362,7 +362,7 @@ class Model_Advert extends ORM
         $options = Input::get('option');
 
         $adverts = ORM::factory('advert')
-            ->select(array('map.title', 'city'))
+            ->select(array('map.title', 'city', 'adverts.status'))
             ->distinct(true)
             ->filter_by_location(NULL, $city)
             ->with_user()
@@ -410,88 +410,26 @@ class Model_Advert extends ORM
         //Поиск по строке
         if ($keyword !== NULL && !empty($keyword)) {
             $adverts2 = ORM::factory('advert')->where(DB::expr('now()'), '<=', DB::expr('TIMESTAMP(finished)'))->with_part()->find_all()->as_array();
-
+            $findedIds = array();
             foreach ($adverts2 as $key) {
                 if (preg_match("/" . $keyword . "/ui", $key->title) || preg_match("/" . $keyword . "/ui", $key->description)) {
-                    if(!$flag) {
+                    if (!$flag) {
                         $adverts->where_open();
                         $flag = true;
                     }
-                    $adverts->where('advert.id', '=', $key->id);
+                    $findedIds[] = $key->id;
                 }
             }
-            if($flag) {
+            if ($findedIds) {
+                $adverts->where('advert.id', 'in', $findedIds);
+
+            }
+            if ($flag) {
                 $adverts->where_close();
             } else {
                 $adverts->where('advert.id', '=', 0);
             }
-            //Сфинкс
-
-            /*         $cl = new SphinxClient();
-                     $cl->SetServer( "localhost", 9312 );
-                     $cl->SetMatchMode( SPH_MATCH_EXTENDED2 );
-                     $cl->SetSortMode(SPH_SORT_RELEVANCE);
-                     $words = explode(' ', $keyword);
-                     $query_string = '';
-                     $words_count = count($words);
-                     for($i=0; $i<$words_count; $i++){
-                         $query_string .= '('.$words[$i].' | *'.$words[$i].'*)';
-                         if($i != ($words_count-1)){
-                             $query_string .= ' & ';
-                         }
-                     }
-                     $result = $cl->Query($query_string);
-                         // обработка результатов запроса
-                         if ( $result === false ) {
-                               echo "Query failed: " . $cl->GetLastError() . ".\n"; // выводим ошибку если произошла
-                           }
-                           else {
-//                                  if ( $cl->GetLastWarning() ) {
-//                                      echo "WARNING: " . $cl->GetLastWarning()."<br/>"; // выводим предупреждение если оно было
-//                                  }
-
-                               if ( ! empty($result["matches"]) ) { // если есть результаты поиска - обрабатываем их
-                                   $adverts->where_open();
-                                   foreach ($result["matches"] as $key => $value){
-                                       $adverts->or_where('advert.id','=',$key);
-                                   }
-                                   $adverts->where_close();
-                               } else {
-                                   $adverts->where('advert.id','IS',NULL);
-                               }
-                           }
-                      */
-            //Cфинкс end.
-            //
-//                      $keyword = Model_Search::stem_query($keyword);
-//			$words = explode(' ', $keyword);
-//			$adverts->where_open();
-//			
-//			$adverts->join('advert_index', 'left')
-//				->on('advert_index.advert_id', '=', $this->object_name().'.id');
-//			
-//			foreach ($words as $word )
-//			{
-//                            if($word != '')
-//				$adverts->where('advert_index.title', 'like', '%'.$word.'%');
-//			}
-////				->where('MATCH("advert_index.title")', 'AGAINST', DB::expr("('".$keyword."')"));
-////			
-//			if($only_title == 0)
-//			{
-//				$adverts->or_where_open();
-//				foreach ($words as $word )
-//				{
-//                                    if($word != '')
-//					$adverts->where('advert_indext.content', 'like', '%'.$word.'%');
-//				}
-//				$adverts->or_where_close();
-////				$adverts->or_where('MATCH("advert_index.content")', 'AGAINST', DB::expr("('".$keyword."')"));
-//			}
-//			
-//			$adverts->where_close();
         }
-
         $adverts->where($this->object_name() . '.status', 'in', $this->viewd_statuses());
 
         // Фильтруем объявления у которых дата создания меньше даты окончания показов
@@ -503,6 +441,7 @@ class Model_Advert extends ORM
                 ->where('parent_id', '=', $category)
                 ->execute($this->_db)
                 ->as_array(NULL, 'id');
+            $categories[] = $category;
             if (!empty($categories)) {
                 $adverts->where($this->object_name() . '.category_id', 'in', $categories);
             } else {
@@ -554,8 +493,6 @@ class Model_Advert extends ORM
                 }
             }
         }
-
-
         if ($pagination) {
             $count = clone($adverts);
             $pagination = Pagination::factory(array(
@@ -573,12 +510,11 @@ class Model_Advert extends ORM
 
     public function with_author()
     {
-        return $this->select(array('user_profiles.name', 'user'))
+        return $this->select(array('user_profiles.name', 'user'), array('users.status','user_status'))
             ->join('users', 'left')
             ->on('users.id', '=', $this->object_name() . '.user_id')
             ->join('user_profiles', 'left')
-            ->on('user_profiles.id', '=', 'users.profile_id')
-            ->where('users.status', '!=', 0);
+            ->on('user_profiles.id', '=', 'users.profile_id');
     }
 
     public function with_part($locale = NULL)

@@ -132,7 +132,17 @@ class Controller_Profile extends Controller_System_Page
 
             Messages::success(__('messages.email.changeemail.reflink', array(':address' => $this->ctx->user->email)));
         }
+        $this->go(Route::url('default', array('controller' => 'profile', 'action' => 'settings')));
+    }
 
+    public function action_changeprofiletype()
+    { // изменить тип профиля (физ. лицо/компания)
+        $this->template->content->user = $this->ctx->user;
+        if ($this->request->method() !== Request::POST) {
+            return;
+        } else {
+            ORM::factory('user')->changeprofiletype(Input::post('profiletype'), $this->ctx->user->profile_id);
+        }
         $this->go(Route::url('default', array('controller' => 'profile', 'action' => 'settings')));
     }
 

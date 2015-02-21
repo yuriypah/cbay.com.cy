@@ -21,8 +21,8 @@
 					<?php echo HTML::label($user->username); ?>
 				</td>
 				<td><?php echo $user->email; ?></td>
-				<td><?php echo Date::fuzzy_span( $user->last_login ); ?></td>
-                <td><?= ($user->status == 0) ? __('backend.users.blocked') : __('backend.users.active'); ?></td>
+				<td><?php echo date("d.m.Y в H:i",$user->last_login); ?></td>
+                <td><?= ($user->status == 0) ? "<span style='color:red'>".__('backend.users.blocked')."</span>" : "<span style='color:green'>".__('backend.users.active')."</span>"; ?></td>
                 <td><?= ($user->status == 0) ? HTML::anchor('backend/users/unblockuser/'.$user->id, __('backend.users.unblock'), array('class' => 'advert_deactivate btn btn-mini btn-success')) : HTML::anchor('backend/users/blockuser/'.$user->id, __('backend.users.block'), array('class' => 'advert_deactivate btn btn-mini btn-danger')); ?></td>
 			</tr>
 		<?php endforeach; ?>

@@ -5,7 +5,6 @@ class Controller_Adverts extends Controller_System_Page
 
     public function action_index()
     {
-
         $view_types = array('list-img', 'tiles', 'list');
         $sort_types = array('price', 'date');
         $filter_types = array('all', 'private', 'company');
@@ -131,7 +130,7 @@ class Controller_Adverts extends Controller_System_Page
         $data = array();
         foreach ($ids as $id) {
             $advert = ORM::factory('advert', $id);
-            $advert->set_status(Model_Advert::STATUS_MODERATION);
+            $advert->set_status(Model_Advert::STATUS_PUBLISHED);
             $data[] = $advert;
         }
         $this->template->content->data = $data;

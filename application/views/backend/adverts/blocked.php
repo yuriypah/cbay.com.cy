@@ -41,8 +41,20 @@
                 </div>
             </div>
             <div class="options backend">
-                <a href="/backend/users/blockuser/<?= $advert->user_id; ?>" class="advert_deactivate btn btn-mini btn-danger"><?= __('backend.adverts.block_user'); ?></a>
                 <a href="/backend/adverts/unblock/<?= $advert->id; ?>" class="advert_deactivate btn btn-mini btn-success"><?= __('backend.adverts.mark_enabled'); ?></a>
+                <?php
+                if ($advert->user_status) {
+                    ?>
+                    <a href="/backend/users/blockuser/<?= $advert->user_id; ?>"
+                       class="advert_deactivate btn btn-mini btn-danger"><?= __('backend.users.block'); ?></a>
+                <?php
+                } else {
+                    ?>
+                    <a href="/backend/users/unblockuser/<?= $advert->user_id; ?>"
+                       class="advert_deactivate btn btn-mini btn-success"><?= __('backend.users.unblock'); ?></a>
+                <?php
+                }
+                ?>
             </div>
         </div>
     <? endforeach; ?>

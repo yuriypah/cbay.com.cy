@@ -2,7 +2,7 @@
 
 return array(
 	'advert' => array(
-		'moderation' => FALSE
+		'moderation' => true
 	),
 	
 	'email' => array(

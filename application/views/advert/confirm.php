@@ -17,9 +17,7 @@
 			<?php echo Arr::get($data, 'email'); ?>
 			
 			<?php if(Arr::get($data, 'allow_mails') === Model_Advert::MAILS_NOT_ALLOW): ?>
-			<span class="label">
-			<?php echo  __('place.label.allow_mails'); ?>
-			</span>
+
 			<?php endif; ?>
 		</div>
 	</div>
@@ -31,14 +29,20 @@
 
 		</div>
 	</div>
-	
-	<div class="control-group">
-		<label class="control-label"><?php echo __('place.label.skype'); ?></label>
-		<div class="controls">
-			<?php echo Arr::get($data, 'skype'); ?>
+    <?php
+    if(Arr::get($data, 'skype')) {
+        ?>
+        <div class="control-group">
+            <label class="control-label"><?php echo __('place.label.skype'); ?></label>
+            <div class="controls">
+                <?php echo Arr::get($data, 'skype'); ?>
 
-		</div>
-	</div>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+
 
 	<br />
 
@@ -184,8 +188,9 @@
             </div>
         </div>
 	<div class="form-actions">
-                <button name="action" value="next" class="btn btn-success"><?php echo __('place.label.ready') . ' ' . HTML::icon('chevron-right'); ?></button>
-		<button name="action" value="back" class="btn-primary btn pull-left"><?php echo HTML::icon('chevron-left icon-white') . ' ' . __('place.label.back'); ?></button>
-		<button name="action" value="reset" class="btn btn-danger btn-mini pull-right"><?php echo __('place.label.reset'); ?></button>
+        <button name="action" value="back" class=" btn"><?php echo HTML::icon('chevron-left icon-black') . ' ' . __('place.label.back')."&nbsp;"; ?></button>
+        &nbsp;&nbsp;&nbsp;<button name="action" value="next" class="btn btn-success"><?php echo "&nbsp;".__('place.label.ready') . ' ' . HTML::icon('chevron-right'); ?></button>
+
+
 	</div>
 <?php echo Form::close(); ?>

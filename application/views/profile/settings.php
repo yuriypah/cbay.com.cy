@@ -1,13 +1,13 @@
-<div class="form-horizontal">
+<div class="form-horizontal user-settings-page">
 	
 	<?php 
 		echo View::factory('profile/settings/personal', array(
 			'user' => $user
 		));
 		
-		echo View::factory('profile/settings/data', array(
+		/*echo View::factory('profile/settings/data', array(
 			'count_adverts' => $count_adverts, 'user' => $user
-		));
+		));*/
 		echo View::factory('profile/settings/contacts', array(
 			'user' => $user
 		));
@@ -24,3 +24,10 @@
 	?>
 
 </div>
+<script>
+    $(".form-title").click(function() {
+        $('.showed').find(".accordion").slideUp();
+       $(this).parents('.accordion_block').find(".accordion").slideToggle();
+        $(this).parents('.accordion_block').addClass('showed');
+    });
+</script>

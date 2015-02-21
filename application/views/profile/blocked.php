@@ -7,7 +7,7 @@ echo View::factory('profile/advertsmenu',array(
 <?php if(count($adverts) > 0): ?>
 <div id="adverts-list" class="type-edit">
 	<?php
-	echo View::factory( 'adverts/list/edit', array(
+	echo View::factory( 'adverts/list/blocked', array(
 		'adverts' => $adverts
 	) );
 	?>
