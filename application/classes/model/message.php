@@ -82,6 +82,27 @@ class Model_Message extends ORM
             ->find();
     }
 
+    public function get_full()
+    {
+        return DB::select('messages.*', 'messages_users.status')
+            ->from($this->table_name())
+            ->join('messages_users', 'left')
+            ->on($this->table_name() . '.id', '=', 'messages_users.message_id')
+            ->select(array('user_profiles.name', 'author'))
+            ->join('users', 'left')
+            ->on('users.id', '=', $this->table_name() . '.from_user_id')
+            ->join('user_profiles', 'left')
+            ->on('users.profile_id', '=', 'user_profiles.id')
+
+            ->where('messages_users.to_show', '=', 1)
+            //->where($this->table_name().'.parent_id', '=', (int) $message_id)
+            ->order_by('messages_users.status', 'asc')
+            ->order_by('created', 'desc')
+            //->cached(3600, FALSE, 'Database::messages::new::'.$user)
+            ->as_object('Model_Message')
+            ->execute($this->_db);
+    }
+
     public function get_all($user)
     {
         return DB::select('messages.*', 'messages_users.status')
@@ -264,7 +285,6 @@ class Model_Message extends ORM
             ->join('user_profiles', 'left')
             ->on('users.profile_id', '=', 'user_profiles.id')
             ->where($this->table_name() . '.from_user_id', '=', (int)$user)
-
             ->where($this->table_name() . '.id', '=', (int)$id)
             //->where($this->table_name().'.parent_id', '=', (int) $message_id)
 

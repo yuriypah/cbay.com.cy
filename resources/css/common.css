@@ -453,7 +453,7 @@ h3 {
     line-height: 27px;
 }
 
-h3 small {
+h3 small, .h3-small {
     font-size: 14px;
 }
 
@@ -3617,8 +3617,9 @@ body {
 #adverts-list.type-edit .item.selected,
 #adverts-list.type-tiles .item.selected,
 #vip-conteiner .item.selected {
-    background: rgb(250, 193, 73);
+    background: rgba(250, 193, 73, 0.3);
     position: relative;
+
 }
 
 #adverts-list.type-list-img .item .chbox,
@@ -3876,6 +3877,10 @@ body {
     line-height: 25px;
 }
 
+.advert-actions {
+    cursor: pointer;
+}
+
 #advert.with-image #advert-content {
     width: 440px;
     float: left;
@@ -3884,6 +3889,7 @@ body {
 
 #advert #advert-images {
     border: 10px solid #f2f2f2;
+    margin-top: -15px;
 }
 
 #advert #advert-images .images-small {
@@ -3933,7 +3939,7 @@ body {
 }
 
 #advert-published {
-    margin-top: 10px;
+    margin-top: 0px;
     color: #626262;
 }
 
@@ -4794,6 +4800,9 @@ div.jGrowl div.red_theme {
     top: 5px;
     right: 10px;
     z-index: 200;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 #adverts-list.type-list .list-img-pack {
@@ -4853,7 +4862,7 @@ div.jGrowl div.red_theme {
 
 #pay-title {
     font-size: 20px;
-    line-height: 36px;
+    margin-bottom: 10px;
     text-align: center;
     font-family: inherit;
     font-weight: bold;
@@ -4861,22 +4870,26 @@ div.jGrowl div.red_theme {
     text-rendering: optimizelegibility;
 }
 
+.amount_block {
+    float: right;
+    border: 10px solid #2E8BAE;
+    padding: 8px;
+}
+
 #pay-info {
-    margin-left: 40px;
+
 }
 
 .pay-info-title {
     width: 120px;
-    font-size: 14px;
-    line-height: 27px;
+
     font-weight: bold;
     color: #416288;
 }
 
 .pay-info-value {
     width: 600px;
-    font-size: 14px;
-    line-height: 27px;
+
 }
 
 .pay-info-line {
@@ -4974,10 +4987,13 @@ input[type="image"] {
 }
 
 #suggest-adverts {
-    width: 450px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    /*width: 450px;
     border: 1px solid #ccc;
     height: 495px;
-    overflow-y: scroll;
+    overflow-y: scroll;*/
 }
 
 #suggest-packages {
@@ -5024,10 +5040,18 @@ input[type="image"] {
 }
 
 #suggest-action {
-    text-align: center;
+
     border-top: 1px solid #ccc;
     padding-top: 10px;
     padding-bottom: 20px;
+}
+
+.pay-page {
+    width: auto;
+}
+
+.pay-page .package-textbox {
+    width: 529px;
 }
 
 .sellfaster {
@@ -5291,25 +5315,42 @@ input[type="image"] {
 .gray {
     color: gray !important;
 }
+
 .user-settings-page {
-    margin-top:15px;
+    margin-top: 15px;
 }
+
 .user-settings-page .control-group {
     margin-left: 10px;
 }
+
 .user-settings-page .button-save {
 
 }
+
 .user-settings-page .form-title {
-    cursor:pointer;
+    cursor: pointer;
 
 }
+
 .user-settings-page .accordion_block {
-    margin-top:-13px;
+    margin-top: -13px;
 }
+
 .user-settings-page .accordion {
-    margin-bottom:13px;
+    margin-bottom: 13px;
 }
+
 input[type=radio] {
-    vertical-align:-2px;
+    vertical-align: -2px;
+}
+.list_advert_packs {
+
+}
+.list_advert_packs img {
+    width:15px !important;
+    height:15px !important;
+}
+.stat_messages {
+
 }

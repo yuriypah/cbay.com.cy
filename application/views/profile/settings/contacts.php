@@ -2,7 +2,7 @@
 <?php echo Form::hidden('token', Security::token()); ?>
 <div class="accordion_block">
     <div class="form-title"><?php echo __('profile_page.settings.title.contacts_information'); ?></div>
-    <div class="accordion" style="display:none">
+    <div class="accordion contacts" style="display:none">
         <div class="control-group">
             <label class="control-label"
                    for="profile_name"><?php echo __('profile_page.settings.label.name'); ?></label>

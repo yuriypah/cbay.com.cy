@@ -1,11 +1,14 @@
 <h1>
-    <table>
-        <tr>
-            <td><img src="/resources/images/coins-icon.png"></td>
-            <td style="vertical-align: top;padding-left:5px"><?= __('wallet.amount'); ?>: <span
-                    style='font-weight:100;color:#2E8BAE'>€<?= $wallet->amount; ?> <span style="color:#000000">EUR</span></span></td>
-        </tr>
-    </table>
+    <div class="amount_block">
+        <table>
+            <tr>
+                <td><img src="/resources/images/coins-icon.png"></td>
+                <td style="vertical-align: top;padding-left:5px"><?= __('wallet.amount'); ?>: <span
+                        style='font-weight:100;color:#2E8BAE'><?= $amount." ".__('currency.euro'); ?> <span
+                            style="color:#000000"></span></span></td>
+            </tr>
+        </table>
+    </div>
 </h1>
 
 <div style="margin-left: 38px">
@@ -53,7 +56,7 @@
 
         $(".paypal_form").submit();
     });
-    $("input[name=amount_value]").change(function() {
+    $("input[name=amount_value]").change(function () {
         $("input[name=amount]").val(this.value);
     })
 </script>

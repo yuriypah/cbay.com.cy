@@ -45,7 +45,7 @@
 	</div>
 </div>
 
-<div class="control-group">
+<!--<div class="control-group">
 	<div class="controls">
 		<label class="checkbox">
 		<?php 
@@ -56,7 +56,7 @@
 		?>
 		</label>
 	</div>
-</div>
+</div>-->
 
 <div class="control-group">
 	<label class="control-label" for="phone"><?php echo __('place.label.phone'); ?></label>
@@ -70,7 +70,7 @@
 		<?php echo Form::error('errors.phone', $messages_array); ?>
 	</div>
 </div>
-   <!-- <div class="control-group">
+    <div class="control-group">
 		<label class="control-label" for="phone"><?php echo __('place.label.skype'); ?></label>
 		<div class="controls">
 			<?php
@@ -81,4 +81,4 @@
 
 			<?php echo Form::error('errors.skype', $messages_array); ?>
 		</div>
-    </div>-->
+    </div>

@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	
-	<div class="control-group">
+	<!--<div class="control-group">
 		<div class="controls">
 			<label class="checkbox">
 			<?php 
@@ -50,7 +50,7 @@
 			?>
 			</label>
 		</div>
-	</div>
+	</div>-->
 
 	<div class="control-group">
 		<label class="control-label" for="phone"><?php echo __('place.label.phone'); ?></label>

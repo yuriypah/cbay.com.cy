@@ -1,9 +1,13 @@
 <div id="sub-sub-menu">
 	<div class="wrapper">
 		<ul>
-                    <li class="current"><?php echo HTML::anchor('messages', __('messages_page.label.income'))?></li>
+                    <li class="current">
+
+                        <?php echo HTML::anchor('messages', " <i class='icon icon-ok'></i> ".__('messages_page.label.income')."&nbsp;")?></li>
                     <li class="separator"></li>
-                    <li class=""><?php echo HTML::anchor('messages/inbox', __('messages_page.label.inbox'))?></li>
+                    <li class="">
+
+                        <?php echo HTML::anchor('messages/inbox', __('messages_page.label.inbox'))?></li>
                     <!--<li class="separator"></li>
                     <li class=""><?php echo HTML::anchor('messages/drafts', __('messages_page.label.drafts'))?></li>-->
                 </ul>

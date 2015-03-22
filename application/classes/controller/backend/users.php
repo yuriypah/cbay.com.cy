@@ -5,6 +5,11 @@ class Controller_Backend_Users extends Controller_System_Backend
 
     public function action_index()
     {
+        if (Input::post('id')) {
+            $user = ORM::factory('user')->where('id', '=', Input::post('id'))->find();
+            $user->amount = Input::post('amount');
+            $user->update();
+        }
         $users = ORM::factory('user')
             ->with('profile')
             ->order_by('profile.name', 'asc')

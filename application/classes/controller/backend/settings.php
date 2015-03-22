@@ -202,5 +202,9 @@ class Controller_Backend_Settings extends Controller_System_Backend
     public function action_getimages() {
         die(file_get_contents($this->imgdir . "images.json"));
     }
+    public function action_statistic() {
+        $this->template->content->messages = ORM::factory( 'message')
+            ->get_full();
+    }
 
 }

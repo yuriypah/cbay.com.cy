@@ -107,6 +107,14 @@ class Model_User extends Model_Auth_User
             ->get('id');
     }
 
+    public function get_full_name($id)
+    {
+        return DB::select('name')
+            ->from('user_profiles')
+            ->where('id', '=', $id)
+            ->execute($this->_db)->as_array();
+    }
+
     public function get_role_ids($role_name)
     {
         return DB::select($this->_table_name . '.id')
@@ -119,6 +127,7 @@ class Model_User extends Model_Auth_User
             ->execute($this->_db)
             ->as_array(NULL, 'id');
     }
+
     public function complete_login()
     {
         $roles = $this->roles->find_all();
@@ -160,6 +169,14 @@ class Model_User extends Model_Auth_User
         DB::update('user_profiles')
             ->set(array(
                 'type' => $profile_type
+            ))->where('id', '=', $user_id)->execute();
+    }
+
+    public function change_amount($amount, $user_id)
+    {
+        DB::update('users')
+            ->set(array(
+                'amount' => $amount
             ))->where('id', '=', $user_id)->execute();
     }
 

@@ -109,8 +109,8 @@
                     <label class="control-label"><?php echo __('place.label.package'); ?></label>
                     <div class="controls">
                         <div class="pull-left">
-                            <? foreach($package as $package_value) { ?>
-                           <? if($package_value == 'pack5') {?>
+
+                           <? if($package == 'pack5') {?>
                                 <div class="alert alert-info package-block-confirm">
                                     <div class="pull-left">
                                         <img src="/resources/images/prestig.png" class="sale_img"/>
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                            <? } ?>
-                           <? if($package_value == 'pack2') {?>
+                           <? if($package == 'pack2') {?>
                                 <div class="alert alert-info package-block-confirm">
                                     <div class="pull-left">
                                         <img src="/resources/images/vip.png" class="sale_img"/>
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                            <? } ?>
-                           <? if($package_value == 'pack3') {?>
+                           <? if($package == 'pack3') {?>
                                 <div class="alert alert-info package-block-confirm">
                                     <div class="pull-left">
                                         <img src="/resources/images/color.png" class="sale_img"/>
@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
                            <? } ?>
-                           <? if($package_value == 'pack4') {?>
+                           <? if($package == 'pack4') {?>
                                 <div class="alert alert-info package-block-confirm">
                                     <div class="pull-left">
                                         <img src="/resources/images/up.png" class="sale_img"/>
@@ -149,7 +149,7 @@
                                         <? echo __('package.description.top'); ?>
                                     </div>
                                 </div>
-                           <? } } ?>
+                           <? }  ?>
                        </div>
                     </div>
             </div>

@@ -364,6 +364,12 @@ $map = array(
                     'controller' => 'settings',
                     'action' => 'sortoptions'
                 ),
+                array(
+                    'label' => 'Статистика',
+                    'route' => 'backend',
+                    'controller' => 'settings',
+                    'action' => 'statistic'
+                ),
                 /*array (
                         'label' => __ ( 'menu.label.backend.plugins' ),
                         'route' => 'backend',

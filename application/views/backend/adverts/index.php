@@ -42,6 +42,22 @@
                         'title' => $advert->title()
                     ));
                 ?>
+                <div class="list_advert_packs">
+                    <?php
+                    if ($advert->premium()) {
+                        ?>
+                        <?= HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium'))); ?>
+                    <? } ?>
+                    <? if ($advert->vip()) { ?>
+                        <?= HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip'))); ?>
+                    <? } ?>
+                    <? if ($advert->selected()) { ?>
+                        <?= HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected'))); ?>
+                    <? } ?>
+                    <? if ($advert->top()) { ?>
+                        <?= HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top'))); ?>
+                    <? } ?>
+                </div>
             </div>
             <div class="content">
                 <?php echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => '')); ?>

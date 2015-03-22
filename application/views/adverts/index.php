@@ -29,12 +29,12 @@ if (count($adverts) >= 0): ?>
             }
             ?>
             <a  class="">
-                По цене: <input  type='button' data-type='price' class='btn btn-small asc <?=Input::get('s') == 'price' && Input::get('o') == 'asc' ? 'active' : '' ?>' value='Дешевле'/>
-                <input  type='button' data-type='price' class='btn btn-small desc <?=Input::get('s') == 'price' && Input::get('o') == 'desc' ? 'active' : '' ?>' value='Дороже'/>
+                По цене: <button data-type='price' class='btn btn-small asc <?=Input::get('s') == 'price' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.pricedown') ?> <i class="icon-arrow-down icon">&nbsp;</i></button>
+                <button data-type='price' class='btn btn-small desc <?=Input::get('s') == 'price' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.priceup') ?> <i class="icon-arrow-up icon">&nbsp;</i></button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
             <a  class="">
-                По дате: <input  type='button' data-type='date' class='btn btn-small desc <?=Input::get('s') == 'date' && Input::get('o') == 'desc' ? 'active' : '' ?>' value='От новых к старым'/>
-                <input  type='button' data-type='date' class='btn btn-small asc <?=Input::get('s') == 'date' && Input::get('o') == 'asc' ? 'active' : '' ?>' value='От старых к новым'/>
+                По дате: <button data-type='date' class='btn btn-small desc <?=Input::get('s') == 'date' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.datedown') ?> <i class="icon-arrow-down icon">&nbsp;</i></button>
+                <button data-type='date' class='btn btn-small asc <?=Input::get('s') == 'date' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.dateup') ?> <i class="icon-arrow-up icon">&nbsp;</i></button>
             </a>
         </div>
         <script>

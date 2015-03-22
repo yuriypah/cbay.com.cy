@@ -40,16 +40,13 @@
 
         </div>
         <div class="content content-edit-advert">
-            <?php echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => '', 'style' => 'font-size:14px;'.(!$advert->is_deactivated() && !$advert->is_blocked()? "" : "color:gray"))); ?>
+            <?php echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => '', 'style' => 'font-size:14px;' . (!$advert->is_deactivated() && !$advert->is_blocked() ? "" : "color:gray"))); ?>
             <?php if ($advert->is_deactivated()): ?>
-                &nbsp;&nbsp;<span class="label" style="padding:3px 7px 3px 4px"> <?php echo __('advert.status.deactivated'); ?></span>
+                &nbsp;&nbsp;<span class="label"
+                                  style="padding:3px 7px 3px 4px"> <?php echo __('advert.status.deactivated'); ?></span>
             <?php endif; ?>
 
             <?
-            $premium = HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.description.premium'), 'class' => 'edit-buybutton'));
-            $vip = HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.description.vip'), 'class' => 'edit-buybutton'));
-            $selected = HTML::image('resources/images/color.png', array('data-tooltip' => __('package.description.selected'), 'class' => 'edit-buybutton'));
-            $top = HTML::image('resources/images/up.png', array('data-tooltip' => __('package.description.top'), 'class' => 'edit-buybutton'));
             $options = $advert->get_package_options();
             ?>
 
@@ -77,28 +74,40 @@
                         <? if (!empty($options)): ?>
                             <? $package_ids = array();
                             foreach ($advert->get_package_options() as $option) {
-                                if ($option->time_left() > 0)
+                                if ($option->finished >= time())
                                     $package_ids[] = $option->id();
                             }
                             if (!in_array(5, $package_ids)) {
-                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5', $premium);
+                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5',
+                                    HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.description.premium'), 'class' => 'edit-buybutton')));
                             } else {
-                                echo "<span style='opacity:0.4'>" . $premium . "</span>";
+                                echo "<span style='opacity:0.4'>" .
+                                    HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.description.premium.finished', array(':date' => date("d.m.Y в H:i", $option->finished))), 'class' => 'edit-buybutton'))
+                                    . "</span>";
                             }
                             if (!in_array(2, $package_ids)) {
-                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack2', $vip);
+                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack2',
+                                    HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.description.vip'), 'class' => 'edit-buybutton')));
                             } else {
-                                echo  "<span style='opacity:0.4'>" . $vip . "</span>";
+                                echo "<span style='opacity:0.4'>" .
+                                    HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.description.vip.finished', array(':date' => date("d.m.Y в H:i", $option->finished))), 'class' => 'edit-buybutton'))
+                                    . "</span>";
                             }
                             if (!in_array(3, $package_ids)) {
-                                echo  HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', $selected);
+                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3',
+                                    HTML::image('resources/images/color.png', array('data-tooltip' => __('package.description.selected'), 'class' => 'edit-buybutton')));
                             } else {
-                                echo  "<span style='opacity:0.4'>" . $selected . "</span>";
+                                echo "<span style='opacity:0.4'>" .
+                                    HTML::image('resources/images/color.png', array('data-tooltip' => __('package.description.selected.finished', array(':date' => date("d.m.Y в H:i", $option->finished))), 'class' => 'edit-buybutton')) .
+                                    "</span>";
                             }
                             if (!in_array(4, $package_ids)) {
-                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', $top);
+                                echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3',
+                                    HTML::image('resources/images/up.png', array('data-tooltip' => __('package.description.top'), 'class' => 'edit-buybutton')));
                             } else {
-                                echo  "<span style='opacity:0.4'>" . $top . "</span>";
+                                echo "<span style='opacity:0.4'>" .
+                                    HTML::image('resources/images/up.png', array('data-tooltip' => __('package.description.top.finished', array(':date' => date("d.m.Y в H:i", $option->finished))), 'class' => 'edit-buybutton buy-pack4'))
+                                    . "</span>";
                             }
                             ?>
 
@@ -119,22 +128,29 @@
                 <?php if (!empty($options)): ?>
                     <?php foreach ($advert->get_package_options() as $option): ?>
                         <div class="option" data-id="<?php echo $option->id(); ?>">
-                            <div class="row-fluid">
-                                <b><?php echo $option->name(); ?>:</b>
-                                <? $time_left = ($option->time_left() < 0) ? -1 : $option->time_left(); ?>
-                                <?php
-                                if ($time_left > 0) {
-                                    echo "<span style='color:green'>" . HTML::declination($time_left, array(
-                                            __('package.title.time_left.one', array(':days' => $time_left)),
-                                            __('package.title.time_left.few', array(':days' => $time_left)),
-                                            __('package.title.time_left.many', array(':days' => $time_left)))) . "</span>
+                            <?php if ($option->id() == 1) { ?>
+                                <div class="row-fluid">
+
+                                    <b><?php echo $option->name(); ?>:</b>
+                                    <? $time_left = ($option->time_left() < 0) ? -1 : $option->time_left(); ?>
+                                    <?php
+
+                                    if ($time_left > 0) {
+                                        echo "<span style='color:green'>" . HTML::declination($time_left, array(
+                                                __('package.title.time_left.one', array(':days' => $time_left)),
+                                                __('package.title.time_left.few', array(':days' => $time_left)),
+                                                __('package.title.time_left.many', array(':days' => $time_left)))) . "</span>
                                                      &nbsp;&nbsp;<a href='/packages'>" . __('advert_page.label.sell_faster') . "</a>";
-                                } else {
-                                    echo "<span style='color:red'>" . __('package.title.time_left.zero') . "</span>";
-                                }
-                                ?>
-                            </div>
-                            <?php if ($option->time_left() <= 0): ?>
+                                    } else {
+                                        echo "<span style='color:red'>" . __('package.title.time_left.zero') . "</span>";
+                                    }
+
+                                    ?>
+                                </div>
+
+                            <?php
+                            }
+                            if ($option->time_left() <= 0): ?>
                                 <? if ($option->id() == 1) : ?>
                                     <?php /*echo HTML::anchor('#', __('package.title.prolong'), array(
                                         'class' => 'advert_prolong btn btn-mini'

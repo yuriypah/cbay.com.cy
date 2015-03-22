@@ -3,7 +3,7 @@
 		<ul>
                     <li class=""><?php echo HTML::anchor('messages', __('messages_page.label.income'))?></li>
                     <li class="separator"></li>
-                    <li class="current"><?php echo HTML::anchor('messages/inbox', __('messages_page.label.inbox'))?></li>
+                    <li class="current"><?php echo HTML::anchor('messages/inbox',  " <i class='icon icon-ok'></i> ".__('messages_page.label.inbox')."&nbsp;")?></li>
                    <!-- <li class="separator"></li>
                     <li class=""><?php echo HTML::anchor('messages/drafts', __('messages_page.label.drafts'))?></li>-->
                 </ul>

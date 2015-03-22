@@ -19,6 +19,7 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             $('#upload').show();
             $('#upload_preloader').hide();
             $('.form-actions button').removeAttr('disabled');
+
             $(".image-selector").click(function () {
                 $(".image-selected").removeClass('image-selected');
                 $(this).addClass('image-selected');
@@ -26,6 +27,9 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
                 var image = path.split('/');
                 $("#main_image").val(image[image.length - 1]);
             });
+            if ($(".image-selected").length == 0) {
+                $(".image-selector").trigger('click');
+            }
         }
     });
 
@@ -207,6 +211,7 @@ Core.init.add('body_adverts_view', function () {
     });
 
     $('.option', opt_cont).click(function () {
+        $.fancybox.showLoading();
         var link = '/ajax-form-';
         var self = $(this);
         if (self.hasClass('mail-to-user'))
@@ -217,18 +222,8 @@ Core.init.add('body_adverts_view', function () {
             link += 'abuse';
         else
             return false;
-
-        if (self.hasClass('clicked')) {
-            $('#options-form-container').empty().hide();
-            self.removeClass('clicked')
-            return false;
-        }
-
-        $('.option', opt_cont).removeClass('clicked')
-
         $.post(link, {advert_id: advert_id}, function (response) {
-            self.addClass('clicked');
-
+            $.fancybox.hideLoading()
             $('#options-form-container')
                 .empty()
                 .html(response)
@@ -465,7 +460,7 @@ function category_select(one_category_id) {
     if (category_id == false) return false;
     var data = JSON.parse($DATA);
     var options_ids = (data.categories[category_id] || {}).options;
-    if(!options_ids) {
+    if (!options_ids) {
         return;
     }
     $('#period').empty();
@@ -628,21 +623,21 @@ function categoty_filter(cat) {
         });
     }
     $.ajax({
-        url : '/resources/js/sortsearch.json',
-        'dataType' : 'json',
-        beforeSend : function() {
+        url: '/resources/js/sortsearch.json',
+        'dataType': 'json',
+        beforeSend: function () {
             $.fancybox.showLoading();
         }
-    }).done(function(data) {
-            var newDOM = $("#search_filters");
-            for(var i in data) {
-                if($("#search-category").val() == data[i].category) {
-                    newDOM.append(newDOM.find("[data-id=" + data[i].id + "]"));
-                }
+    }).done(function (data) {
+        var newDOM = $("#search_filters");
+        for (var i in data) {
+            if ($("#search-category").val() == data[i].category) {
+                newDOM.append(newDOM.find("[data-id=" + data[i].id + "]"));
             }
-       setTimeout(function() {
-           $.fancybox.hideLoading();
-       },500);
+        }
+        setTimeout(function () {
+            $.fancybox.hideLoading();
+        }, 500);
     });
 }
 
@@ -756,55 +751,61 @@ $(function () {
             $("#paypalbutton").hide();
         }
     });
-    $('.package-block').toggle(function(e) {
-        if(e.target.localName == 'input') {
-            $(this).addClass('selected-package');
-            var self = this;
-            setTimeout(function() {
-                $(self).find('input[type=checkbox]').attr('checked', true);
-            },100);
-        } else {
-            $(this).addClass('selected-package');
-            $(this).find('input[type=checkbox]').attr('checked', true);
-        }
-    }, function(e) {
-        if(e.target.localName == 'input') {
+    $('.package-block').click(function (e) {
+        if ($(this).hasClass('selected-package')) {
             $(this).removeClass('selected-package');
-            var self = this;
-            setTimeout(function() {
-                $(self).find('input[type=checkbox]').attr('checked', false);
-            },100);
         } else {
-            $(this).removeClass('selected-package');
-            $(this).find('input[type=checkbox]').attr('checked', false);
+            $('.package-block').removeClass('selected-package');
+            $(this).addClass('selected-package');
         }
+        setTimeout(function() {
+            $('.package-block').each(function () {
+                if ($(this).hasClass('selected-package')) {
+                    $(this).find('input[type=checkbox]').attr('checked', true);
+                } else {
+                    $(this).find('input[type=checkbox]').attr('checked', false);
+                }
+            });
+        })
+
+        /* if (e.target.localName == 'input') {
+         $(this).addClass('selected-package');
+         var self = this;
+         setTimeout(function () {
+         $(self).find('input[type=checkbox]').attr('checked', true);
+         }, 100);
+         } else {
+         $(this).addClass('selected-package');
+         $(this).find('input[type=checkbox]').attr('checked', true);
+         }*/
     });
     function savePackage(key, value) {
         var selected = [];
-        if(window.localStorage !=undefined) {
+        if (window.localStorage != undefined) {
             window.localStorage.setItem(key, value);
         }
     }
-   /* $('.package-block').click(function () {
-        $('.package-block').removeClass('selected-package');
-        var val = $(this).attr('val');
-        var input = $("#addpackage");
-        var radio = $(this).find("input[type='radio']");
-        if (radio.is(':checked')) {
-            radio.attr('checked', false);
-            if ($('#suggest-adverts').length > 0) {
-                $('.suggest-advert-box').show();
-            }
-        } else {
-            radio.attr('checked', true);
-            $(this).addClass('selected-package');
-            if ($('#suggest-adverts').length > 0) {
-                var pack = radio.val();
-                $('.suggest-advert-box').show();
-                $('#suggest-adverts').find('.' + pack).removeClass('suggest-advert-selected').hide();
-            }
-        }
-    });*/
+
+    /* $('.package-block').click(function () {
+     $('.package-block').removeClass('selected-package');
+     var val = $(this).attr('val');
+     var input = $("#addpackage");
+     var radio = $(this).find("input[type='radio']");
+     if (radio.is(':checked')) {
+     radio.attr('checked', false);
+     if ($('#suggest-adverts').length > 0) {
+     $('.suggest-advert-box').show();
+     }
+     } else {
+     radio.attr('checked', true);
+     $(this).addClass('selected-package');
+     if ($('#suggest-adverts').length > 0) {
+     var pack = radio.val();
+     $('.suggest-advert-box').show();
+     $('#suggest-adverts').find('.' + pack).removeClass('suggest-advert-selected').hide();
+     }
+     }
+     });*/
     $('.suggest-advert-box').click(function () {
         //alert($(this).attr('val'));
         $('.suggest-advert-box').removeClass('suggest-advert-selected');
@@ -831,14 +832,14 @@ var changeaction = function (name) {
 
 var setSelectedPack = function (pack) {
     var selected_packs = JSON.parse(pack);
-    for(var i in selected_packs) {
+    for (var i in selected_packs) {
         $("input[value=" + selected_packs[i] + "]").click();
     }
 }
 
 var buySuggest = function () {
-    if ($("input:radio[name='addpackege']:checked").length > 0) {
-        var pack = $("input:radio[name='addpackege']:checked").val();
+    if ($("input[name='addpackege']:checked").length > 0) {
+        var pack = $("input[name='addpackege']:checked").val();
     } else {
         $.jGrowl(suggest.nopack);
         return false;

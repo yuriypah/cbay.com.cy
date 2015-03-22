@@ -41,10 +41,10 @@
                 <?= HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip'))); ?>
             <? } ?>
             <? if ($advert->selected()) { ?>
-                <?= HTML::image('resources/images/color.png', array('title' => __('package.option.title.selected'))); ?>
+                <?= HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected'))); ?>
             <? } ?>
             <? if ($advert->top()) { ?>
-                <?= HTML::image('resources/images/up.png', array('title' => __('package.option.title.top'))); ?>
+                <?= HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top'))); ?>
             <? } ?>
         </div>
     </div>
@@ -52,27 +52,30 @@
         <strong><?php echo __('advert_page.label.published'); ?></strong>:
         <span><?php echo $advert->published_on(); ?></span>
     </div>
-    <? if ($shows['this_user']) : ?>
+    <? /*if ($shows['this_user']) :*/ ?>
         <div id="advert-packages">
             <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
             <div class="pull-right">
+                <a href="/advert/edit/<?php echo $advert->id ?>"><i class="icon icon-pencil advert-actions"></i></a>&nbsp;
+                <i onclick="window.print();" class="icon icon-print advert-actions"></i>&nbsp;
                 <div class="list-img-pack view">
-                    <? if (!$advert->premium()) { ?>
+
+                    <!--<? if (!$advert->premium()) { ?>
                         <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5', HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium')))); ?>
                     <? } ?>
                     <? if (!$advert->vip()) { ?>
                         <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack2', HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip')))); ?>
                     <? } ?>
                     <? if (!$advert->selected()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', HTML::image('resources/images/color.png', array('title' => __('package.option.title.selected')))); ?>
+                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected')))); ?>
                     <? } ?>
                     <? if (!$advert->top()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('title' => __('package.option.title.top')))); ?>
-                    <? } ?>
+                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top')))); ?>
+                    <? } ?>-->
                 </div>
             </div>
         </div>
-    <? endif; ?>
+    <? /*endif;*/ ?>
 </div>
 
 
@@ -105,29 +108,32 @@
                 <tr>
                     <th><?php echo __('advert_page.label.seller'); ?>:</th>
                     <td colspan="2"><?php echo $advert->user->profile->name; ?>
-                    <?php if ($advert->allow_mails() && $advert->user->profile->id != $ctx->auth->get_user()->profile_id): ?>
-                            <?php echo "&nbsp;".HTML::anchor('#advert-options', __('advert_page.label.send_email'), array(
+                        <?php if ($advert->allow_mails() && $advert->user->profile->id != $ctx->auth->get_user()->profile_id): ?>
+                        <?php echo "&nbsp;" . HTML::anchor('#advert-options', __('advert_page.label.send_email'), array(
                                 'id' => 'send_email_to_seller',
                                 'class' => 'dashed'
                             )); ?>
                     </td>
                     <?php else: ?>
 
-                    <?php endif; ?>
+                    <?php
+                    endif;
+                    ?>
                 </tr>
                 <?php if (!empty($advert->phone)): ?>
                     <tr>
                         <th><?php echo __('advert_page.label.phone'); ?>:</th>
                         <td colspan="2"
-                            id="phone_container"><a id="phone_id" href="#" class="dashed"><?=__('advert_page.label.phone_link')?></a>
+                            id="phone_container"><a id="phone_id" href="#"
+                                                    class="dashed"><?= __('advert_page.label.phone_link') ?></a>
                             <script>
-                                $("#phone_id").click(function(e) {
+                                $("#phone_id").click(function (e) {
                                     e.preventDefault();
                                     $.fancybox.showLoading();
                                     $(this).replaceWith("<img style='vertical-align: top' src='/adverts/phone/?id=<?php echo base64_encode($advert->phone)?>'/>")
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                         $.fancybox.hideLoading();
-                                    },200);
+                                    }, 200);
                                 });
                             </script>
                         </td>

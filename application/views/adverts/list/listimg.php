@@ -9,10 +9,10 @@
                 <?= HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip'))); ?>
             <? } ?>
             <? if ($advert->selected()) { ?>
-                <?= HTML::image('resources/images/color.png', array('title' => __('package.option.title.selected'))); ?>
+                <?= HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected'))); ?>
             <? } ?>
             <? if ($advert->top()) { ?>
-                <?= HTML::image('resources/images/up.png', array('title' => __('package.option.title.top'))); ?>
+                <?= HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top'))); ?>
             <? } ?>
         </div>
         <?php if (isset($checkbox)): ?>
