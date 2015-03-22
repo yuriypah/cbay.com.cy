@@ -321,6 +321,7 @@ class Model_Advert extends ORM
             ->with_part()
             //->order_by(DB::expr('rand()'))
             ->where($this->object_name() . '.vip', '>=', DB::expr('NOW()'))
+            ->where($this->object_name() . '.status', 'in', $this->viewd_statuses())
             ->where($this->object_name() . '.finished', '>=', DB::expr('NOW()'));
         return $adverts->find_all()->as_array();
     }
