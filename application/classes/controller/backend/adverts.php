@@ -60,6 +60,9 @@ class Controller_Backend_Adverts extends Controller_System_Backend
                     case 'premium':
                         $advert->premium = $date . " 23:59:00";
                         break;
+                    case 'finished':
+                        $advert->finished = $date . " 23:59:00";
+                        break;
                 }
                 $advert->update();
                 die("");

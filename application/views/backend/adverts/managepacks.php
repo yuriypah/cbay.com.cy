@@ -16,6 +16,12 @@
 </div>
 <table class='table table-bordered'>
     <?php
+
+        echo "<tr><td>Услуга: <b>Размещение</b></td><td> истекает
+                <input type='text' style='width:80px' class='long_pack_value' value='" . date("d.m.Y", strtotime($advert->finished)) .
+            "'/><button data-advert='" . $advert->id . "' data-id='finished' class='btn btn-default long_pack'>Ok</button></td>
+                    <td></td></tr>";
+
     if ($advert->premium()) {
         echo "<tr><td>Услуга: <b>Престиж</b></td><td> истекает
                 <input type='text' style='width:80px' class='long_pack_value' value='" . date("d.m.Y", strtotime($advert->premium)) .

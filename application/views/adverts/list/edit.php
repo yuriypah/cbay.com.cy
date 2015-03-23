@@ -86,21 +86,29 @@
                     <b><?php echo __('package.option.title.finished'); ?>:</b>
                     <?php
                     $count_days = (int)((strtotime($advert->finished) - time()) / Date::DAY);
-                    if ($count_days > 0) {
+                    if ($count_days > 1) {
                         echo "<span style='color:green'>" . HTML::declination($count_days, array(
                                 __('package.title.time_left.one', array(':days' => $count_days)),
                                 __('package.title.time_left.few', array(':days' => $count_days)),
                                 __('package.title.time_left.many', array(':days' => $count_days)))) . "</span>
                                                      &nbsp;&nbsp;<a href='/packages'>" . __('advert_page.label.sell_faster') . "</a>";
                     } else {
-                        echo "<span style='color:red'>" . __('package.title.time_left.zero') . "</span>";
+                        $count_hours = (int)(((strtotime($advert->finished)) - time()) / Date::HOUR);
+                        if ($count_hours >= 0) {
+                            echo "<span style='color:orange'>" . __('package.title.time_left.fewhours', array(
+                                    ':hour' => $count_hours
+                                )) . "</span>";
+                        } else {
+                            echo "<span style='color:red'>" . __('package.title.time_left.zero') . "</span>";
+                        }
+
                     }
                     ?>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
 <?php endforeach; ?>
 <script>
     $("input[type=checkbox]").change(function () {
