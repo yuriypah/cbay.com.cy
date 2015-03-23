@@ -5,6 +5,13 @@
         'actions' => TRUE
     )); ?>
 
+
+
+
+
+
+
+
 </script>
 <?php if ($action == 'place'): ?>
     <?php echo HTML::message(__('place.text.info')); ?>
@@ -166,49 +173,73 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
     <label class="control-label" for="language"><?= __('place.label.suggestion') ?></label>
 
     <div class="controls">
-        <div class="alert alert-info package-block">
-            <input type="checkbox" name="addpackege" value="pack5" class="pull-left package-select">
+        <?php if (strtotime($data['premium']) <= time()) {
+            ?>
+            <div class="alert alert-info package-block">
+                <input type="checkbox" name="addpackege" value="pack5" class="pull-left package-select">
 
-            <div class="pull-left">
-                <img src="/resources/images/prestig.png" class="sale_img"/>
+                <div class="pull-left">
+                    <img src="/resources/images/prestig.png" class="sale_img"/>
+                </div>
+                <div class="pull-right package-textbox">
+                    <? echo __('package.description.premium'); ?>
+                </div>
             </div>
-            <div class="pull-right package-textbox">
-                <? echo __('package.description.premium'); ?>
-            </div>
-        </div>
-        <div class="alert alert-info package-block">
-            <input type="checkbox" name="addpackege" value="pack2" class="pull-left package-select">
+        <?php
+        }
+        ?>
+        <?php
+        if (strtotime($data['vip']) <= time()) {
+            ?>
+            <div class="alert alert-info package-block">
+                <input type="checkbox" name="addpackege" value="pack2" class="pull-left package-select">
 
-            <div class="pull-left">
-                <img src="/resources/images/vip.png" class="sale_img"/>
+                <div class="pull-left">
+                    <img src="/resources/images/vip.png" class="sale_img"/>
 
+                </div>
+                <div class="pull-right package-textbox">
+                    <? echo __('package.description.vip'); ?>
+                </div>
             </div>
-            <div class="pull-right package-textbox">
-                <? echo __('package.description.vip'); ?>
-            </div>
-        </div>
-        <div class="alert alert-info package-block">
-            <input type="checkbox" name="addpackege" value="pack3" class="pull-left package-select">
+        <?php
+        }
+        ?>
+        <?php
+        if (strtotime($data['selected']) <= time()) {
+            ?>
+            <div class="alert alert-info package-block">
+                <input type="checkbox" name="addpackege" value="pack3" class="pull-left package-select">
 
-            <div class="pull-left">
-                <img src="/resources/images/color.png" class="sale_img"/>
+                <div class="pull-left">
+                    <img src="/resources/images/color.png" class="sale_img"/>
 
+                </div>
+                <div class="pull-right package-textbox">
+                    <? echo __('package.description.selected'); ?>
+                </div>
             </div>
-            <div class="pull-right package-textbox">
-                <? echo __('package.description.selected'); ?>
-            </div>
-        </div>
-        <div class="alert alert-info package-block">
-            <input type="checkbox" name="addpackege" value="pack4" class="pull-left package-select">
+        <?php
+        }
+        ?>
+        <?php
+        if (strtotime($data['time']) <= time()) {
+            ?>
+            <div class="alert alert-info package-block">
+                <input type="checkbox" name="addpackege" value="pack4" class="pull-left package-select">
 
-            <div class="pull-left">
-                <img src="/resources/images/up.png" class="sale_img"/>
+                <div class="pull-left">
+                    <img src="/resources/images/up.png" class="sale_img"/>
 
+                </div>
+                <div class="pull-right package-textbox">
+                    <? echo __('package.description.top'); ?>
+                </div>
             </div>
-            <div class="pull-right package-textbox">
-                <? echo __('package.description.top'); ?>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
+
         <? if (isset($data['addpackege'])) : ?>
             <script>
                 $(function () {
