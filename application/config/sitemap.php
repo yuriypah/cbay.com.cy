@@ -400,6 +400,12 @@ $map = array(
                             'route' => 'backend',
                             'controller' => 'adverts',
                             'action' => 'blocked'
+                        ),
+                        array(
+                            'label' => '',
+                            'route' => 'backend',
+                            'controller' => 'adverts',
+                            'action' => 'managepacks'
                         )
                     )
                 ),

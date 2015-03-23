@@ -76,8 +76,26 @@
                 <?php
                 }
                 ?>
-
+                <Br/> <input type='button'
+                             style='margin-top: 10px; margin-left: 15%;'
+                             data-id='<?php echo $advert->id; ?>'
+                             class='btn btn-mini translateAdvert' value='Перевести'/>
+                <input type="button" data-id='<?php echo $advert->id; ?>' class="btn btn-mini manage-packages" value="Управление пакетами"/>
             </div>
         </div>
     <? endforeach; ?>
 </div>
+<link rel='stylesheet' type='text/css'
+      href='/plugins/source/jquery.fancybox.css'/>
+<script type="text/javascript" src="/plugins/source/jquery.fancybox.js"></script>
+<script>
+    $(".manage-packages").click(function() {
+        $.ajax({
+            url: '/backend/adverts/managepacks',
+            type:'post',
+            data:{id : $(this).data('id')}
+        }).done(function(data) {
+            $.fancybox(data);
+        });
+    })
+</script>

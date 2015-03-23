@@ -21,6 +21,57 @@ class Controller_Backend_Adverts extends Controller_System_Backend
         $this->template->content->ip = $adderes;
     }
 
+    public function action_managepacks()
+    {
+        switch (Input::post('action')) {
+            case 'delete':
+                ORM::factory('advert')->remove_package(Input::post('id'), Input::post('advert'));
+                $advert = ORM::factory('advert')->get_one(Input::post('advert'));
+                switch (Input::post('id')) {
+                    case 'vip':
+                        $advert->vip = null;
+                        break;
+                    case 'selected':
+                        $advert->selected = null;
+                        break;
+                    case 'top':
+                        $advert->top = null;
+                        break;
+                    case 'premium':
+                        $advert->premium = null;
+                        break;
+                }
+                $advert->update();
+                die("");
+                break;
+            case 'update':
+                $advert = ORM::factory('advert')->get_one(Input::post('advert'));
+                $date = date("Y-m-d", strtotime(Input::post('long_value')));
+                switch (Input::post('id')) {
+                    case 'vip':
+                        $advert->vip = $date . " 23:59:00";
+                        break;
+                    case 'selected':
+                        $advert->selected = $date . " 23:59:00";
+                        break;
+                    case 'top':
+                        $advert->top = $date . " 23:59:00";
+                        break;
+                    case 'premium':
+                        $advert->premium = $date . " 23:59:00";
+                        break;
+                }
+                $advert->update();
+                die("");
+                break;
+            default:
+                $advert = ORM::factory('advert')->get_one(Input::post('id'));
+                $this->template->content->advert = $advert;
+                break;
+        }
+
+    }
+
     public function action_getlangparts()
     {
         $ap = ORM::factory('advert_part');

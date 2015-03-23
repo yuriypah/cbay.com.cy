@@ -511,7 +511,7 @@ class Model_Advert extends ORM
 
     public function with_author()
     {
-        return $this->select(array('user_profiles.name', 'user'), array('users.status','user_status'))
+        return $this->select(array('user_profiles.name', 'user'), array('users.status', 'user_status'))
             ->join('users', 'left')
             ->on('users.id', '=', $this->object_name() . '.user_id')
             ->join('user_profiles', 'left')
@@ -585,11 +585,19 @@ class Model_Advert extends ORM
 
     }
 
+    public function remove_package($package, $advert)
+    {
+        DB::delete('advert_package_options')
+         ->where('advert_id', '=', $advert)
+        ->and_where('option_id', '=', $package)->execute();
+
+    }
+
     public function add_package($package)
     {
         if (!($package instanceof Model_Package)) {
             if (!isset(Model_Package::$packages[$package])) {
-                throw new Exception(__('Package with name: :name not found', array(':name' => $package)));
+                // throw new Exception(__('Package with name: :name not found', array(':name' => $package)));
             }
 
             $package = Model_Package::$packages[$package];
@@ -697,7 +705,7 @@ class Model_Advert extends ORM
         return $this;
     }
 
-    public function get_package_options()
+    public function get_package_options() // не используется
     {
         $array = array();
 

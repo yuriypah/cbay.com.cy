@@ -28,6 +28,7 @@ class Controller_Packages extends Controller_System_Page
     {
         $adverts = ORM::factory('advert')
             ->where('user_id', '=', $this->ctx->user->id)
+            ->where('status', '=', 1)
             ->with_part()
             ->order_by('finished', 'asc')
             ->find_all();
