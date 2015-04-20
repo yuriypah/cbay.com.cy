@@ -20,7 +20,7 @@ class Controller_Advert extends Controller_System_Page
 
         $city = $advert->city_id;
 
-        $data = $this->session->get('advert_place_data', $advert->as_array());
+        $data = $advert->as_array();
         $data['option'] = $advert->get_options();
 //        if($data == false){
         $data['title'] = $advert->part()->title;
@@ -233,7 +233,6 @@ class Controller_Advert extends Controller_System_Page
             Messages::errors(__('place.error.no_category'));
             $this->go_back();
         }
-
         $category = Model_Advert_Category::$categories
             ->find_by_id($data['category_id'])
             ->current();

@@ -60,9 +60,13 @@
                 </div>
             </div>
             <div class="content">
-                <?php echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => '')); ?>
+                <?php
+                echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => ''));
+                echo " <span style='color:gray'>(" . $advert->category() . ") <a href='/backend/adverts/editcategory/?id=" . $advert->id . "'><i class='icon-pencil'></i></a></span>";
+
+                ?>
                 <input type="checkbox" class="pull-right advert-checkbox"
-                       name="checked" value="63"> <br>
+                       name="checked" value="<?= $advert->id; ?>"> <br>
 
                 <div class="options backend">
                     <span class=""><?= __('backend.adverts.author'); ?>

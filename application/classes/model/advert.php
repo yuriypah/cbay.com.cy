@@ -273,7 +273,6 @@ class Model_Advert extends ORM
     {
         $category = Model_Advert_Category::$categories
             ->find_by_id($this->category_id);
-
         if ($category !== NULL) {
             if ($path === TRUE) {
                 $category = $category->current()->get_keys_path('title');

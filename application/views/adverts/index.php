@@ -1,5 +1,5 @@
 <link rel='stylesheet' type='text/css'
-      href='/plugins/source/jquery.fancybox.css' />
+      href='/plugins/source/jquery.fancybox.css'/>
 <script type="text/javascript" src="/plugins/source/jquery.fancybox.js"></script>
 <?php
 
@@ -25,26 +25,36 @@ if (count($adverts) >= 0): ?>
                     $params['class'] = 'item current';
                 }
 
-              //  echo HTML::sort('adverts/', array('s' => $type), $text, $params);
+                //  echo HTML::sort('adverts/', array('s' => $type), $text, $params);
             }
             ?>
-            <a  class="">
-                По цене: <button data-type='price' class='btn btn-small asc <?=Input::get('s') == 'price' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.pricedown') ?> <i class="icon-arrow-down icon">&nbsp;</i></button>
-                <button data-type='price' class='btn btn-small desc <?=Input::get('s') == 'price' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.priceup') ?> <i class="icon-arrow-up icon">&nbsp;</i></button>
+            <a class="">
+                По цене:
+                <button data-type='price'
+                        class='btn btn-small asc <?= Input::get('s') == 'price' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.pricedown') ?>
+                    <i class="icon-arrow-down icon">&nbsp;</i></button>
+                <button data-type='price'
+                        class='btn btn-small desc <?= Input::get('s') == 'price' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.priceup') ?>
+                    <i class="icon-arrow-up icon">&nbsp;</i></button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a  class="">
-                По дате: <button data-type='date' class='btn btn-small desc <?=Input::get('s') == 'date' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.datedown') ?> <i class="icon-arrow-down icon">&nbsp;</i></button>
-                <button data-type='date' class='btn btn-small asc <?=Input::get('s') == 'date' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.dateup') ?> <i class="icon-arrow-up icon">&nbsp;</i></button>
+            <a class="">
+                По дате:
+                <button data-type='date'
+                        class='btn btn-small desc <?= Input::get('s') == 'date' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.datedown') ?>
+                    <i class="icon-arrow-down icon">&nbsp;</i></button>
+                <button data-type='date'
+                        class='btn btn-small asc <?= Input::get('s') == 'date' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.dateup') ?>
+                    <i class="icon-arrow-up icon">&nbsp;</i></button>
             </a>
         </div>
         <script>
-            $(".sorting .item").click(function(e) {
+            $(".sorting .item").click(function (e) {
                 e.preventDefault();
             })
-            $('.asc').click(function() {
+            $('.asc').click(function () {
                 window.location.href = '/adverts/?s=' + $(this).data('type') + '&o=asc'
             });
-            $('.desc').click(function() {
+            $('.desc').click(function () {
                 window.location.href = '/adverts/?s=' + $(this).data('type') + '&o=desc'
             });
 
@@ -62,7 +72,7 @@ if (count($adverts) >= 0): ?>
             ?>
         </div>
     </div>
-    <?php if(count($adverts) == 0) { ?>
+    <?php if (count($adverts) == 0) { ?>
         <div class="hero-unit">
             <h1><?php echo __('adverts_page.empty.title'); ?></h1>
             <hr/>
@@ -90,19 +100,20 @@ if (count($adverts) >= 0): ?>
             <div class="clear"></div>
         </div>
     </div>
+    <div id="vip-conteiner">
+    <?php echo __("vip_reclame") != 'vip_reclame' ? __("vip_reclame") : '' ?>
     <? if (count($vip_adverts) > 0) : ?>
-        <div id="vip-conteiner">
-            <div id="vip-header">
-                <div
-                    class="pull-left vip-link"><? echo HTML::anchor('packages', __('adverts_page.label.vip_header')) ?></div>
-                <div class="pull-right"><img src="/resources/images/vip.png"></div>
-            </div>
-            <?php
-            echo View::factory('adverts/list/vip', array(
-                'adverts' => $vip_adverts
-            ));
-            ?>
-            <div class="clear"></div>
+        <div id="vip-header">
+            <div
+                class="pull-left vip-link"><? echo HTML::anchor('packages', __('adverts_page.label.vip_header')) ?></div>
+            <div class="pull-right"><img src="/resources/images/vip.png"></div>
+        </div>
+        <?php
+        echo View::factory('adverts/list/vip', array(
+            'adverts' => $vip_adverts
+        ));
+        ?>
+        <div class="clear"></div>
         </div>
     <? endif; ?>
 <?php else: ?>

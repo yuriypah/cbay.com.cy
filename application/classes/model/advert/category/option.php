@@ -21,7 +21,7 @@ class Model_Advert_Category_Option extends ORM {
 		$locale = I18n::lang();
 		$object = new Model_Advert_Category_Option;
 		return DB::select(array($object->table_name() . '.id', 'option_id'))
-			->select(array($object->table_name() . '.parent_id', 'option_parent_id'))
+			->select(array($object->table_name() . '.parent_id', 'option_parent_id','ranged', 'ranged_min','ranged_max'))
 			->from($object->table_name())
 			->order_by('option_id', 'asc')
 			->order_by('id', 'asc')

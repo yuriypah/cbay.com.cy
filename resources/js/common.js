@@ -503,7 +503,54 @@ function category_select(one_category_id) {
      //            $('#categoryoptions select[name=option['+key+']] option[value='+selected_val+']').attr('selcted','selcted');
      });
      }*/
+    setTimeout(function () {
+        $(".form_item").each(function () {
+            var self = this;
+            if ($(this).data('ranged') == 2) {
+                var sliderRange = $("<div/>", {
+                    'class': 'slider_range',
+                    width: $(self).find("input[type=text]").width() + 8
+                }).appendTo(this);
+                var rMin = $(this).data('rangedmin'), rMax = $(this).data('rangedmax'),
+                    input = $(self).find("input[type=text]");
+                if (input.val() == '' || input.val() == 'undefined') {
+                    input.val((rMin + (rMax / 10)) + " - " + (rMax - (rMax / 10)))
+                }
+                sliderRange.slider({
+                    range: true,
+                    min: rMin,
+                    max: rMax,
+                    step: 10,
+                    animate: 'slow',
+                    values: [rMin + (rMax / 10), rMax - (rMax / 10)],
+                    slide: function (event, ui) {
+                        input.val(ui.values[0] + " - " + ui.values[1]);
+                    }
+                })
+            } else if ($(this).data('ranged') == 1) {
+                var  sliderRange = $("<div/>", {
+                    'class': 'slider_range',
+                    width: $(self).find("input[type=text]").width() + 8
+                }).appendTo(this);
 
+                var rMin = $(this).data('rangedmin'), rMax = $(this).data('rangedmax'),input = $(self).find("input[type=text]");
+                if(input.val() == 'undefined') {
+                    input.val(rMin)
+                }
+                sliderRange.slider({
+                    range: false,
+                    min : rMin,
+                    max : rMax,
+                    value: input.val() != 'undefined' ? input.val() : rMin,
+                    step: 0.1,
+                    animate: 'slow',
+                    slide: function (event, ui) {
+                        input.val(ui.value);
+                    }
+                })
+            }
+        });
+    }, 500)
 
 }
 
@@ -548,7 +595,8 @@ function option_switch_by_type(item, attr) {
             });
             break;
         case '5': // text <input
-            inof = '<div class="form_item" data-id="' + item.id + '"><input type="text"' + attr + ' placeholder="' + item.title + '" value="" class="input-large" /></div>';
+            inof = '<div data-ranged="' + item.ranged + '" data-rangedmin="' + item.ranged_min + '" data-rangedmax="' + item.ranged_max + '"  class="form_item" data-id="' + item.id + '"><input type="text"' + attr + ' placeholder="' + item.title + '" value="' + item.value + '" class="input-large" /></div>';
+
             break;
         case '9': // number float
             inof = '<div class="form_item" data-id="' + item.id + '"><input type="number" placeholder="' + item.title + '" min="0" class="input-mini" step="0.1" ' + attr + ' value="" /></div>';
@@ -758,7 +806,7 @@ $(function () {
             $('.package-block').removeClass('selected-package');
             $(this).addClass('selected-package');
         }
-        setTimeout(function() {
+        setTimeout(function () {
             $('.package-block').each(function () {
                 if ($(this).hasClass('selected-package')) {
                     $(this).find('input[type=checkbox]').attr('checked', true);

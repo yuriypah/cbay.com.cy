@@ -12,6 +12,12 @@
 
 
 
+
+
+
+
+
+
 </script>
 <?php if ($action == 'place'): ?>
     <?php echo HTML::message(__('place.text.info')); ?>
@@ -40,12 +46,26 @@ else
     <label class="control-label" for="title"><?php echo __('place.label.category'); ?></label>
 
     <div class="controls">
+
         <?php
-        echo Form::select('category_id', array_merge(array('-- Выберите категорию --'), $categories), Arr::get($data, 'category_id'), array(
+        echo "<select name='category_id' id='category_id' onchange='category_select()'><option value='0'>-- Выберите категорию --</option>";
+        foreach ($categories as $key => $value) {
+            if (is_array($value)) {
+                echo "<optgroup label='" . $key . "'>";
+                foreach ($value as $key_item => $value_item) {
+                    echo "<option ".(Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "")." value='" . $key_item . "'>" . $value_item . "</option>";
+                }
+                echo "</optgroup>";
+            } else {
+                echo "<option ".(Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "")." value='" . $key . "'>" . $value . "</option>";
+            }
+        }
+        echo "</select>";
+       /* echo Form::select('category_id', array_merge(array('-- Выберите категорию --'), $categories), Arr::get($data, 'category_id'), array(
             'id' => 'category_id',
-            'title' => __('advert.tooltip.category'),
+            'data-title' => __('advert.tooltip.category'),
             'OnChange' => 'category_select()',
-        ));
+        ));*/
         ?>
 
         <?php echo Form::error('errors.category_id', $messages_array); ?>

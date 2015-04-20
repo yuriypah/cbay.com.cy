@@ -6,7 +6,7 @@ class Googletranslate {
     
     public static function translate($data, $target, $source = ''){
 
-            $apiKey = "AIzaSyCbrYokLR1FE9-Er0gj-J4CK2k0jiRAW7g";
+           /* $apiKey = "AIzaSyCbrYokLR1FE9-Er0gj-J4CK2k0jiRAW7g";
             $values = array(
                 'key'    => $apiKey,
                 'target' => $target,
@@ -24,6 +24,6 @@ class Googletranslate {
             curl_close($ch);
 
             $data = json_decode($json, true);
-            return $data['data']['translations'];
+            return $data['data']['translations'];*/
     }
 }

@@ -8,11 +8,9 @@
 	<div class="span7">	
 		<?php echo Form::hidden('option[id]', $option->pk()); ?>
 		<?php echo Form::hidden('token', Security::token()); ?>
-
 		<?php echo View::factory('lang/head', array(
 			'parts' => $parts
 		)); ?>
-
 		<div class="control-group">
 			<?php echo Form::label('form_advert_type_id', __('Option type'), array(
 				'class' => 'control-label'
@@ -49,6 +47,17 @@
 		</div>
 	</div>
 	<div class="span5">
+        <fieldset>
+            <legend>Параметры поля:</legend>
+            Ползунок:
+            <select name="option[ranged]">
+                <option value="0" <? echo $option->ranged ==0 ? " selected='selected' " : "" ?>>Не отображать</option>
+                <option value="1" <? echo $option->ranged == 1 ? " selected='selected' " : "" ?>>Одно значение</option>
+                <option value="2" <? echo $option->ranged == 2 ? " selected='selected' " : "" ?>>Диапазон значений</option>
+            </select><Br/>
+            Минимальное значение:&nbsp; <input value="<?php echo $option->ranged_min ?>" type="text" style="width:60px" name="option[ranged_min]"/><Br/>
+            Максимальное значение: <input value="<?php echo $option->ranged_max ?>" type="text" style="width:60px" name="option[ranged_max]"/>
+        </fieldset>
 		<?php echo $values; ?>
 	</div>
 </div>

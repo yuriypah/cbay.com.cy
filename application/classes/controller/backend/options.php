@@ -11,7 +11,6 @@ class Controller_Backend_Options extends Controller_System_Backend
 
         $old_post_data = Session::instance()->get('options_post_data', array());
         $option->values($old_post_data);
-
         $this->template->content->option = $option;
         $this->template->content->values = View::factory('backend/options/values', array(
             'values' => $option->values->find_all()

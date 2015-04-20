@@ -8,6 +8,7 @@
 		<meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
         <link href='http://fonts.googleapis.com/css?family=Russo+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 		<link rel="icon" href="/favicon.png" type="image/x-icon" />
+
 		<script type="text/javascript">
 			var resources_path = "/<?php echo $resources_path; ?>";
 			var directory = "<?php echo Request::current()->directory(); ?>";
@@ -20,10 +21,14 @@
 ?>
 
 	<?php echo $messages; ?>
-
 	<?php Observer::notify('page_layout_head'); ?>
+        <link rel="stylesheet" type="text/css" href="/plugins/jquery-ui/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/plugins/jquery-ui/jquery-ui.theme.min.css"/>
+        <script type="text/javascript" src="/plugins/jquery-ui/jquery-ui.js"></script>
 	</head>
 	<body id="body_<?php echo URL::title(str_replace('/', ' ', $ctx->uri), '_'); ?>">
+
+
 		<div id="tooltip"></div>
 		<div id="header" class="wrapper">
 			<?php Block::run('header_block'); ?>

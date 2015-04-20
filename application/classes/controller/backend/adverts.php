@@ -216,8 +216,30 @@ class Controller_Backend_Adverts extends Controller_System_Backend
         $ids = explode(':', $id);
 
         DB::update('adverts')->set(array(
-            'moderated' => 1
+            'moderated' => 1,
+            'status' => 1
         ))->where('id', 'IN', $ids)->execute();
         $this->go_back();
+    }
+
+    public function action_editcategory()
+    {
+        $advert = ORM::factory('advert', (int)Input::get('id'));
+        if(Input::post('action_type') == 'save') {
+            Model_Advert_Option::put_options((int)Input::get('id'), Input::post('option'));
+            $advert->values(array(
+                'category_id' => Input::post('category_id')
+            ), array('category_id'))->save();
+        }
+
+        $data = $advert->as_array();
+
+        $data['option'] = $advert->get_options();
+        $data['title'] = $advert->part()->title;
+        $data['description'] = $advert->part()->description;
+        $this->template->content->data = $data;
+        $this->template->content->categories = ORM::factory('advert_category')
+            ->tree()
+            ->as_array('title', 'id', 'title', 3);
     }
 }

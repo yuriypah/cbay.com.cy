@@ -66,6 +66,7 @@
         }
     });
     function setFiledCss() {
+        $("input[value=undefined]").parent().remove();
         $("#search_filters").find("select").width(200);
     }
 

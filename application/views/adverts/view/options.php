@@ -23,8 +23,12 @@
 			<?php echo HTML::anchor('#', __('advert_page.label.remove_bookmarks'), array('class' => 'add-to-bookmarks added')); ?>
 			<?php else: ?>
 			<?php echo HTML::anchor('#', __('advert_page.label.add_bookmarks'), array('class' => 'add-to-bookmarks')); ?>
+
 			<?php endif; ?>
 		</li>
+        <li>
+            <?php echo HTML::anchor('#', __('advert_page.label.print'), array('class' => 'add-to-print', 'onclick' => 'window.print();return false')); ?>
+        </li>
 		<li class="pull-right">
 			<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki"></div> 

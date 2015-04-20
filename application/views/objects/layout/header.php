@@ -7,20 +7,20 @@
 
 <div id="buttons">
 
-	<a href="/advert/place" class="button green first last"><?php echo __( 'menu.label.advert_place' ); ?></a>
+	<a href="/advert/place" class="nav-button green first last"><?php echo __( 'menu.label.advert_place' ); ?></a>
 
 <?php if ( !$ctx->auth->logged_in() ): ?>
 <?php echo HTML::anchor('register', __( 'menu.label.register' ), array(
-	'class' => 'button blue first sep'
+	'class' => 'nav-button blue first sep'
 )); ?>
 <?php echo HTML::anchor('login', __( 'menu.label.login' ), array(
-	'class' => 'button blue last'
+	'class' => 'nav-button blue last'
 )); ?>
 <?php else: ?>
 <?php echo HTML::anchor('profile', ___('menu.label.user', array(
 	':name' => $ctx->user->profile->name 
 )), array(
-	'class' => 'button blue first sep fname'
+	'class' => 'nav-button blue first sep fname'
 )); ?>
     <script>
         $(function() {
@@ -38,7 +38,7 @@
 <?php
 if($data['messages'] > 0): ?>
 
-  <?php echo "<a href='/messages' class='button blue sep' style='margin-left:-3px'>".$data['messages']." ".HTML::declination($data['messages'],array(
+  <?php echo "<a href='/messages' class='nav-button blue sep' style='margin-left:-3px'>".$data['messages']." ".HTML::declination($data['messages'],array(
                     		__('menu.label.messages.count.one'),
                     		__('menu.label.messages.count.few'),
                     		__('menu.label.messages.count.many')
@@ -51,7 +51,7 @@ if($data['messages'] > 0): ?>
 ));*/ ?>
 <?php endif; ?>
 <?php echo HTML::anchor('logout', __( 'menu.label.logout' ), array(
-	'class' => 'button blue last logout-link'
+	'class' => 'nav-button blue last logout-link'
 )); ?>
 <?php endif; ?>
 </div>

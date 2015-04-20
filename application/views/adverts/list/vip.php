@@ -2,7 +2,7 @@
 <? if($advert->vip()) :?>
 <div class="item <?php echo $advert->selected() ? 'selected' : ''; echo $advert->premium() ? 'selected' : '';  ?>" data-id="<?php echo $advert->id; ?>">
     <div class="image">
-		<?php 
+		<?php
 		if( $advert->image_exists('235_175') )
 		{
 			$image = HTML::image( $advert->image('235_175'), array('title' => $advert->title(), 'alt' => $advert->title()) );

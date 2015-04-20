@@ -39,11 +39,11 @@ class Model_Advert_Option extends ORM
         $res2 = DB::query(Database::SELECT, $sql)
             ->execute()
             ->as_array('related_id', 'title');
-
         foreach ($options as $k => $v) {
             if (isset($res2[$v])) $v = $res2[$v];
             $result[] = array('label' => $res[$k]['title'], 'value' => $v, 'key' => $k);
         }
+
         return $result;
     }
 

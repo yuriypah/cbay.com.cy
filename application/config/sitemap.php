@@ -406,6 +406,12 @@ $map = array(
                             'route' => 'backend',
                             'controller' => 'adverts',
                             'action' => 'managepacks'
+                        ),
+                        array(
+                            'label' => '',
+                            'route' => 'backend',
+                            'controller' => 'adverts',
+                            'action' => 'editcategory'
                         )
                     )
                 ),

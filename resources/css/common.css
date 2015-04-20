@@ -75,7 +75,7 @@
     padding-right: 10px;
 }
 
-.button {
+.nav-button {
     display: inline-block;
     *display: inline;
     *zoom: 1;
@@ -90,33 +90,33 @@
     position: relative;
 }
 
-.button.blue.last {
+.nav-button.blue.last {
     background-image: url(../images/bluelogin.png);
     width: 47px;
     text-indent: 5px;
 }
 
-.button.blue.last.logout-link {
+.nav-button.blue.last.logout-link {
     margin-left: -3px;
 }
 
-.button.blue.first.sep {
+.nav-button.blue.first.sep {
     background-image: url(../images/bluereg.png);
 
     text-indent: 11px;
 }
 
-.button.blue.sep {
+.nav-button.blue.sep {
     background: url(../images/blue.png) repeat-x;
 }
 
-.button.green {
+.nav-button.green {
     background: url(../images/gar.png) no-repeat;
     width: 136px;
     text-indent: 10px;
 }
 
-.button.green:hover {
+.nav-button.green:hover {
     background: url(../images/garh.png) no-repeat;
     width: 136px;
     text-indent: 10px;
@@ -127,20 +127,20 @@
 .button.green:hover .sb {
   background-position-y: -52px; 
 } */
-.button:hover {
+.nav-button:hover {
     color: #fffd6d;
     text-decoration: none;
 }
 
-.button.first {
+.nav-button.first {
     margin-left: -13px;
 }
 
-.button.last {
+.nav-button.last {
     margin-right: 7px;
 }
 
-.button .lb {
+.nav-button .lb {
     background-position: top left;
     width: 10px;
     height: 26px;
@@ -149,7 +149,7 @@
     left: -10px;
 }
 
-.button .rb {
+.nav-button .rb {
     background-position: top right;
     width: 10px;
     height: 26px;
@@ -159,7 +159,7 @@
     right: -10px;
 }
 
-.button .sb {
+.nav-button .sb {
     background-position: -10px 0;
     width: 15px;
     height: 26px;
@@ -3538,7 +3538,7 @@ body {
 }
 
 #adverts-list.type-tiles .item {
-    width: 235px;
+    width: 215px;
     height: 235px;
     position: relative;
     float: left;
@@ -3547,7 +3547,7 @@ body {
 }
 
 #vip-conteiner .item {
-    width: 235px;
+    width: 215px;
     height: 235px;
     position: relative;
     float: left;
@@ -3608,9 +3608,10 @@ body {
 #adverts-list.type-list-img .item,
 #adverts-list.type-edit .item {
     height: 90px;
-    margin-bottom: 5px;
+    margin-bottom: 14px;
     position: relative;
     background: whitesmoke;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 #adverts-list.type-list-img .item.selected,
@@ -4067,7 +4068,9 @@ body {
 #advert-options .add-to-bookmarks {
     background: url(../images/icon-advert-options-bookmark.png) no-repeat top left;
 }
-
+#advert-options .add-to-print {
+    background: url(../images/printer_6437.png) no-repeat top left;
+}
 #advert-options .add-to-bookmarks.added {
     background-image: url(../images/icon-advert-options-bookmark-added.png);
 }
@@ -4832,7 +4835,7 @@ div.jGrowl div.red_theme {
 }
 
 #adverts-box {
-    width: 750px;
+    width: 790px;
     display: inline-block;
     margin-top: 10px;
 }
@@ -5099,7 +5102,7 @@ input[type="image"] {
 
 #vip-header {
     color: #FFF;
-    width: 225px;
+    width: 205px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 2px;
@@ -5353,4 +5356,18 @@ input[type=radio] {
 }
 .stat_messages {
 
+}
+.slider_range {
+    border-radius: 0 !important;
+    border-top: 0px !important;
+}
+#vip-conteiner {
+    width:215px;
+}
+#vip-conteiner .image img {
+    width:215px;
+}
+#vip-conteiner .item .content {
+    position:static;
+    width: 194px !important;
 }

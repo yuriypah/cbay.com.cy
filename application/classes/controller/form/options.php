@@ -31,10 +31,14 @@ class Controller_Form_Options extends Controller_System_Form {
 	{
 		$categories = Arr::get($data, 'category_id', array());
 		
-		if(isset($data['parent_id']) AND $data['parent_id'] == 0)
+		if(isset($data['parent_id']) && $data['parent_id'] == 0)
 		{
 			$data['parent_id'] = NULL;
 		}
+        if(!$data['ranged'])
+        {
+            $data['ranged'] = 0;
+        }
 
 		Database::instance()->begin();
 		$option
