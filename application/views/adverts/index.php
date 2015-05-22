@@ -115,7 +115,9 @@ if (count($adverts) >= 0): ?>
         ?>
         <div class="clear"></div>
         </div>
+
     <? endif; ?>
+    </div>
 <?php else: ?>
     <div id="adverts-panel"></div>
     <div class="hero-unit">

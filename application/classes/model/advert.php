@@ -497,6 +497,8 @@ class Model_Advert extends ORM
             $count = clone($adverts);
             $pagination = Pagination::factory(array(
                 'total_items' => $count->count_all(),
+                'items_per_page' => 5,
+                'uri_segment' => 'page'
             ));
 
             $adverts->limit($pagination->items_per_page)

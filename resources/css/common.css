@@ -3743,7 +3743,7 @@ body {
 }
 
 #adverts-list.type-list .item {
-    height: 40px;
+    height: 45px;
     margin-bottom: 5px;
     position: relative;
 }
@@ -3763,15 +3763,16 @@ body {
 
 #adverts-list.type-list .item .date {
     vertical-align: middle;
-    width: 70px;
-    padding-left: 5px;
-    padding-top: 5px;
+    width: 90px;
+    padding-left: 6px;
+    padding-top: 17px;
     font-size: 10px;
     line-height: 12px;
 }
 
 #adverts-list.type-list .item .image {
     width: 35px;
+    padding-top: 7px;
 }
 
 #adverts-list.type-list .item .image img {
@@ -3780,8 +3781,8 @@ body {
 }
 
 #adverts-list.type-list .item .content {
-    margin-left: 115px;
-    padding: 5px 10px;
+    margin-left: 130px;
+    padding: 14px 10px;
     position: relative;
 }
 
@@ -3792,14 +3793,16 @@ body {
 #adverts-list.type-list .item .content .price {
     float: right;
     text-align: right;
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 12px;
+    margin-top: 2px;
+    font-weight:700;
 }
 
 #adverts-list.type-list .item .content .other, #vip-conteiner.type-list .item .content .other {
     float: right;
     width: 200px;
     text-align: right;
+    margin-top: -8px;
 }
 
 #adverts-list a.title, #vip-conteiner a.title {
@@ -4725,9 +4728,7 @@ div.jGrowl div.red_theme {
 }
 
 #leftchars {
-    position: absolute;
-    top: 193px;
-    left: 400px;
+   float:right;
     color: #666;
 }
 
@@ -4810,7 +4811,7 @@ div.jGrowl div.red_theme {
 
 #adverts-list.type-list .list-img-pack {
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 290px;
 }
 

@@ -169,8 +169,8 @@ class Controller_Adverts extends Controller_System_Page
     public function action_phone()
     {
         $this->auto_render = FALSE;
-        $string = str_replace(array("-"," "),"",base64_decode(Input::get("id")));
-        $im = imagecreatetruecolor(strlen($string)*9, 30);
+        $string = str_replace(array("-", " "), "", base64_decode(Input::get("id")));
+        $im = imagecreatetruecolor(strlen($string) * 9, 30);
         $red = imagecolorallocate($im, 0xF9, 0xF9, 0xF9);
         $black = imagecolorallocate($im, 0x00, 0x00, 0x00);
         imagefilledrectangle($im, 0, 0, 299, 99, $red);

@@ -1,2 +1,6 @@
-.idea
-i18n
+/.idea
+/application/cache/
+/application/logs/
+/resources/temp/
+/resources/js/tree.js
+/resources/media/

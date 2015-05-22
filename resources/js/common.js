@@ -762,9 +762,10 @@ $(function () {
     });
 
     $('#description').bind('input propertychange', function () {
+        var limit = 1500;
         var chars = $(this).val();
         var enters = chars.split('\n');
-        var left = (500 - (chars.length + (enters.length - 1)));
+        var left = (limit - (chars.length + (enters.length - 1)));
         $('#leftchars').find('span').text(left);
     });
     $("#chkAll").click(function () {

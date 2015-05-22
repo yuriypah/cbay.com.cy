@@ -54,7 +54,6 @@ for ( $i = $n7; $i <= $n8; $i++ )
 	$links[$i] = $i;
 }
 ?>
-
 <div id="paginator">
 	<div class="navigation">
 		<?php if ($previous_page !== FALSE): ?>

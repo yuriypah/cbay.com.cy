@@ -111,10 +111,10 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
     <div class="controls">
         <?php
         echo Form::textarea('description', Arr::get($data, 'description'), array(
-            'id' => 'description', 'maxlength' => 500, 'class' => 'span7', 'title' => __('advert.tooltip.description')
+            'id' => 'description', 'maxlength' => 1500, 'class' => 'span7', 'title' => __('advert.tooltip.description')
         ));
         ?>
-        <div id="leftchars">Осталось символов: <span>500</span></div>
+        <div id="leftchars">Осталось символов: <span>1500</span></div>
         <?php echo Form::error('errors.description', $messages_array); ?>
     </div>
 </div>
