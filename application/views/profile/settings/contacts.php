@@ -5,7 +5,15 @@
     <div class="accordion contacts" style="display:none">
         <div class="control-group">
             <label class="control-label"
-                   for="profile_name"><?php echo __('profile_page.settings.label.name'); ?></label>
+                   for="profile_name">
+                <?php
+                if ($user->profile->type == 1) {
+                    echo __('profile_page.settings.label.name');
+                } else {
+                    echo __('profile_page.settings.label.type.company');
+                }
+                ?>
+                   </label>
 
             <div class="controls">
                 <?php

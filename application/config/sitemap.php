@@ -350,7 +350,21 @@ $map = array(
                 array(
                     'label' => __('menu.label.backend.settings'),
                     'route' => 'backend',
-                    'controller' => 'settings'
+                    'controller' => 'settings',
+                    'pages' => array(
+                        array(
+                            'label' => 'Настройки пакетов',
+                            'route' => 'backend',
+                            'controller' => 'settings',
+                            'action' => 'setpacks'
+                        ),
+                        array(
+                            'label' => 'Рассылка',
+                            'route' => 'backend',
+                            'controller' => 'settings',
+                            'action' => 'delivery'
+                        )
+                    )
                 ),
                 array(
                     'label' => __('menu.label.backend.translate_settings'),
@@ -447,6 +461,13 @@ $map = array(
                             'route' => 'backend',
                             'controller' => 'users',
                             'action' => 'view',
+                            'visible' => FALSE
+                        ),
+                        array(
+                            'label' => '',
+                            'route' => 'backend',
+                            'controller' => 'users',
+                            'action' => 'companies',
                             'visible' => FALSE
                         )
                     )

@@ -5,11 +5,18 @@ defined('SYSPATH') or die ('No direct script access.');
 class Controller_Backend_Settings extends Controller_System_Backend
 {
     var $imgdir = "resources/images/redactor/";
+
     public function action_index()
     {
         if ($this->request->method() == Request::POST) {
             return $this->_save();
         }
+        $query = ORM::factory('advert')->where('moderated', '=', Model_Advert::STATUS_MODERATION)->where('finished', '>=', DB::expr('NOW()'));
+        if ($id)
+            $query = $query->and_where('user_id', '=', $id);
+        if ($ip)
+            $query = $query->and_where('ip', '=', $query->ip2int($ip));
+        $this->template->content->new_adverts  =  $query->with_part()->with_author()->order_by('finished', 'asc')->find_all()->count();
     }
 
     private function _save()
@@ -176,7 +183,9 @@ class Controller_Backend_Settings extends Controller_System_Backend
     {
         file_put_contents("resources/js/sortsearch.json", json_encode($_POST['indexes']));
     }
-    public function action_imageupload() {
+
+    public function action_imageupload()
+    {
         $_FILES['file']['type'] = strtolower($_FILES['file']['type']);
         if ($_FILES['file']['type'] == 'image/png' || $_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/gif' || $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/pjpeg') {
             // setting file's mysterious name
@@ -199,12 +208,29 @@ class Controller_Backend_Settings extends Controller_System_Backend
             print stripslashes(json_encode($array));
         }
     }
-    public function action_getimages() {
+
+    public function action_getimages()
+    {
         die(file_get_contents($this->imgdir . "images.json"));
     }
-    public function action_statistic() {
-        $this->template->content->messages = ORM::factory( 'message')
+
+    public function action_statistic()
+    {
+        $this->template->content->messages = ORM::factory('message')
             ->get_full();
+    }
+
+    public function action_setpacks()
+    {
+        $data = $this->request->post();
+        if ($data['action'] == 'save') {
+            file_put_contents('resources/data/packages.json', json_encode($data['data']));
+        }
+    }
+
+    public function action_delivery()
+    {
+
     }
 
 }

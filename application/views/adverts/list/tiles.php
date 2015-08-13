@@ -54,9 +54,20 @@ text-align: center;
 		<div class="clear"></div>
 
 		<div class="price"><?php echo $advert->amount(); ?></div>
-		<div class="city"><?php echo __('advert_page.label.city') . ': '. $advert->city(); ?></div>
+		<div class="city"><?php echo __('advert_page.label.city') . ': '. $advert->city(); ?>
 
-		<div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="tiles-seller">
+            <?php
+            if($advert->user->profile->type == 2) {
+                echo "<span style='color:gray'>".__("profile_page.settings.label.type.company").":</span> <a href='#'>".$advert->user->profile->name."</a>";
+            }
+            ?>
+        </div>
+
+
 	</div>
 </div>
+
 <?php endforeach; ?>

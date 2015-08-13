@@ -55,6 +55,7 @@
             <div class="other">
                 <div class="category"><?php echo $advert->category(FALSE); ?></div>
                 <div class="city"><?php echo __('advert_page.label.city') . ': ' . $advert->city(); ?></div>
+
             </div>
 
             <div

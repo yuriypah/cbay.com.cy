@@ -74,7 +74,7 @@
         <div class="nav_b sep1"></div>
         <!--------->
         <div class="nav_b link1"><a href="#">
-                <?php echo "<a href='/advert/place'>".__('menu.label.advert_place')."</a>"; ?>
+                <?php echo "<a href='/advert/place'>" . __('menu.label.advert_place') . "</a>"; ?>
             </a></div>
         <div class="nav_b sep2"></div>
 
@@ -90,6 +90,7 @@
             }
             ?>
         </div>
+
         <div class="nav_b sep3"></div>
         <!--------->
         <?php
@@ -106,7 +107,14 @@
             <div class="nav_b sep3"></div>
         <?
         }
+
+        if ($ctx->auth->logged_in()) {
+            echo "<div class='nav_b link2'><a href='/wallet'>". $ctx->user->amount . " €</a></div><div class='nav_b sep3'></div>";
+        }
+
+
         ?>
+
         <div class="nav_b link3">
             <?php
             if (!$ctx->auth->logged_in()) {

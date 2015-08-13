@@ -9,4 +9,4 @@
 
 <div class="clear"></div>
 
-<p class="about">&copy;&nbsp;CBAY&nbsp;&mdash;&nbsp;<?php echo __( 'mainpage_copyright' ); ?></p>
+<p class="about"><?php echo __( 'mainpage_copyright' ); ?></p>

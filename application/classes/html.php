@@ -19,6 +19,10 @@ class HTML extends Kohana_HTML {
         $cases = array(2, 0, 1, 1, 1, 2);
         return $array[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[($number % 10 < 5) ? $number % 10 : 5]];
     }
+    public function getPacks() {
+        $packs = json_decode(file_get_contents('resources/data/packages.json'));
+        return $packs;
+    }
     public static function doctype($type = 'html5') {
         if (isset(self::$_doctypes[$type])) {
             return self::$_doctypes[$type];

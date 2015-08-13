@@ -33,34 +33,34 @@
 <div class="page-header with-image" id="advert-header">
     <div id="view-pack-image" style="display:inline-block">
         <div class="pull-left"><h1><?php echo $advert->part()->title; ?></h1></div>
-        <div class="list-img-pack pull-left">
-            <? if ($advert->premium()) { ?>
-                <?= HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium'))); ?>
-            <? } ?>
-            <? if ($advert->vip()) { ?>
-                <?= HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip'))); ?>
-            <? } ?>
-            <? if ($advert->selected()) { ?>
-                <?= HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected'))); ?>
-            <? } ?>
-            <? if ($advert->top()) { ?>
-                <?= HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top'))); ?>
-            <? } ?>
-        </div>
+        <div class="list-img-pack pull-left"><a href="/packages">
+                <? if ($advert->premium()) { ?>
+                    <?= HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium'))); ?>
+                <? } ?>
+                <? if ($advert->vip()) { ?>
+                    <?= HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip'))); ?>
+                <? } ?>
+                <? if ($advert->selected()) { ?>
+                    <?= HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected'))); ?>
+                <? } ?>
+                <? if ($advert->top()) { ?>
+                    <?= HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top'))); ?>
+                <? } ?>
+            </a></div>
     </div>
     <div id="advert-published">
         <strong><?php echo __('advert_page.label.published'); ?></strong>:
         <span><?php echo $advert->published_on(); ?></span>
     </div>
     <? /*if ($shows['this_user']) :*/ ?>
-        <div id="advert-packages">
-            <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
-            <div class="pull-right">
-                <a href="/advert/edit/<?php echo $advert->id ?>"><i class="icon icon-pencil advert-actions"></i></a>&nbsp;
-                <i onclick="window.print();" class="icon icon-print advert-actions"></i>&nbsp;
-                <div class="list-img-pack view">
+    <div id="advert-packages">
+        <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
+        <div class="pull-right">
+            <a href="/advert/edit/<?php echo $advert->id ?>"><i class="icon icon-pencil advert-actions"></i></a>&nbsp;
+            <i onclick="window.print();" class="icon icon-print advert-actions"></i>&nbsp;
+            <div class="list-img-pack view">
 
-                    <!--<? if (!$advert->premium()) { ?>
+                <!--<? if (!$advert->premium()) { ?>
                         <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5', HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium')))); ?>
                     <? } ?>
                     <? if (!$advert->vip()) { ?>
@@ -72,9 +72,9 @@
                     <? if (!$advert->top()) { ?>
                         <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top')))); ?>
                     <? } ?>-->
-                </div>
             </div>
         </div>
+    </div>
     <? /*endif;*/ ?>
 </div>
 

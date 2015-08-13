@@ -86,8 +86,13 @@ text-align: center;
 
                 }
                 ?></div>
-            <div class="city"><?php echo __('advert_page.label.city') . ': ' . $advert->city(); ?></div>
-
+            <div class="city"><?php echo __('advert_page.label.city') . ': ' . $advert->city(); ?>
+                <?php
+                if($advert->user->profile->type == 2) {
+                    echo " | <span style='color:gray'>".__("profile_page.settings.label.type.company").":</span> <a href='#'>".$advert->user->profile->name."</a>";
+                }
+                ?>
+            </div>
             <?php if (isset($checkbox)): ?>
                 <button
                     class="del-from-bookmark btn btn-mini btn-danger"><?php echo __('advert_page.label.remove_bookmarks'); ?></button>
