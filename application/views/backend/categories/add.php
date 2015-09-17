@@ -24,7 +24,7 @@
 			'class' => 'control-label'
 		)); ?>
 		<div class="controls">
-			<?php echo Form::input( 'category[ratio]', 1, array(
+			<?php echo Form::input( 'category[ratio]', $category->ratio, array(
 				'class' => 'input-title', 'id' => 'form_advert_category_ratio')
 			); ?>
 		</div>
@@ -33,5 +33,4 @@
 	<div class="form-actions">
 		<?php echo Form::button('submit', 'Сохранить', array('icon' => HTML::icon('ok', TRUE))); ?>
 	</div>
-
 <?php echo Form::close(); ?>

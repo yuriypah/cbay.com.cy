@@ -28,6 +28,7 @@ class Controller_Backend_Options extends Controller_System_Backend
             ->as_array('title', 'id', 'title', 3);
 
         $this->template->content->parts = ORM::factory('lang_part')->get_item_list($option);
+        Model_Advert_Category::build_js();
     }
 
     public function action_edit()
@@ -76,6 +77,34 @@ class Controller_Backend_Options extends Controller_System_Backend
         ORM::factory('lang_part')->add_item($value, array(
             'title' => $_POST['langs']['zh']
         ), 'zh');
+        Model_Advert_Category::build_js();
 
+    }
+
+    public function action_saveindex()
+    {
+        $this->auto_render = FALSE;
+
+        $data = $_POST['data'];
+        for ($i = 0; $i < count($data); $i++) {
+            DB::update('advert_category_option_values')
+                ->set(array('index' => $data[$i]['index']))
+                ->where('id', '=', $data[$i]['id'])
+                ->execute();
+        }
+        Model_Advert_Category::build_js();
+    }
+
+    public function action_saveparentindex()
+    {
+        $this->auto_render = FALSE;
+        $data = $_POST['data'];
+        for ($i = 0; $i < count($data); $i++) {
+            DB::update('advert_categories_options')
+                ->set(array('parent_index' => $data[$i]['index']))
+                ->where('option_id', '=', $data[$i]['id'])
+                ->execute();
+        }
+        Model_Advert_Category::build_js();
     }
 }

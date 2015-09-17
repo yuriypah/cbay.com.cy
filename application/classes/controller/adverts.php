@@ -5,6 +5,7 @@ class Controller_Adverts extends Controller_System_Page
 
     public function action_index()
     {
+        Model_Advert_Category::build_js();
         $view_types = array('list-img', 'tiles', 'list');
         $sort_types = array('price', 'date');
         $filter_types = array('all', 'private', 'company');

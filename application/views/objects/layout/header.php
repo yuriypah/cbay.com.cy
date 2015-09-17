@@ -184,4 +184,8 @@
             echo HTML::anchor($request->url() . '?lang=' . $lang, HTML::image($resources_path . 'images/lang-' . $lang . '.png'), array('class' => ($lang == I18n::lang()) ? 'current' : ''));
         ?>
     </div>
+
 <?php endif; ?>
+<script type="text/javascript">
+    var $DATA = JSON.parse('<?php echo file_get_contents('resources/js/tree.js') ?>')
+</script>

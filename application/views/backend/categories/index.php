@@ -1,4 +1,10 @@
 <h1>Категория: <?php echo $parts['ru']->title ?></h1>
+<a  href="/backend/categories/edit/<?php echo $parts['ru']->related_id ?>">Редактировать</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a onclick="return confirm('Категория будет удалена, продолжить?')" href="/backend/categories/remove/<?php echo $parts['ru']->related_id ?>">Удалить категорию</a>
+
+
+
 <Br/>
 <h3 style='color: gray'>Настроить языковые параметры:</h3>
 <table class='table '>

@@ -3,6 +3,7 @@
 	.....
 </head>
 <body>
+
 	<?php Block::run('header_block'); ?>
 	<div class="container">
 		<section id="middle">

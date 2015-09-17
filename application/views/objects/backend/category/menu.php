@@ -5,7 +5,9 @@ $(function() {
 		persist:	"location"
 	});
 })
+
 </script>
+
 <div id="categories-menu" class="content-styled">
 	<ul class="unstyled">
 		<li class="root"><?php echo HTML::anchor('/backend/categories', 'Root')?>

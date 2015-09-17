@@ -458,7 +458,7 @@ function category_select(one_category_id) {
         var category_id = one_category_id;
     }
     if (category_id == false) return false;
-    var data = JSON.parse($DATA);
+    var data = $DATA;
     var options_ids = (data.categories[category_id] || {}).options;
     if (!options_ids) {
         return;
@@ -613,7 +613,7 @@ function option_switch_by_type(item, attr) {
 /* DEMO::*/
 function orders_options(order) {
     var of;
-    var data = JSON.parse($DATA);
+    var data = $DATA;
     $.each(order, function (key, options_id) {
         if (typeof(options_id) === 'number')
             of = option_switch_filter(data.options[options_id], options_id);
@@ -661,7 +661,7 @@ function categoty_filter(cat) {
      return;
      }*/
 
-    var data = JSON.parse($DATA);
+    var data = $DATA;
     if (data.categories[cat]) {
         var options_ids = data.categories[cat].options;
         $.each(options_ids, function (key, options_id) { //console.log(cat,options_id);

@@ -48,7 +48,7 @@ class Model_Advert_Category extends ORM
     {
         $data = self::build_tree();
 
-        $json = 'var $DATA = \'' . json_encode($data) . '\';';
+        $json = json_encode($data, JSON_HEX_APOS);
 
         $file = RESPATH . 'js' . DIRECTORY_SEPARATOR . 'tree.js';
 
@@ -78,16 +78,18 @@ class Model_Advert_Category extends ORM
 
         $categories_options = DB::select()
             ->from('advert_categories_options')
+            ->order_by('parent_index', 'ASC')
             ->execute()
             ->as_array();
+
 
         $options = ORM::factory('advert_category_option')
             ->with_locale()
             ->find_all()
             ->as_array('id');
-
         $values = ORM::factory('advert_category_option_value')
             ->with_locale()
+            ->order_by('index', 'ASC')
             ->find_all()
             ->as_array('id');
         $data = array();
@@ -112,11 +114,13 @@ class Model_Advert_Category extends ORM
                 'id' => $option->id,
                 'title' => $option->title,
                 'type' => $option->type_id,
+                'description' => $option->description,
                 'values' => $option->_values,
                 'parent_id' => $option->parent_id,
                 'ranged' => $option->ranged,
                 'ranged_min' => $option->ranged_min,
                 'ranged_max' => $option->ranged_max
+
             );
         }
 

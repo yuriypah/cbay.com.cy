@@ -17,7 +17,6 @@ class Controller_System_Page extends Controller_System_Template {
 		'libs/jquery-1.8.2.min.js',
 		'libs/jgrowl/jquery.jgrowl_minimized.js',
 		'libs/jquery.templates.min.js',
-        'js/tree.js',
         'js/translate.js'
 	);
 
@@ -87,6 +86,7 @@ class Controller_System_Page extends Controller_System_Template {
 
 	public function after()
 	{
+
 		if ( $this->auto_render === TRUE )
 		{
 			// Выводим навигацию в шаблон

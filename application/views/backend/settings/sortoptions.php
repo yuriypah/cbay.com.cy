@@ -11,7 +11,7 @@
 </div>
 <script>
     $(function () {
-        var json = JSON.parse($DATA);
+        var json = $DATA;
         console.log(json);
         var html = "<table class='table'>", optionsHTML = "<table class='table'>";
         for (var i in json.categories) {
