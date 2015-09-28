@@ -158,7 +158,7 @@ class Model_Advert_Category extends ORM
         return DB::select('*')
             ->from('advert_categories')
             ->order_by('parent_id', 'asc')
-            ->order_by('id', 'asc')
+            ->order_by('order', 'asc')
             ->join('lang_parts', 'left')
             ->on('lang_parts.related_table', '=', DB::expr("'advert_categories'"))
             ->on('lang_parts.related_id', '=', 'advert_categories.id')

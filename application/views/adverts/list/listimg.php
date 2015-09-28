@@ -60,36 +60,51 @@ text-align: center;
         <div class="content">
             <?php echo HTML::anchor('advert/' . $advert->id, $advert->title(), array('class' => 'title')); ?>
             <div class="price"><?php echo $advert->amount(); ?></div>
+            <?php
+            $category_string = $advert->category(FALSE);
+            if ($advert->category_id == 12 || $advert->category_id == 9) {
 
-            <div class="category"><?php
-                echo $advert->category(FALSE);
-                if ($advert->category_id == 12 || $advert->category_id == 9) {
-
-                    $arr = array_merge(
-                        Model_Advert_Option::get_options_for_view($advert->id),
-                        Model_Advert_Option_String::get_strings($advert->id));
-                    if ($arr) {
-                        $i = 0;
-                        $str = ' (';
-                        foreach ($arr as $opts) {
-                            if($i == 4) {
-                                break;
-                            }
-                            if($opts['value'] != '')
-                            $str .= $opts['label'] . ": " . $opts['value'] . ", ";
-                            $i++;
+                $arr = array_merge(
+                    Model_Advert_Option::get_options_for_view($advert->id),
+                    Model_Advert_Option_String::get_strings($advert->id));
+                if ($arr) {
+                    $i = 0;
+                    $category_string .= ' (';
+                    foreach ($arr as $opts) {
+                        if ($i == 4) {
+                            break;
                         }
-                        $str = rtrim($str,', ');
-                        $str .= ')';
-                        echo $str;
+                        if ($opts['value'] != '')
+                            $category_string .= $opts['label'] . ": " . $opts['value'] . ", ";
+                        $i++;
                     }
+                    $category_string = rtrim($category_string, ', ');
+                    $category_string .= ')';
 
                 }
-                ?></div>
-            <div class="city"><?php echo __('advert_page.label.city') . ': ' . $advert->city(); ?>
+
+            }
+            ?>
+            <?php
+                if (mb_strlen($category_string) > 90) {
+                    echo "<div class='category' data-tooltip='".$category_string."'>";
+                    echo "<span style='border-bottom:1px dashed gray'>" . mb_substr($category_string, 0, 90) . "...</span>";
+                    echo "</div>";
+                } else {
+                    echo "<div class='category'>";
+                    echo $category_string;
+                    echo "</div>";
+                }
+                ?>
+
+            <div class="city">
+                <?php echo __('advert_page.label.city') . ': ' . $advert->city(); ?>
                 <?php
-                if($advert->user->profile->type == 2) {
-                    echo " | <span style='color:gray'>".__("profile_page.settings.label.type.company").":</span> <a href='#'>".$advert->user->profile->name."</a>";
+                if ($advert->user->profile->type == 2) {
+                    echo " | <span style='color:gray'>" . __("profile_page.settings.label.type.company") . ":</span> <a href='/adverts?user=".$advert->user_id."'>" . $advert->user->profile->name . "</a>";
+                } else {
+                    echo " | <span style='color:gray'>" . __("profile_page.settings.label.type.private") . ":</span> <a href='/adverts?user=".$advert->user_id."' href='#'>" . $advert->user->profile->name . "</a>";
+
                 }
                 ?>
             </div>

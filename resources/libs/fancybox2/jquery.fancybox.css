@@ -88,7 +88,7 @@
 .fancybox-close {
 	position: absolute;
 	background-position: -123px 0;
-	bottom: 27px;
+	top: 30px;
 	right: 30px;
 	width: 14px;
 	height: 14px;

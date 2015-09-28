@@ -21,6 +21,6 @@
 
 		<div class="clear"></div>
 	</div>
-</div>
+
 <? endif; ?>
 <?php endforeach; ?>

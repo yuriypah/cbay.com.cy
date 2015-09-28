@@ -5422,3 +5422,20 @@ input[type=radio] {
     padding: 10px;
     min-height: 100px;
 }
+.option_childs {
+    display:none;
+}
+.category_0 {
+    font-weight:700;
+}
+.category_collapsable {
+    display:none;
+}
+.category_2 {
+    font-weight:100;
+}
+.category_0,.category_1 {
+    cursor:pointer;
+    border:1px solid #ddd;
+    padding:4px;
+}

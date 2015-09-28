@@ -545,7 +545,8 @@ function category_select(one_category_id) {
                     step: 0.1,
                     animate: 'slow',
                     slide: function (event, ui) {
-                        input.val(ui.value);
+                        var v = parseFloat(ui.value) % 1 !== 0 ? ui.value : (ui.value + '.0');
+                        input.val(v);
                     }
                 })
             }
@@ -595,7 +596,7 @@ function option_switch_by_type(item, attr) {
             });
             break;
         case '5': // text <input
-            inof = '<div data-ranged="' + item.ranged + '" data-rangedmin="' + item.ranged_min + '" data-rangedmax="' + item.ranged_max + '"  class="form_item" data-id="' + item.id + '"><input type="text"' + attr + ' placeholder="' + item.title + '" value="' + item.value + '" class="input-large" /></div>';
+            inof = '<div data-ranged="' + item.ranged + '" data-rangedmin="' + item.ranged_min + '" data-rangedmax="' + item.ranged_max + '"  class="form_item" data-id="' + item.id + '"><input type="text"' + attr + ' placeholder="' + item.title + '" value="' + (item.value != undefined ? item.value : '') + '" class="input-large" /></div>';
 
             break;
         case '9': // number float

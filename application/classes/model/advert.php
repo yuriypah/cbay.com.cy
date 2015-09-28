@@ -357,17 +357,26 @@ class Model_Advert extends ORM
         $sort_by = Input::get('s', 'date');
 
         $ad_groups = Input::get('f', 'all');
-
-
+        $by_user = Input::get('user');
         $options = Input::get('option');
+        if($by_user > 0) {
+            $adverts = ORM::factory('advert')
+                ->select(array('map.title', 'city', 'adverts.status'))
+                ->distinct(true)
+                ->filter_by_location(NULL, $city)
+                ->by_user($by_user)
+                ->with_part()
+                ->sort();
+        } else {
+            $adverts = ORM::factory('advert')
+                ->select(array('map.title', 'city', 'adverts.status'))
+                ->distinct(true)
+                ->filter_by_location(NULL, $city)
+                ->with_user()
+                ->with_part()
+                ->sort();
+        }
 
-        $adverts = ORM::factory('advert')
-            ->select(array('map.title', 'city', 'adverts.status'))
-            ->distinct(true)
-            ->filter_by_location(NULL, $city)
-            ->with_user()
-            ->with_part()
-            ->sort();
 
         /*		if(!empty($options))
                 {
@@ -497,7 +506,7 @@ class Model_Advert extends ORM
             $count = clone($adverts);
             $pagination = Pagination::factory(array(
                 'total_items' => $count->count_all(),
-                'items_per_page' => 5,
+                'items_per_page' => 20,
                 'uri_segment' => 'page'
             ));
 

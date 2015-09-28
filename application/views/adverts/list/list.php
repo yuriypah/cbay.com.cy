@@ -1,4 +1,4 @@
-<?php foreach ($adverts as $advert): ?>
+<?php foreach ($adverts as $advert):?>
     <div class="item<?php echo $advert->selected() ? ' selected' : '';
     echo $advert->premium() ? ' selected' : ''; ?>" data-id="<?php echo $advert->id; ?>">
         <div class="list-img-pack">
@@ -15,6 +15,7 @@
                 <?= HTML::image('resources/images/up.png', array('title' => __('package.option.title.top'))); ?>
             <? } ?>
         </div>
+      
         <div class="date">
             <?php echo $advert->published_on(); ?>
         </div>

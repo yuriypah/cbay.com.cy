@@ -207,6 +207,20 @@ class ORM extends Kohana_ORM
             ->where('users.status', '=', 1);
     }
 
+    public function by_user($id)
+    {
+        return $this
+            ->select(array('user_profiles.name', 'author'))
+            ->join('users', 'left')
+            ->on('users.id', '=', $this->object_name() . '.user_id')
+            ->join('user_profiles', 'left')
+            ->on('users.profile_id', '=', 'user_profiles.id')
+            ->where('users.status', '=', 1)
+            ->and_where_open()
+            ->and_where('users.id', '=', $id)
+            ->and_where_close();
+    }
+
     public function in_bookmark($default = NULL)
     {
         if (!isset($this->bookmark_id)) {

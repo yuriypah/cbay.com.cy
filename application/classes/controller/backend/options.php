@@ -47,6 +47,19 @@ class Controller_Backend_Options extends Controller_System_Backend
         return $this->action_add($option);
     }
 
+    public function action_remove()
+    {
+        $this->auto_render = FALSE;
+        $option_id = (int)$this->request->param('id');
+        DB::delete('advert_category_option_values')->where('option_id', '=', $option_id)->execute();
+        DB::delete('advert_categories_options')->where('option_id', '=', $option_id)->execute();
+
+        $option = ORM::factory('advert_category_option', $option_id);
+        $option->delete();
+
+        $this->go("/backend/categories");
+    }
+
     public function action_getlangoptions()
     {
         $value = ORM::factory('advert_category_option_value', $_POST['option_id']);
@@ -103,6 +116,18 @@ class Controller_Backend_Options extends Controller_System_Backend
             DB::update('advert_categories_options')
                 ->set(array('parent_index' => $data[$i]['index']))
                 ->where('option_id', '=', $data[$i]['id'])
+                ->execute();
+        }
+        Model_Advert_Category::build_js();
+    }
+    public function action_savecategoryindex()
+    {
+        $this->auto_render = FALSE;
+        $data = $_POST['data'];
+        for ($i = 0; $i < count($data); $i++) {
+            DB::update('advert_categories')
+                ->set(array('order' => $data[$i]['index']))
+                ->where('id', '=', $data[$i]['id'])
                 ->execute();
         }
         Model_Advert_Category::build_js();

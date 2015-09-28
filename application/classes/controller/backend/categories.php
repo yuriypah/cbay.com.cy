@@ -20,9 +20,13 @@ class Controller_Backend_Categories extends Controller_System_Backend
         }
         $this->template->content->parts = ( array )ORM::factory('lang_part')->get_item_list($category);
         $this->template->content->options = VIEW::factory('/backend/categories/options', array(
-            'options' =>$options,
-            'id' => $id
+            'options' => $options,
+            'id' => $id,
+            'categories' => ORM::factory('advert_category')
+                ->tree()
+                ->as_array(NULL, 'id', 'title', 3)
         ));
+
 
     }
 

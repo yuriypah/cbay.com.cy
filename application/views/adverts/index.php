@@ -57,7 +57,6 @@ if (count($adverts) >= 0): ?>
             $('.desc').click(function () {
                 window.location.href = '/adverts/?s=' + $(this).data('type') + '&o=desc'
             });
-
         </script>
         <div class="view-type">
             <?php
