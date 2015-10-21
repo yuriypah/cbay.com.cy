@@ -55,24 +55,26 @@
     <? /*if ($shows['this_user']) :*/ ?>
     <div id="advert-packages">
         <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
+        <div class="list-img-pack view more_serv">
+
+            <? if (!$advert->premium()) { ?>
+                <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5', HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium')))); ?>
+            <? } ?>
+            <? if (!$advert->vip()) { ?>
+                <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack2', HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip')))); ?>
+            <? } ?>
+            <? if (!$advert->selected()) { ?>
+                <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected')))); ?>
+            <? } ?>
+            <? if (!$advert->top()) { ?>
+                <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top')))); ?>
+            <? } ?>
+        </div>
         <div class="pull-right">
+
+
             <a href="/advert/edit/<?php echo $advert->id ?>"><i class="icon icon-pencil advert-actions"></i></a>&nbsp;
             <i onclick="window.print();" class="icon icon-print advert-actions"></i>&nbsp;
-            <div class="list-img-pack view">
-
-                <!--<? if (!$advert->premium()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack5', HTML::image('resources/images/prestig.png', array('data-tooltip' => __('package.option.title.premium')))); ?>
-                    <? } ?>
-                    <? if (!$advert->vip()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack2', HTML::image('resources/images/vip.png', array('data-tooltip' => __('package.option.title.vip')))); ?>
-                    <? } ?>
-                    <? if (!$advert->selected()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack3', HTML::image('resources/images/color.png', array('data-tooltip' => __('package.option.title.selected')))); ?>
-                    <? } ?>
-                    <? if (!$advert->top()) { ?>
-                        <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top')))); ?>
-                    <? } ?>-->
-            </div>
         </div>
     </div>
     <? /*endif;*/ ?>

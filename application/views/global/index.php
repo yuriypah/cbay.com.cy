@@ -7,7 +7,7 @@
         <meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
         <meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
 
-        <link rel="icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="/fav_new.png" type="image/x-icon" />
 
         <script type="text/javascript">
             var resources_path = "/<?php echo $resources_path; ?>";

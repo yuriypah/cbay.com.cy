@@ -247,7 +247,14 @@ $map = array(
                 ),
                 array(
                     'label' => __('menu.label.profile.wallet'),
-                    'controller' => 'wallet'
+                    'controller' => 'wallet',
+                    'pages' => array(
+                        array(
+                            'controller' => 'wallet',
+                            'action' => 'jcc',
+                            'visible' => false
+                        )
+                    )
                 ),
                 array(
                     'label' => __('menu.label.messages.index'),

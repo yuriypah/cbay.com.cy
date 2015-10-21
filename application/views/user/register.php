@@ -121,15 +121,15 @@
 	<div class="control-group">
 		<div class="controls">
 			<label class="checkbox">
-				<?php 
-					echo Form::checkbox('rule_agree');
+				<?php
+					echo Form::checkbox('rule_agree',null,true);
 					echo __('register_page.rules.agree');
 				?>
 			</label>
 
 			<label class="checkbox">
 				<?php 
-					echo Form::checkbox('rule_subscribe');
+					echo Form::checkbox('rule_subscribe',null,true);
 					echo __('register_page.rules.subscribe');
 				?>
 			</label>
@@ -137,14 +137,14 @@
 	</div>
 	
 	<div class="form-actions">
-		<button type="submit" disabled="disabled" class="btn btn-large btn-success"><?php echo __('register_page.label.register') . ' ' . HTML::icon('chevron-right'); ?></button>
+		<button type="submit"  class="btn btn-large btn-success"><?php echo __('register_page.label.register') . ' ' . HTML::icon('chevron-right'); ?></button>
 	</div>
 
 <?php echo Form::close(); ?>
 <script>
     $(document).ready(function() {
        $("input[name=rule_agree]").click(function() {
-            $(".form-actions [type=submit]").attr('disabled', !this.checked);
+          //  $(".form-actions [type=submit]").attr('disabled', !this.checked);
        });
     });
 </script>

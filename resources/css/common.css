@@ -4409,6 +4409,7 @@ body {
 
 #body_index {
     background: #eff6fd url(../images/bg-pattern.jpg) top center repeat-x;
+    margin-bottom:20px;
 }
 
 #body_index #water_bg {
@@ -4493,6 +4494,7 @@ body {
 
 #body_index #content #lands-list li.land-main-icon {
     margin-left: -6px;
+    white-space: nowrap;
 }
 
 #body_index #content #island {
@@ -5438,4 +5440,26 @@ input[type=radio] {
     cursor:pointer;
     border:1px solid #ddd;
     padding:4px;
+}
+.paiment-block {
+    padding:10px;
+    border:1px solid #BDD8EE;
+    height:180px;
+    margin-right:20px;
+}
+.submit_jcc {
+    cursor:pointer;
+    width:200px;
+}
+.more_serv {
+    position: absolute;
+    margin-top: -29px;
+    margin-left: 242px;
+
+}
+.pay_logos {
+
+}
+.pay_logos img {
+    width:90px;
 }

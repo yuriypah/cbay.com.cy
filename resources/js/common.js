@@ -432,10 +432,16 @@ var remove_separator = function (cont) {
 
 /* DEMO::*/
 var inner = [];
-
+var tmpAdvertTitle = "";
 /* DEMO::*/
 function get_child(sel) {
     var idFnew = sel.id;
+    if(idFnew == "option_option_15") {
+        tmpAdvertTitle = $("#option_15 :selected").text() + " " +  $("#option_option_15 :selected").text()
+
+    }
+    $("#title").val(tmpAdvertTitle);
+
     if (idFnew == 'option_2') {
         $("#period").hide();
         if (sel.value == 4 || sel.value == 5)
@@ -445,6 +451,7 @@ function get_child(sel) {
     if (inner[sel.value] == null) return;
     var of = option_switch(inner[sel.value], idFnew, inner[sel.value].values[0].option_id);
     $(sel).parents('.control-group').after(of);
+
 }
 
 /* DEMO::*/
@@ -469,6 +476,7 @@ function category_select(one_category_id) {
         inner[data.options[options_id].parent_id] = data.options[options_id];
         if (data.options[options_id].parent_id != null) return;
         var of = option_switch(data.options[options_id], options_id);
+
         //для селекта периода возле цены ->>/
         if (options_id == 170) {
             $('#period').append(of);

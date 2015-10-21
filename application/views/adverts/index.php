@@ -101,7 +101,7 @@ if (count($adverts) >= 0): ?>
     </div>
     <div id="vip-conteiner">
     <?php echo __("vip_reclame") != 'vip_reclame' ? __("vip_reclame") : '' ?>
-    <? if (count($vip_adverts) > 0) : ?>
+    <? if (count($adverts) > 0 && count($vip_adverts) > 0) : ?>
         <div id="vip-header">
             <div
                 class="pull-left vip-link"><? echo HTML::anchor('packages', __('adverts_page.label.vip_header')) ?></div>
@@ -117,7 +117,7 @@ if (count($adverts) >= 0): ?>
 
     <? endif; ?>
     </div>
-<?php else: ?>
+<?php else : ?>
     <div id="adverts-panel"></div>
     <div class="hero-unit">
         <h1><?php echo __('adverts_page.empty.title'); ?></h1>
