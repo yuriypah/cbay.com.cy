@@ -1,0 +1,22 @@
+{
+    "name" : "car",
+    "version" : "1.0.0",
+    "dependencies" : {
+        "jquery": null,
+        "underscore" : "#>=1.7.0",
+        "jqueryui" : null,
+        "backbone-amd": null,
+        "marionette" : null,
+        "requirejs": null,
+        "requirejs-text": null,
+        "requirejs-domready": null,
+        "imagesloaded-packaged" : null,
+        "bootstrap" : null,
+        "fancybox" : null,
+        "fotorama" : null,
+        "backbone.syphon" : null,
+        "modernizr-min" : null,
+        "eonasdan-bootstrap-datetimepicker" : null,
+        "less" : null
+    }
+}

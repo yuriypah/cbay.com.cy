@@ -436,8 +436,8 @@ var tmpAdvertTitle = "";
 /* DEMO::*/
 function get_child(sel) {
     var idFnew = sel.id;
-    if(idFnew == "option_option_15") {
-        tmpAdvertTitle = $("#option_15 :selected").text() + " " +  $("#option_option_15 :selected").text()
+    if (idFnew == "option_option_15") {
+        tmpAdvertTitle = $("#option_15 :selected").text() + " " + $("#option_option_15 :selected").text()
 
     }
     $("#title").val(tmpAdvertTitle);
@@ -448,9 +448,29 @@ function get_child(sel) {
             $("#period").show();
     }
     $('#option_' + idFnew).parents('.control-group').remove();
-    if (inner[sel.value] == null) return;
+    if (inner[sel.value] == null) {
+        $("#option_" + idFnew + ",#option_option_" + idFnew).remove();
+        return;
+    }
     var of = option_switch(inner[sel.value], idFnew, inner[sel.value].values[0].option_id);
-    $(sel).parents('.control-group').after(of);
+    if ($(sel).parents('.control-group').length > 0) {
+        $(sel).parents('.control-group').after(of);
+    } else {
+        $("#option_" + idFnew + ",#option_option_" + idFnew).remove();
+        var ch = $(of).find("select");
+        ch.css('width', '210px');
+        var to = $(sel).parent();
+        if (to.hasClass('form_item')) {
+            $(sel).parent().after(ch);
+        } else {
+            $(sel).after(ch);
+        }
+        ch.animate({'opacity': '0.5'}, 200, function () {
+            ch.animate({'opacity': '1'}, 200, function () {
+
+            });
+        });
+    }
 
 }
 
@@ -536,19 +556,19 @@ function category_select(one_category_id) {
                     }
                 })
             } else if ($(this).data('ranged') == 1) {
-                var  sliderRange = $("<div/>", {
+                var sliderRange = $("<div/>", {
                     'class': 'slider_range',
                     width: $(self).find("input[type=text]").width() + 8
                 }).appendTo(this);
 
-                var rMin = $(this).data('rangedmin'), rMax = $(this).data('rangedmax'),input = $(self).find("input[type=text]");
-                if(input.val() == 'undefined') {
+                var rMin = $(this).data('rangedmin'), rMax = $(this).data('rangedmax'), input = $(self).find("input[type=text]");
+                if (input.val() == 'undefined') {
                     input.val(rMin)
                 }
                 sliderRange.slider({
                     range: false,
-                    min : rMin,
-                    max : rMax,
+                    min: rMin,
+                    max: rMax,
                     value: input.val() != 'undefined' ? input.val() : rMin,
                     step: 0.1,
                     animate: 'slow',
@@ -692,6 +712,7 @@ function categoty_filter(cat) {
                 newDOM.append(newDOM.find("[data-id=" + data[i].id + "]"));
             }
         }
+        category_select(parseInt(cat, 10));
         setTimeout(function () {
             $.fancybox.hideLoading();
         }, 500);

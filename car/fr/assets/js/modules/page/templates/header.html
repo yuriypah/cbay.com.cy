@@ -1,0 +1,175 @@
+<script type="text/html">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/assets/img/logo3.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <span class="currency-help hidden-xs hidden-sm">Currency:</span>
+                <ul class="nav nav-tabs header-main-nav">
+                    <li class="active"><a href="#"><span class="currency-icons glyphicon glyphicon-euro"></span></a>
+                    </li>
+                    <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
+                    <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li class="pull-right"><a class="register" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Register</a>
+                    </li>
+                    <li class="pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                              aria-haspopup="true" aria-expanded="false" href="#"><span
+                            class="glyphicon glyphicon-globe"></span> Language <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="#">English (default)</a></li>
+                            <li class=""><a href="#">Greek</a></li>
+                            <li class=""><a href="#">Chinese</a></li>
+                            <li class=""><a href="#">Russian</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="search-panel-container">
+        <div class="search-panel">
+            <div class="container">
+                <div class="row">
+                    <div class='col-md-5'>
+                        <h4 class="headers"><span class="glyphicon glyphicon-play"></span> Pickup location:</h4>
+
+                        <div class="form-group">
+                            <div class='input-group'>
+                                <input type='text' class="form-control"
+                                       placeholder="City, Post Code, Airport Code, Hotel, etc"/>
+   <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class='input-group date calendar'>
+                                        <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class='input-group date timer'>
+                                        <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!--return -->
+                    <div class='col-md-5'>
+                        <h4 class="headers"><span class="glyphicon glyphicon-stop"></span> Return location:</h4>
+
+                        <div class="form-group">
+                            <div class='input-group'>
+                                <input type='text' class="form-control"
+                                       placeholder="City, Post Code, Airport Code, Hotel, etc"/>
+   <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class='input-group date calendar'>
+                                        <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class='input-group date timer'>
+                                        <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <h4>&nbsp;</h4>
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-lg btn-success submit"><strong>Get a quote</strong>
+                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                            </button>
+
+                        </div>
+                        <a href="#" class="advanced-link"><span class="glyphicon glyphicon-menu-down"></span>&nbsp;Advanced
+                            search</a>
+
+                    </div>
+                </div>
+                <div class="advanced_search">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input id="at" type="checkbox" checked="checked"/> <label for="at">Automatic transmission</label><Br/>
+                            <input id="bc" type="checkbox"/> <label for="bc">Baby chair</label><Br/>
+                            <input id="cc" type="checkbox" checked="checked"/> <label for="cc">Climat control</label><Br/>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Price (per day):</strong><Br/>
+                                    From:
+                                    <div class="input-group"><input value="150" class="form-control" name="from" type="number"/>
+                                    <span class="input-group-addon">
+                        <span class="currency-icons glyphicon glyphicon-euro"></span>
+                    </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"><BR/>
+                                    To:
+                                    <div class="input-group"><input value="450" class="form-control" name="to" type="number"/>
+                                    <span class="input-group-addon">
+                        <span class="currency-icons glyphicon glyphicon-euro"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2"><Br/>
+                            Passengers:<br/>
+                            <div class="input-group"><input value="2" class="form-control" name="to" type="number"/>
+                                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</script>

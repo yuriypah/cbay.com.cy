@@ -1,0 +1,191 @@
+body {
+  background: #f9f9f9;
+}
+
+.nobile {
+  font-family: Nobile;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+  background-image: url('/assets/img/fancybox_sprite2.png');
+}
+
+.text-gray {
+  color: gray;
+}
+
+.login-form {
+  h4 {
+    background: #077fcc;
+    padding: 10px;
+    color: white;
+  }
+  max-width: 300px;
+  padding: 20px;
+  background: white;
+  line-height: 2;
+}
+
+.register-form {
+  h4 {
+    background: #077fcc;
+    padding: 10px;
+    color: white;
+  }
+  max-width: 320px;
+  padding: 20px;
+  background: white;
+  line-height: 2;
+}
+
+.header-main-nav {
+
+  margin-top: 45px;
+}
+
+.currency-icons {
+  font-size: 11px;
+}
+
+.search-panel {
+  background: #1c6485;
+  box-shadow: -1px 3px 5px #1c6485;
+  padding: 10px 0;
+  .headers {
+    color: white;
+  }
+  .advanced-link {
+    color: white;
+  }
+  .submit {
+    .glyphicon {
+      vertical-align: -1px;
+    }
+  }
+
+}
+
+.search-panel-container {
+  width: 100%;
+  z-index: 2;
+  top: 0;
+
+}
+
+.currency-help {
+  position: absolute;
+  top: 23px;
+  font-size: 12px;
+  color: gray;
+}
+
+.advanced_search {
+  color: white;
+  display: none;
+  input[type=number] {
+
+  }
+}
+
+#content {
+  margin-top: 15px;
+  .car-container {
+    margin-bottom: 20px;
+  }
+  .car-item {
+    position: relative;
+    curspor: pointer;
+
+    border: 1px solid #bce8f1;
+    box-shadow: -1px 3px 10px #1c6485;
+
+    &:hover {
+      box-shadow: -1px 3px 20px #1c6485;
+    }
+    .ratio {
+      color: rgba(255, 255, 0, 1);
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 2px;
+      &.blue {
+        color: #077fcc
+      }
+    }
+    .image-container {
+      background: rgba(0, 0, 0, 0.6);
+
+      .image {
+        box-shadow: -1px 5px 10px rgba(255, 255, 255, 0.6);
+
+      }
+    }
+
+    .desc {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .props {
+      height: 85px;
+      padding: 7px;
+      font-size: 12px;
+    }
+    .price {
+
+      &.blue {
+        background: #077fcc;
+      }
+      background: orange;
+      color: white;
+      padding: 8px;
+      font-size: 16px;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+
+    }
+  }
+  // переопределить стили иконок фоторамы
+  .fotorama__thumb-border {
+    border-color: #1c6485;
+  }
+  .fotorama__thumb-border:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    border: 5px solid rgba(0, 0, 0, 0);
+    border-bottom-color: #1c6485;
+    margin-left: -3px;
+  }
+  .confirmation_price {
+    .glyphicon {
+      font-size: 12px;
+
+    }
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .confirmation-order-header {
+    background: #077fcc;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+
+  }
+}
+
+#footer {
+  background: white;
+  margin-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-size: 12px;
+  .payment_logos img {
+    width: 130px;
+  }
+}

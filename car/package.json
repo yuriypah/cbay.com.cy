@@ -1,0 +1,10 @@
+{
+    "name": "backbone-library",
+    "version": "1.0.0",
+    "description": "backend library",
+    "dependencies": {
+        "express": "~3.1.0",
+        "path": "~0.4.9",
+        "mongoose": "~3.5.5"
+    }
+}

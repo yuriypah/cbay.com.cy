@@ -4,7 +4,7 @@ class Controller_Wallet extends Controller_System_Page
 {
 
     public function action_index()
-    { 
+    {
         $wallet = ORM::factory('wallet')
             ->where('id', '=', $this->ctx->user->id)
             ->find();
@@ -36,7 +36,7 @@ class Controller_Wallet extends Controller_System_Page
         $sha = sha1($sign);
 
         $params["Signature"] = base64_encode(pack("H*", $sha));
-        echo $params["Signature"];
+
         $params["SignatureMethod"] = "SHA1";
         die(View::factory("/wallet/preparejcc", array(
             "jcc_params" => $params
@@ -68,7 +68,7 @@ class Controller_Wallet extends Controller_System_Page
         $sha = sha1($sign);
         $resultSign = base64_encode(pack("H*", $sha));
         if ($resultSign == $returned["jccSignature"]) {
-            $paymentHeader = __("payment.header.success");
+            $paymentHeader = __("payment.header.error");
             $paymentContent = __("payment.content.error");
 
         } else {
