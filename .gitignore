@@ -1,6 +1,13 @@
 /.idea
 /application/cache/
+/application/i18n/
 /application/logs/
 /resources/temp/
 /resources/js/tree.js
 /resources/media/
+/car/data
+/car/node_modules/
+/car/fr/assets/js/vendor/
+/car/fr/assets/css/style.css
+/car/fr/assets/js/main.js
+/car/npm-debug.log
