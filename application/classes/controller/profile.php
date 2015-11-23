@@ -41,6 +41,13 @@ class Controller_Profile extends Controller_System_Page
                 ->and_where('status', 'IN', array(Model_Advert::STATUS_BLOCKED_REPOST, Model_Advert::STATUS_BLOCKED_RULES))
                 ->with_part()
                 ->order_by('finished', 'asc')
+                ->count_all(),
+            'moderated' => ORM::factory('advert')
+                ->where('user_id', '=', $this->ctx->user->id)
+                ->and_where('finished', '>=', DB::expr('NOW()'))
+                ->and_where('status', 'IN', array(Model_Advert::STATUS_MODERATION))
+                ->with_part()
+                ->order_by('finished', 'asc')
                 ->count_all()
         );
     }
@@ -66,6 +73,20 @@ class Controller_Profile extends Controller_System_Page
         $adverts = ORM::factory('advert')
             ->where('user_id', '=', $this->ctx->user->id)
             ->and_where('status', 'IN', array(Model_Advert::STATUS_BLOCKED_REPOST, Model_Advert::STATUS_BLOCKED_RULES))
+            ->with_part()
+            ->order_by('finished', 'asc')
+            ->find_all();
+
+        $this->template->content->adverts = $adverts;
+        $this->template->content->counts = $this->getCountsAdverts();
+    }
+
+    public function action_moderated()
+    {
+        $adverts = ORM::factory('advert')
+            ->where('user_id', '=', $this->ctx->user->id)
+            ->and_where('finished', '>=', DB::expr('NOW()'))
+            ->and_where('status', 'IN', array(Model_Advert::STATUS_MODERATION))
             ->with_part()
             ->order_by('finished', 'asc')
             ->find_all();

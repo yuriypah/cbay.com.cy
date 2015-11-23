@@ -430,14 +430,14 @@ class Controller_Advert extends Controller_System_Page
                 for ($i = 0; $i < count($advert_data['images']); $i++) {
                     $image_name = explode('/', $advert_data['images'][$i]);
                     if ($image_name[count($image_name) - 1] == $advert_data['main_image']) {
-                        $advert->add_images($advert_data['images'][$i], 'image');
+                        $advert->add_images($advert_data['images'][$i], 'image', $advert_data['image_rotation'][$i]);
                         unset($advert_data['images'][$i]);
                         break;
                     }
                 }
             } else {
                 // Добавляем картинку к объявлению
-                $advert->add_images($advert_data['images'][0], 'image');
+                $advert->add_images($advert_data['images'][0], 'image', $advert_data['image_rotation'][0]);
                 // Удаляем её из общего списка картинок, чтобы не дублировалась
                 unset($advert_data['images'][0]);
             }

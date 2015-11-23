@@ -246,6 +246,12 @@ $map = array(
                     'visible' => FALSE
                 ),
                 array(
+                    'label' => __('menu.label.profile.adverts'),
+                    'controller' => 'profile',
+                    'action' => 'moderated',
+                    'visible' => FALSE
+                ),
+                array(
                     'label' => __('menu.label.profile.wallet'),
                     'controller' => 'wallet',
                     'pages' => array(

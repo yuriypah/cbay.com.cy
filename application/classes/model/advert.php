@@ -808,6 +808,10 @@ class Model_Advert extends ORM
 
     public function delete_image($filename)
     {
+
+        if(file_exists("resources/temp/".$filename)) {
+            unlink("resources/temp/".$filename);
+        }
         ORM::factory('advert_image', array('image' => $filename))
             ->delete();
 

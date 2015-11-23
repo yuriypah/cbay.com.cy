@@ -18,6 +18,8 @@
 
 
 
+
+
 </script>
 <?php if ($action == 'place'): ?>
     <?php echo HTML::message(__('place.text.info')); ?>
@@ -53,19 +55,19 @@ else
             if (is_array($value)) {
                 echo "<optgroup label='" . $key . "'>";
                 foreach ($value as $key_item => $value_item) {
-                    echo "<option ".(Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "")." value='" . $key_item . "'>" . $value_item . "</option>";
+                    echo "<option " . (Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "") . " value='" . $key_item . "'>" . $value_item . "</option>";
                 }
                 echo "</optgroup>";
             } else {
-                echo "<option ".(Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "")." value='" . $key . "'>" . $value . "</option>";
+                echo "<option " . (Arr::get($data, 'category_id') == $key_item ? " selected='selected' " : "") . " value='" . $key . "'>" . $value . "</option>";
             }
         }
         echo "</select>";
-       /* echo Form::select('category_id', array_merge(array('-- Выберите категорию --'), $categories), Arr::get($data, 'category_id'), array(
-            'id' => 'category_id',
-            'data-title' => __('advert.tooltip.category'),
-            'OnChange' => 'category_select()',
-        ));*/
+        /* echo Form::select('category_id', array_merge(array('-- Выберите категорию --'), $categories), Arr::get($data, 'category_id'), array(
+             'id' => 'category_id',
+             'data-title' => __('advert.tooltip.category'),
+             'OnChange' => 'category_select()',
+         ));*/
         ?>
 
         <?php echo Form::error('errors.category_id', $messages_array); ?>
@@ -156,11 +158,16 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
 
     <div class="controls">
         <div class="alert alert-info"><?php echo __('advert.tooltip.images'); ?></div>
-        <?php
-        echo Form::file('file', array(
-            'id' => 'upload', 'multiple' => 'multiple'
-        ));
+        <label class="uploadbutton">
+            <div class="button"><?php echo __('place.button.uploadimages'); ?></div>
+            <?php
+            echo Form::file('file', array(
+                'id' => 'upload', 'multiple' => 'multiple'
+            ));
+            ?>
+        </label>
 
+        <?php
         echo HTML::image($resources_path . 'images/preloader.gif', array(
             'id' => 'upload_preloader', 'class' => 'hide'
         ));
@@ -173,12 +180,13 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
                     $main_image = null;
                     if (isset($data['main_image']))
                         $main_image = $data['main_image'];
-                    foreach ($data['images'] as $image) {
+                    foreach ($data['images'] as $k => $image) {
                         if ($image === NULL) continue;
                         echo View::factory('advert/blocks/thumb', array(
-                            'thumb' => $image,
+                            'thumb' => $data['images'][$k],
                             'actions' => true,
-                            'main_image' => $main_image
+                            'main_image' => $main_image,
+                            'rotate' => $data['image_rotation'][$k]
                         ));
                     }
                     ?>

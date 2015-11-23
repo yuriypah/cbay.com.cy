@@ -12,6 +12,10 @@
             <li class="<?php echo  $current == 'blocked' ? 'current' : '' ?>">
                 <?php echo HTML::anchor('profile/blocked',($current == 'blocked' ? "<i class='icon icon-ok'></i> " : "") . __('profile_page.label.blocked'). ($counts['blocked'] > 0 ? " (" . $counts['blocked'] . ")" : '')); ?>
             </li>
+            <li class="separator"></li>
+            <li class="<?php echo  $current == 'moderated' ? 'current' : '' ?>">
+                <?php echo HTML::anchor('profile/moderated',($current == 'moderated' ? "<i class='icon icon-ok'></i> " : "") . __('profile_page.label.moderate'). ($counts['moderated'] > 0 ? " (" . $counts['moderated'] . ")" : '')); ?>
+            </li>
         </ul>
         <div class="clear"></div>
     </div>

@@ -334,7 +334,7 @@ class ORM extends Kohana_ORM
         return $this;
     }
 
-    public function add_images($file, $field = NULL, $params = NULL)
+    public function add_images($file, $field = NULL, $image_rotation = NULL, $params = NULL)
     {
         if ($field !== NULL AND !$this->loaded()) {
             //throw new Kohana_Exception( 'Model must be loaded' );
@@ -392,19 +392,18 @@ class ORM extends Kohana_ORM
 
             if ($field !== NULL) {
                 $this->{$field} = $filename;
+                $this->{'image_rotation'} = $image_rotation;
                 $this->update();
             }
-
             unlink($tmp_file);
         } else {
             $filename = pathinfo($file, PATHINFO_BASENAME);
-
             if ($field !== NULL) {
                 $this->{$field} = $filename;
+                $this->{'image_rotation'} = $image_rotation;
                 $this->update();
             }
         }
-
         return $filename;
     }
 
@@ -437,7 +436,7 @@ class ORM extends Kohana_ORM
             ->on('map.id', '=', $field);
 
 
-        if ($city_id) {
+            if ($city_id) {
             return $object
                 ->where($field, '=', $city_id);
         }

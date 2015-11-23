@@ -1,6 +1,8 @@
+var rotateInc = {};
 Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
     $("#upload").html5_upload({
         url: '/ajax-file-upload',
+        fieldName: '.input',
         sendBoundary: true,
         onStart: function () {
             return true;
@@ -16,7 +18,7 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             $('#thumbnail').tmpl(json).appendTo('.thumbnails ul');
         },
         onFinish: function (event, response, name, number, total) {
-            $('#upload').show();
+            //$('#upload').show();
             $('#upload_preloader').hide();
             $('.form-actions button').removeAttr('disabled');
 
@@ -31,6 +33,26 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
                 $(".image-selector").trigger('click');
             }
         }
+    });
+
+    $(".rotate").click(function (e) {
+        var img = $(this).parent().find('img');
+        e.preventDefault();
+        if (rotateInc[img.attr('src')] < 3) {
+            rotateInc[img.attr('src')]++;
+            img.removeClass('rotate_' + (rotateInc[img.attr('src')] - 1)).addClass('rotate_' + rotateInc[img.attr('src')]);
+        } else {
+            rotateInc[img.attr('src')] = 0;
+            img.removeClass('rotate_3');
+        }
+        $.ajax({
+            url: '/ajax-file-rotate',
+            type: 'post',
+            data: {
+                image: img.attr('src'),
+                rotate : rotateInc[img.attr('src')]
+            }
+        })
     });
 
     $('.thumbnails .delete').live('click', function () {
