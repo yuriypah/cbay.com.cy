@@ -6,20 +6,6 @@
     )); ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <?php if ($action == 'place'): ?>
     <?php echo HTML::message(__('place.text.info')); ?>
@@ -188,6 +174,12 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
                             'main_image' => $main_image,
                             'rotate' => $data['image_rotation'][$k]
                         ));
+
+                        ?>
+                        <script>
+                            rotateInc["<?=$data['images'][$k]?>"] = parseInt("<?=$data['image_rotation'][$k]?>", 10) || 0;
+                        </script>
+                    <?
                     }
                     ?>
                 <?php endif; ?>

@@ -4,13 +4,8 @@ if (isset($main_image)) {
     $image = $image_path[(count($image_path) - 1)];
 
 }
-if(!file_exists($thumb)) {
-    return;
-}
 ?>
-<script>
-    rotateInc["/<?php echo($thumb); ?>"] = parseInt("<?php echo $rotate[$image]?>", 10) || 0;
-</script>
+
 <li class="span2">
     <? if ($actions) : ?>
     <? if (isset($main_image)) : ?>
@@ -29,7 +24,7 @@ if(!file_exists($thumb)) {
                         <?php
                             echo HTML::image($thumb, array(
                                 'data-path' => !isset($data_path) ? Encrypt::instance()->encode($thumb) : $data_path,
-                                'class' => $rotate[$image] != "" ? "rotate_" . $rotate[$image] : ""
+                                'class' => $rotate != "" ? "rotate_" . $rotate : ""
                             ));
 
                         ?>

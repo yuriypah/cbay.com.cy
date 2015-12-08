@@ -73,7 +73,7 @@ if ($option->pk() > 0) {
     </div>
 </div>
 <div class="form-actions">
-    <?php echo Form::button('submit', 'Сохранить', array('icon' => HTML::icon('ok', TRUE))); ?>
+    <?php echo Form::button('submit', 'Сохранить', array('class' => 'btn-success btn', 'icon' => HTML::icon('ok', TRUE))); ?>
 </div>
 
 <?php echo Form::close(); ?>

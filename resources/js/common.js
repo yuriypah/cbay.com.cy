@@ -15,6 +15,7 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
         onFinishOne: function (event, response, name, number, total) {
             $.event.trigger("ajaxComplete", [{responseText: response}]);
             var json = $.parseJSON(response);
+            rotateInc["/" + json.file] = 0;
             $('#thumbnail').tmpl(json).appendTo('.thumbnails ul');
         },
         onFinish: function (event, response, name, number, total) {
@@ -34,13 +35,13 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             }
         }
     });
-
-    $(".rotate").click(function (e) {
+    $(".rotate").live('click',function (e) {
         var img = $(this).parent().find('img');
         e.preventDefault();
         if (rotateInc[img.attr('src')] < 3) {
             rotateInc[img.attr('src')]++;
-            img.removeClass('rotate_' + (rotateInc[img.attr('src')] - 1)).addClass('rotate_' + rotateInc[img.attr('src')]);
+            img.removeClass('rotate_' + (rotateInc[img.attr('src')] - 1));
+            img.addClass('rotate_' + rotateInc[img.attr('src')]);
         } else {
             rotateInc[img.attr('src')] = 0;
             img.removeClass('rotate_3');
@@ -54,7 +55,6 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             }
         })
     });
-
     $('.thumbnails .delete').live('click', function () {
         var thumb = $(this).parent();
         var file = thumb.find('img').data('path');

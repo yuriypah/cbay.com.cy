@@ -36,6 +36,7 @@ class Controller_Ajax_File extends Controller_Ajax_JSON
     {
         $data = $this->request->post();
         $advert_data = Session::instance()->get('advert_place_data', array());
+
         foreach ($advert_data['images'] as $key => $image) {
             if ($data['image'] == "/".$advert_data['images'][$key]) {
                 $advert_data['image_rotation'][$key] = $data['rotate'];
@@ -77,6 +78,7 @@ class Controller_Ajax_File extends Controller_Ajax_JSON
                 if (isset($advert_data['images'])) {
                     foreach ($advert_data['images'] as $id => $image) {
                         if ($image == trim($file, DIRECTORY_SEPARATOR)) {
+                            unset($advert_data['image_rotation'][$id]);
                             unset($advert_data['images'][$id]);
                             $this->json['status'] = TRUE;
                             $this->json['message'] = __('File :path deleted', array(':path' => $file));
@@ -93,6 +95,7 @@ class Controller_Ajax_File extends Controller_Ajax_JSON
                 foreach ($advert_data['images'] as $id => $image) {
                     if ($image == trim($file, DIRECTORY_SEPARATOR)) {
                         unset($advert_data['images'][$id]);
+                        unset($advert_data['image_rotation'][$id]);
                         $this->json['status'] = TRUE;
                         $this->json['message'] = __('File :path deleted', array(':path' => $file));
                     }
