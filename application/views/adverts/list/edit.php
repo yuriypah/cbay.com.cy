@@ -91,7 +91,7 @@
                         echo "<span class='progress_bar' style='color:gray'>" . HTML::declination($count_days, array(
                                 __('package.title.time_left.one', array(':days' => $count_days)),
                                 __('package.title.time_left.few', array(':days' => $count_days)),
-                                __('package.title.time_left.many', array(':days' => $count_days)))) . "<span style='width:" . $progressState . "px' class='progress_holder'></span></span>
+                                __('package.title.time_left.many', array(':days' => $count_days)))) . "<span style='width:" . ($progressState > 155 ? 155 : $progressState) . "px' class='progress_holder'></span></span>
                                                      &nbsp;&nbsp;<a href='/packages'>" . __('advert_page.label.sell_faster') . "</a>";
                     } else {
                         $count_hours = (int)(((strtotime($advert->finished)) - time()) / Date::HOUR);

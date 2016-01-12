@@ -29,7 +29,7 @@ if (count($adverts) >= 0): ?>
             }
             ?>
             <a class="">
-                По цене:
+                <?php echo __('advert.index.by_price'); ?>
                 <button data-type='price'
                         class='btn btn-small asc <?= Input::get('s') == 'price' && Input::get('o') == 'asc' ? 'active' : '' ?>'><?php echo __('advert.filter.pricedown') ?>
                     <i class="icon-arrow-down icon">&nbsp;</i></button>
@@ -38,7 +38,7 @@ if (count($adverts) >= 0): ?>
                     <i class="icon-arrow-up icon">&nbsp;</i></button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
             <a class="">
-                По дате:
+                <?php echo __('advert.index.by_date'); ?>
                 <button data-type='date'
                         class='btn btn-small desc <?= Input::get('s') == 'date' && Input::get('o') == 'desc' ? 'active' : '' ?>'><?php echo __('advert.filter.datedown') ?>
                     <i class="icon-arrow-down icon">&nbsp;</i></button>
