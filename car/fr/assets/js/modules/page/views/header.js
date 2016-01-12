@@ -8,9 +8,9 @@ define([
     'jquery',
     'bootstrapDatepicker',
     'text!modules/page/templates/header.html',
-    'text!modules/user/templates/login.html',
-    'text!modules/user/templates/register.html'
-], function (app, backbone, marionette, $, bootstrapDatepicker, tpl, loginTemplate, registerTemplate) {
+    'modules/user/views/login',
+    'modules/user/views/register'
+], function (app, backbone, marionette, $, bootstrapDatepicker, tpl, loginView, registerView) {
     "use strict";
 
     return marionette.ItemView.extend({
@@ -22,18 +22,38 @@ define([
             'advanced_search_block': '.advanced_search',
             'advanced_search_holder': '.advanced-link',
             'loginHolder': '.login',
+            'logoutHolder': '.logout',
             'registerHolder': '.register'
         },
         events: {
             'click @ui.advanced_search_holder': 'showAdvanced',
             'click @ui.loginHolder': 'login',
+            'click @ui.logoutHolder': 'logout',
             'click @ui.registerHolder': 'register'
         },
         register: function () {
-            app.vent.trigger("Popup", true, marionette.Renderer.render(registerTemplate, {}));
+            app.vent.trigger("Popup", true, registerView, 'view');
         },
         login: function () {
-            app.vent.trigger("Popup", true, marionette.Renderer.render(loginTemplate, {}));
+            app.vent.trigger("Popup", true, loginView, 'view');
+
+        },
+        logout: function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/auth',
+                type : 'post',
+                beforeSend: function () {
+                    app.vent.trigger('Loading', true);
+                },
+                data: {'action': 'logout'}
+            }).done(function () {
+                app.vent.trigger('Loading', false);
+                app.isAuth = 0;
+                app.vent.trigger('Page:renderHeader');
+            });
+
+
         },
         showAdvanced: function (e) {
             e.preventDefault();

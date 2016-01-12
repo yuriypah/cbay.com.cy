@@ -1,6 +1,6 @@
 <div>
 <div class="pull-left">
-    <div class="links">
+    <div class="links" style="margin-left:0 !important">
         <a href="/advert/place"><?php echo __('menu.label.advert_place'); ?></a>
         <a href="/adverts"><?php echo __('menu.label.adverts_footer'); ?></a>
         <a href="/categories"><?php echo __('menu.label.categories'); ?></a>

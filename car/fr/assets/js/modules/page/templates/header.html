@@ -16,7 +16,11 @@
                     </li>
                     <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
                     <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <% if(app.isAuth == 0) { %>
                     <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <% } else { %>
+                    <li class="pull-right"><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <% } %>
                     <li class="pull-right"><a class="register" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Register</a>
                     </li>
                     <li class="pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button"

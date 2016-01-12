@@ -3720,7 +3720,7 @@ body {
 }
 
 #adverts-list.type-edit .item.finished {
-    background-color: #ffe4e4;
+    //background-color: #ffe4e4;
 }
 
 #adverts-list.type-edit .item.deactivated {
@@ -5373,10 +5373,13 @@ input[type=radio] {
 .stat_messages {
 
 }
-
+#search-panel .slider_range {
+   top:-5px;
+}
 .slider_range {
     border-radius: 0 !important;
     border-top: 0px !important;
+
 }
 
 #vip-conteiner {
@@ -5494,4 +5497,22 @@ input[type=radio] {
     -webkit-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+.progress_bar {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position:relative;
+    width: 135px;
+}
+.progress_holder {
+    position: absolute;
+    display: inline-block;
+    background: rgba(0,255,0,0.5);
+    width: 0%;
+    height: 19px;
+    left: 0px;
+
 }

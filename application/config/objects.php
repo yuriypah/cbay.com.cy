@@ -23,6 +23,13 @@ return array(
 				)
 			),
 		),
+        'about' => array(
+            '*' => array(
+                'left_menu_top' => array(
+                    'name' => 'About_Menu'
+                )
+            ),
+        ),
 		'help' => array(
 			'*' => array(
 				'left_menu_top' => array(

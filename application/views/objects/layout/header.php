@@ -1,7 +1,7 @@
 <? if ($data['indexpage']) : ?>
-    <a href="/"><img src="/<?php echo $resources_path; ?>images/logo3.png" id="logo"/></a>
+    <a href="/"><img src="/<?php echo $resources_path; ?>images/logo4.png" id="logo"/></a>
 <? else: ?>
-    <a href="/"><img src="/<?php echo $resources_path; ?>images/logo3.png" id="logo"/></a>
+    <a href="/"><img src="/<?php echo $resources_path; ?>images/logo4.png" id="logo"/></a>
 <? endif; ?>
     <div id="logo_text"><?php echo __('layout.text.logo_text'); ?></div>
     <style>

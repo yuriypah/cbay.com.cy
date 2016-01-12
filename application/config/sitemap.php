@@ -16,7 +16,28 @@ $map = array(
         array(
             'label' => __('menu.label.about'),
             'controller' => 'about',
-            'visible' => FALSE
+            'visible' => FALSE,
+            'pages' => array(
+                array(
+                    'controller' => 'about',
+                    'action' => 'refund'
+                ),
+                array(
+                    'controller' => 'about',
+                    'action' => 'terms',
+                    'visible' => FALSE
+                ),
+                array(
+                    'controller' => 'about',
+                    'action' => 'privacy',
+                    'visible' => FALSE
+                ),
+                array(
+                    'controller' => 'about',
+                    'action' => 'contacts',
+                    'visible' => FALSE
+                )
+            )
         ),
         array(
             'label' => __('menu.label.advert_place'),
@@ -481,6 +502,13 @@ $map = array(
                             'route' => 'backend',
                             'controller' => 'users',
                             'action' => 'companies',
+                            'visible' => FALSE
+                        ),
+                        array(
+                            'label' => '',
+                            'route' => 'backend',
+                            'controller' => 'users',
+                            'action' => 'blocked',
                             'visible' => FALSE
                         )
                     )

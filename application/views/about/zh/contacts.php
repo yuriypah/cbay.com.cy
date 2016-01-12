@@ -1,0 +1,2 @@
+<?= __('about.contacts') ?>
+

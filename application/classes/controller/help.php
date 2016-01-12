@@ -13,7 +13,6 @@ class Controller_Help extends Controller_System_Page
 	    $local = I18n::lang();
 		$this->left_sidebar = TRUE;
 	    $art = $this->request->param('article');
-        $this->template->content = "hello";
         if($art == true){
     	    $this->template->content = View::factory('help/'.$local.'/'.$art);
         }

@@ -15,7 +15,8 @@ define([
         regions: {
             'header': '#header',
             'content': '#content',
-            'footer': '#footer'
+            'footer': '#footer',
+            'popup': '#popup'
         },
         onRender: function () {
             app.vent.trigger('layoutRendered');

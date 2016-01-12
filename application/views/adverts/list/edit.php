@@ -86,11 +86,12 @@
                     <b><?php echo __('package.option.title.finished'); ?>:</b>
                     <?php
                     $count_days = (int)((strtotime($advert->finished) - time()) / Date::DAY);
+                    $progressState = (( 155 / 31) * $count_days);
                     if ($count_days > 1) {
-                        echo "<span style='color:green'>" . HTML::declination($count_days, array(
+                        echo "<span class='progress_bar' style='color:gray'>" . HTML::declination($count_days, array(
                                 __('package.title.time_left.one', array(':days' => $count_days)),
                                 __('package.title.time_left.few', array(':days' => $count_days)),
-                                __('package.title.time_left.many', array(':days' => $count_days)))) . "</span>
+                                __('package.title.time_left.many', array(':days' => $count_days)))) . "<span style='width:" . $progressState . "px' class='progress_holder'></span></span>
                                                      &nbsp;&nbsp;<a href='/packages'>" . __('advert_page.label.sell_faster') . "</a>";
                     } else {
                         $count_hours = (int)(((strtotime($advert->finished)) - time()) / Date::HOUR);

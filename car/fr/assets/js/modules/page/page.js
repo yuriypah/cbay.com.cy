@@ -15,6 +15,11 @@ define([
     "use strict";
     app.module("page", function (page) {
         page.layout = new layout();
+        app.vent.on({
+            "Page:renderHeader": function () {
+                page.layout.getRegion('header').show(new header()); // show header
+            }
+        });
         page.layout.on("render", function () {
             this.router = backbone.Router.extend({
                 name: 'page',

@@ -62,8 +62,7 @@ text-align: center;
             <div class="price"><?php echo $advert->amount(); ?></div>
             <?php
             $category_string = $advert->category(FALSE);
-            if ($advert->category_id == 12 || $advert->category_id == 9) {
-
+            if ($advert->category_id == 9) {
                 $arr = array_merge(
                     Model_Advert_Option::get_options_for_view($advert->id),
                     Model_Advert_Option_String::get_strings($advert->id));
@@ -82,19 +81,22 @@ text-align: center;
                     $category_string .= ')';
 
                 }
-
             }
+            $am = $arr[1]['value']." ".$arr[2]['value'].", ".$arr[0]['value'].", ".$arr[4]['label'].":".$arr[4]['value'].", ".$arr[7]['label'].":".$arr[7]['value'].", ".$arr[6]['label'].":".$arr[6]['value'].", ".$arr[8]['label'].":".$arr[8]['value'];
             ?>
             <?php
-                if (mb_strlen($category_string) > 90) {
+            echo "<div class='category'>";
+            echo $am;
+            echo "</div>";
+               /* if (mb_strlen($category_string) > 90) {
                     echo "<div class='category' data-tooltip='".$category_string."'>";
-                    echo "<span style='border-bottom:1px dashed gray'>" . mb_substr($category_string, 0, 90) . "...</span>";
+                    echo "<span style=''>" . $am  . "...</span>";
                     echo "</div>";
                 } else {
                     echo "<div class='category'>";
-                    echo $category_string;
+                    echo $am;
                     echo "</div>";
-                }
+                }*/
                 ?>
 
             <div class="city">

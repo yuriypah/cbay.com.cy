@@ -1,3 +1,5 @@
+<a class="btn btn-default" href="/backend/users">Все</a>
+<a class="btn btn-danger" href="/backend/users/blocked">Заблокированные</a>
 <table class="table table-striped">
 	<colgroup>
 		<col />
