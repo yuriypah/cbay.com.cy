@@ -89,7 +89,7 @@ text-align: center;
             if ($advert->category_id == 9) {
                 echo $am;
             } else {
-                echo ' ';
+                ?><span>&nbsp;&nbsp;&nbsp;</span><?
             }
 
             echo "</div>";
