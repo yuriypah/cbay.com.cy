@@ -81,13 +81,13 @@ text-align: center;
                     $category_string .= ')';
 
                 }
+
+                $am = $arr[1]['value'] . " " . $arr[2]['value'] . ", " . $arr[0]['value'] . ", " . $arr[4]['label'] . ":" . $arr[4]['value'] . ", " . $arr[7]['label'] . ":" . $arr[7]['value'] . ", " . $arr[6]['label'] . ":" . $arr[6]['value'] . ", " . $arr[8]['label'] . ":" . $arr[8]['value'];
+
+                echo "<div class='category'>";
+                echo $am;
+                echo "</div>";
             }
-            $am = $arr[1]['value']." ".$arr[2]['value'].", ".$arr[0]['value'].", ".$arr[4]['label'].":".$arr[4]['value'].", ".$arr[7]['label'].":".$arr[7]['value'].", ".$arr[6]['label'].":".$arr[6]['value'].", ".$arr[8]['label'].":".$arr[8]['value'];
-            ?>
-            <?php
-            echo "<div class='category'>";
-            echo $am;
-            echo "</div>";
                /* if (mb_strlen($category_string) > 90) {
                     echo "<div class='category' data-tooltip='".$category_string."'>";
                     echo "<span style=''>" . $am  . "...</span>";
