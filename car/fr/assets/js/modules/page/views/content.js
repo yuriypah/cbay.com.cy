@@ -11,7 +11,13 @@ define([
     "use strict";
 
     return marionette.ItemView.extend({
-        template: tpl
+        template: tpl,
+        templateHelpers: function () {
+            var self = this;
+            return {
+                objects: self.options.data
+            };
+        }
     });
 
 });

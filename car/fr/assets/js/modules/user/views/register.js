@@ -11,6 +11,7 @@ define([
         template: template,
         ui: {
             'errorContainer': '.error',
+            'name': '.name',
             'email': '.email',
             'phone': '.phone',
             'pwd': '.pwd',
@@ -23,6 +24,10 @@ define([
         },
         valid: function () {
             // previously preparation
+            if (this.ui.name.val() == '') {
+                this.ui.errorContainer.html("<div class='alert alert-danger'>" + app._('user.login.emptyName') + "</div>");
+                return false;
+            }
             if (this.ui.email.val() == '') {
                 this.ui.errorContainer.html("<div class='alert alert-danger'>" + app._('user.login.emptyEmail') + "</div>");
                 return false;
@@ -42,6 +47,7 @@ define([
             if (this.valid()) {
                 var user = new userModel();
                 user.save({
+                    name: this.ui.name.val(),
                     email: this.ui.email.val(),
                     pwd: this.ui.pwd.val(),
                     cpwd: this.ui.cpwd.val(),
@@ -73,7 +79,16 @@ define([
                                     break;
                             }
                         } else {
-                            app.vent.trigger("Popup", false, {}); // close reg window
+                            app.User.login({
+                                email: self.ui.email.val(),
+                                pwd: self.ui.pwd.val()
+                            }, function (err) {
+                                if (err) {
+                                    self.ui.errorContainer(err);
+                                } else {
+                                    app.vent.trigger("Popup", false, {}); // close reg window
+                                }
+                            });
                         }
                     },
                     error: function (model, error) {
@@ -82,8 +97,6 @@ define([
                     }
                 });
             }
-
-
         }
     });
 });

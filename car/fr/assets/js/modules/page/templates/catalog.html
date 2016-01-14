@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li class="active"><a href="#catalog/12">Cars | Skoda RAPID, 1.6MPI</a></li>
+                    <li class="active"><a href="#/catalog/<%=car.id%>"><%=car.name%></a></li>
                 </ol>
             </div>
         </div>
@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row-fluid">
             <div class="col-md-24">
-                <H1>Skoda RAPID, 1.6MPI</H1>
+                <H1><%=car.name%></H1>
             </div>
         </div>
     </div>
@@ -20,10 +20,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="fotorama" data-nav="thumbs">
-                    <img src="/assets/img/test_cars/sr.jpg"/>
-                    <img src="/assets/img/test_cars/sr_2.jpg"/>
-                    <img src="/assets/img/test_cars/sr_3.jpg"/>
-                    <img src="/assets/img/test_cars/sr.jpg"/>
+                    <% for(var i = 0; i < car.images.length; i++) { %>
+                    <img src="<%=car.images[i].src%>"/>
+                    <% } %>
                 </div>
             </div>
             <div class="col-md-4">
@@ -69,21 +68,21 @@
                 <table class="table table-stripped">
                     <tr>
                         <td>Start:</td>
-                        <td>Paphos, 24.04.16 10:30</td>
+                        <td>Paphos, <%=startDate%></td>
                     </tr>
                     <tr>
                         <td>End:</td>
-                        <td>Paphos, 25.04.16 20:30</td>
+                        <td>Paphos, <%=endDate%></td>
                     </tr>
                     <tr>
                         <td>Days:</td>
-                        <td>2</td>
+                        <td><%=days()%></td>
                     </tr>
                     <tr>
                         <td><h4>Price:</h4></td>
                         <td>
                             <div class="confirmation_price text-right nobile"><span
-                                    class="glyphicon glyphicon-euro"></span> 1099
+                                    class="glyphicon glyphicon-euro"></span> <%=price()%>
                             </div>
                         </td>
                     </tr>
@@ -104,11 +103,13 @@
                         <td>
 
                             <div class="pull-right">
-                                <button type="button" class="btn btn-success"><span>Book this car</span> <span
+                                <a href="#catalog/<%=car.id%>/confirmation"><button type="button" class="btn btn-success continue_book"><span>Book this car</span> <span
                                         class="glyphicon glyphicon-menu-right"></span>
-                                </button>
+                                </button></a>
 
                             </div>
+                            <div class="clearfix"></div><Br/>
+                            <div class="error"></div>
                         </td>
                     </tr>
                 </table>

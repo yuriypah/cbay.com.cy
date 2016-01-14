@@ -1,0 +1,52 @@
+<script type="text/html">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="#orders">My orders</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-md-24">
+                <div class="panel panel-success">
+                    <div class="panel-heading">My orders</div>
+                    <div class="panel-body">
+                        <% if(orders.length > 0) { %>
+                        <table class="table orders">
+                            <% _.each(orders,function(order) { %>
+                            <tr>
+                                <td width="230">
+                                    <a href="#catalog/<%=_.findWhere(cars,{id:+order.car_id}).id%>" class="thumbnail text-center">
+                                        <img  src="<%=_.findWhere(cars,{id:+order.car_id}).image%>"/>
+                                        <%=_.findWhere(cars,{id:+order.car_id}).name%>
+                                    </a>
+                                </td>
+                                <td>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Start: <%=getDate(order.start_date)%></li>
+                                        <li class="list-group-item">End: <%=getDate(order.end_date)%></li>
+                                        <li class="list-group-item"><strong>Created: <%=getDate(order.date/1000)%></strong></li>
+                                        <li class="list-group-item"><strong>Total price:    € <%=order.price%></strong></li>
+                                        </ul>
+                                </td>
+                                <td width="100" style="vertical-align: middle">
+                                    <button data-id="<%=order._id%>" class="removeOrder btn btn-sm btn-danger pull-right">Cancel order</button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </table>
+                        <% } else { %>
+                            <h6>Orders not found</h6>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>

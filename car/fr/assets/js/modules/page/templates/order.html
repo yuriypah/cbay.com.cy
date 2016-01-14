@@ -1,0 +1,137 @@
+<script type="text/html">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="#/catalog/<%=app.order.car.id%>"><%=app.order.car.name%></a></li>
+                    <li class="active"><a href="#/catalog/<%=app.order.car.id%>/confirmation"><%=app._('order.confirmation.header')%></a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <h1><%=app.order.car.name%> | <%=app._('order.confirmation.header')%></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-md-24">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Order details</div>
+                    <div class="panel-body">
+                        <table class="table ">
+                            <tr>
+                                <td rowspan="10" width="200">
+                                    <a href="#" class="thumbnail">
+                                        <img width="200" src="<%=app.order.car.image%>"/>
+                                    </a><br/>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Renter name:</strong></td>
+                                <td><%=app.user.name%></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Car:</strong></td>
+                                <td><%=app.order.car.name%></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Start:</strong></td>
+                                <td><%=dates.startDate%></td>
+                            </tr>
+                            <tr>
+                                <td><strong>End:</strong></td>
+                                <td><%=dates.endDate%></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Count of days:</strong></td>
+                                <td><%=app.order.days%></td>
+                            </tr>
+                            <tr>
+                                <td><strong>General information:</strong></td>
+                                <td>
+                                    <p>
+                                        Receipt and return of the rented vehicle at the address: Paphos, Cyprus.<BR/>
+                                        To rent a car you must have a passport of international standard, as well as a driver's license<Br/>
+                                        In case of payment by credit card on your account will be frozen deposit. At the end of the rental car funds will be unfrozen
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h3>Total:</h3>
+                                    <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                        There is also a deposit payment: €990
+                                    </i></td>
+                                <td>
+                                    <% if(app.order.price > 0) { %>
+                                    <h3 class="pull-right order-totalPrice nobile"><span style='font-size:16px'
+                                                                                         class="currency-icons glyphicon glyphicon-euro"></span>
+                                        <%=app.order.price %></h3>
+                                    <% } else { %>
+                                    <h3 class="pull-right order-totalPrice ">
+                                        <span style="color:red">Invalid dates</span>
+                                    </h3>
+                                    <% } %>
+
+                                </td>
+                            </tr>
+                            <Tr>
+                                <Td class="payment_variants" colspan="2">
+                                    <h4>Select a Payment Method:</h4>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="#" class="thumbnail active choose_pay">
+                                                <img src="/assets/img/jcc_logo_small.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="thumbnail choose_pay">
+                                                <img class="paypal" src="/assets/img/paypal_logo2.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="thumbnail cache choose_pay">
+                                                <h4><p>I will pay in the office when I get behind the car</p></h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-warning">Sorry! Credit cards temporarily
+                                                unavailable. Yoy can checkout this order without pay
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Td>
+                            </Tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button disabled="disabled" class="btn btn-success pull-right checkout">
+                                                Checkout
+                                                <span class="glyphicon glyphicon-menu-right"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</script>

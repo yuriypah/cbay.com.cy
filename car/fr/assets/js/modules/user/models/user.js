@@ -9,6 +9,7 @@ define([
     return backbone.Model.extend({
         url: '/user',
         defaults: {
+            name : '',
             email: '',
             pwd: '',
             phone: '',

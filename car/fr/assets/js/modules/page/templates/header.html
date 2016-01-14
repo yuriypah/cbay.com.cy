@@ -5,23 +5,36 @@
             <div class="col-md-5">
                 <div class="logo">
                     <a href="/">
-                        <img src="/assets/img/logo3.png"/>
+                        <img src="/assets/img/logo.png" style="width: 280px;margin-bottom:5px;margin-top: 5px"/>
                     </a>
                 </div>
             </div>
             <div class="col-md-7">
                 <span class="currency-help hidden-xs hidden-sm">Currency:</span>
-                <ul class="nav nav-tabs header-main-nav">
-                    <li class="active"><a href="#"><span class="currency-icons glyphicon glyphicon-euro"></span></a>
+                <ul class="nav nav-tabs header-main-nav currency-ul">
+                    <li class="active"><a data-currency="eur" class="currency_link eur" href="#"><span class="currency-icons glyphicon glyphicon-euro"></span></a>
                     </li>
-                    <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
-                    <li class=""><a href="#"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <li class=""><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
+                    <li class=""><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
                     <% if(app.isAuth == 0) { %>
-                    <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <% } else { %>
-                    <li class="pull-right"><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span>
+                        Login</a></li>
+                    <li class="pull-right"><a class="register" href="#"><span
+                            class="glyphicon glyphicon-plus-sign"></span> Register</a>
+                        <% } else { %>
+                    <li class="pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                              aria-haspopup="true" aria-expanded="false" href="#"><span
+                            class="glyphicon glyphicon-globe"></span> <%=app.user.name%> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="" href="#orders"><span class="glyphicon glyphicon-align-justify"></span> My orders</a>
+                            <li><a class="logout" href="#"><span class="glyphicon glyphicon-cog"></span> Change profile</a>
+                            <li><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <% } %>
-                    <li class="pull-right"><a class="register" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Register</a>
+
                     </li>
                     <li class="pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
                                               aria-haspopup="true" aria-expanded="false" href="#"><span
@@ -47,7 +60,7 @@
 
                         <div class="form-group">
                             <div class='input-group'>
-                                <input type='text' class="form-control"
+                                <input title="Now avialable is only Paphos" value="Paphos" disabled="disabled" type='text' class="form-control"
                                        placeholder="City, Post Code, Airport Code, Hotel, etc"/>
    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-globe"></span>
@@ -57,8 +70,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class='input-group date calendar'>
-                                        <input type='text' class="form-control"/>
+                                    <div class='input-group date start_calendar'>
+                                        <input  type='text' class="form-control"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -67,8 +80,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class='input-group date timer'>
-                                        <input type='text' class="form-control"/>
+                                    <div class='input-group date start_timer'>
+                                        <input type='text' class="form-control" value="12:00"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
@@ -86,7 +99,7 @@
 
                         <div class="form-group">
                             <div class='input-group'>
-                                <input type='text' class="form-control"
+                                <input title="Now avialable is only Paphos" value="Paphos" disabled="disabled" type='text' class="form-control"
                                        placeholder="City, Post Code, Airport Code, Hotel, etc"/>
    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-globe"></span>
@@ -96,8 +109,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class='input-group date calendar'>
-                                        <input type='text' class="form-control"/>
+                                    <div class='input-group date end_calendar'>
+                                        <input type='text' class="form-control" value=""/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -106,8 +119,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class='input-group date timer'>
-                                        <input type='text' class="form-control"/>
+                                    <div class='input-group date end_timer'>
+                                        <input type='text' class="form-control" value="12:00"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
@@ -134,16 +147,19 @@
                 <div class="advanced_search">
                     <div class="row">
                         <div class="col-md-4">
-                            <input id="at" type="checkbox" checked="checked"/> <label for="at">Automatic transmission</label><Br/>
+                            <input id="at" type="checkbox" checked="checked"/> <label for="at">Automatic
+                            transmission</label><Br/>
                             <input id="bc" type="checkbox"/> <label for="bc">Baby chair</label><Br/>
-                            <input id="cc" type="checkbox" checked="checked"/> <label for="cc">Climat control</label><Br/>
+                            <input id="cc" type="checkbox" checked="checked"/> <label for="cc">Climat
+                            control</label><Br/>
                         </div>
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-6">
                                     <strong>Price (per day):</strong><Br/>
                                     From:
-                                    <div class="input-group"><input value="150" class="form-control" name="from" type="number"/>
+                                    <div class="input-group"><input value="150" class="form-control" name="from"
+                                                                    type="number"/>
                                     <span class="input-group-addon">
                         <span class="currency-icons glyphicon glyphicon-euro"></span>
                     </span>
@@ -151,7 +167,8 @@
                                 </div>
                                 <div class="col-md-6"><BR/>
                                     To:
-                                    <div class="input-group"><input value="450" class="form-control" name="to" type="number"/>
+                                    <div class="input-group"><input value="450" class="form-control" name="to"
+                                                                    type="number"/>
                                     <span class="input-group-addon">
                         <span class="currency-icons glyphicon glyphicon-euro"></span>
                     </span>
@@ -162,6 +179,7 @@
                         </div>
                         <div class="col-md-2"><Br/>
                             Passengers:<br/>
+
                             <div class="input-group"><input value="2" class="form-control" name="to" type="number"/>
                                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-user"></span>

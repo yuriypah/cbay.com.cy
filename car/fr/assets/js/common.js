@@ -53,7 +53,8 @@ require.config({
         'fotorama': ['vendor/fotorama/fotorama'],
         'text': ['vendor/requirejs-text/text'],
         'app': 'application',
-        'page': 'modules/page/page'
+        'page': 'modules/page/page',
+        'user' : 'modules/user/userModule'
 
     },
     deps: ['jquery', 'underscore']

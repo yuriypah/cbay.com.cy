@@ -1,23 +1,15 @@
 (function () {
     "use strict";
-    var express = require('express'),
-        path = require('path'),
-        mongoose = require('mongoose'),
-        md5 = require('md5'),
-        validator = require('validator'),
-        cookie = require('cookie');
-
-    mongoose.connect('mongodb://localhost/library_database');
-
-    var userModule = function (app) {
+    var userModule = function () {
         var Users = new mongoose.Schema({
+            name: String,
             email: String,
             pwd: String,
             phone: String,
             createdDate: String,
             lastDate: String
         });
-        var UsersSchema = mongoose.model('Users', Users);
+        global.UsersSchema = mongoose.model('Users', Users);
         app.post('/user', function (request, response) {
             if (request.body.action == 'create') {
                 if (!validator.isEmail(request.body.email)) {
@@ -45,10 +37,12 @@
                     });
                 }
                 var user = new UsersSchema({
+                    name: request.body.name,
                     email: request.body.email,
                     pwd: md5(request.body.pwd),
                     phone: request.body.phone,
                     createdDate: request.body.createdDate
+
                 });
 
                 user.save();
@@ -78,7 +72,14 @@
                     if (user.length > 0) {
                         response.cookie('a', md5(user[0].email)); // write hash user
                         UsersSchema.update({_id: user[0]._id}, {$set: {lastDate: +new Date()}}).exec(); // update date of last log in
-                        return response.send({'status': 1});
+                        return response.send({
+                            status: 1,
+                            userData: {
+                                id: user[0]._id,
+                                name: user[0].name,
+                                email: user[0].email
+                            }
+                        });
                     } else {
                         return response.send({'status': 0});
                     }
@@ -91,22 +92,36 @@
         });
         app.get('/check', function (request, response) {
             if (request.headers.cookie) {
-                var localData = cookie.parse(request.headers.cookie);
+                var localData = cookie.parse(request.headers.cookie || ''), result = {status: 0};
                 return UsersSchema.find(null, function (err, user) {
                     for (var i = 0; i < user.length; i++) {
                         if (md5(user[i].email) == localData.a) {
-                            response.send({'status': 1});
-                        } else {
-                            response.send({'status': 0});
+                            result = {
+                                status: 1,
+                                userData: {
+                                    id: user[i]._id,
+                                    name: user[i].name,
+                                    email: user[i].email
+                                }
+                            }
                         }
                     }
+                    response.send(result);
                 });
             } else {
                 response.send({'status': 0});
             }
         });
+        app.post('/save_currency', function (request, response) {
+            response.cookie('currency', request.body.currency);
+            return response.send({});
+        });
+        app.get('/get_currency', function (request, response) {
+            var localData = cookie.parse(request.headers.cookie || '')
+            return response.send({currency: localData.currency});
+        });
     };
-    exports.initialize = function (app) { //
+    exports.initialize = function (app) {
         userModule(app);
     };
 })();
