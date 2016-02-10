@@ -220,6 +220,11 @@ $map = array(
                     'label' => __('help.label.unregistered_users_rights'),
                     'controller' => 'help',
                     'action' => 'feedback'
+                ),
+                array (
+                    'controller' => 'help',
+                    'action' => 'feedbackmessage',
+                    'visible' => FALSE
                 )
             )
         ),
