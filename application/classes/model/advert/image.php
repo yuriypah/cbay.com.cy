@@ -15,7 +15,7 @@ class Model_Advert_Image extends ORM {
 	public function add_related_images(Model_Advert $object, $images)
 	{
 		$params = $object->images();
-		
+
 		DB::delete($this->table_name())
 			->where('advert_id', '=', $object->pk())
 			->execute($this->_db);
@@ -26,7 +26,7 @@ class Model_Advert_Image extends ORM {
 		$i = 0;
 		foreach( $images as $image )
 		{
-			$filename = $this->add_images($image, NULL, $params);
+			$filename = $this->add_images($image, NULL, NULL, $params);
 			
 			if($filename !== NULL)
 			{

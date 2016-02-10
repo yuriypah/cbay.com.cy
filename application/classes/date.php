@@ -54,7 +54,7 @@ class Date extends Kohana_Date {
 		"rd"			=> ""
 	);
 	
-	public static function format($date = NULL, $format = 'd F Y', $decl = FALSE)
+	public static function format($date = NULL, $format = 'd.m.Y', $decl = FALSE)
 	{
 		if(  is_string( $date ))
 		{

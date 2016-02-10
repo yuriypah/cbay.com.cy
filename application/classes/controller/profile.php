@@ -5,6 +5,10 @@ class Controller_Profile extends Controller_System_Page
 
     public function action_index()
     {
+        $this->session->delete('advert_place_data')
+            ->delete('advert_confirm_data')
+            ->delete('advert');
+
         $adverts = ORM::factory('advert')
             ->where('user_id', '=', $this->ctx->user->id)
             ->and_where('finished', '>=', DB::expr('NOW()'))
