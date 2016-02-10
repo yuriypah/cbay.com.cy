@@ -19,9 +19,9 @@ class Controller_Help extends Controller_System_Page
             $this->template->content = View::factory('help/' . $local . '/index');
         }
         if ($art == 'feedbackmessage') {
-            $header = 'Feedback message from ' . $this->request->param('feedback_name');
-            $message = '<b>Messsage: </b> ' . $this->request->param('feedback_message') . '<br/>' .
-                '<b>Email: </b>' . $this->request->param('feedback_email');
+            $header = 'Feedback message from ' .$this->request->post('feedback_name');
+            $message = '<b>Messsage: </b> ' . $this->request->post('feedback_message') . '<br/>' .
+                '<b>Email: </b>' . $this->request->post('feedback_email');
             try {
                 $email = Email::factory($header, $message, 'text/html')
                     ->to('support@cbay.com.cy')
