@@ -18,5 +18,8 @@ class Controller_Index extends Controller_System_Page {
 
         $this->ctx->page->qwe = 'asdasd';
     }
+    public function action_feedbackmessage() {
+
+    }
 
 }

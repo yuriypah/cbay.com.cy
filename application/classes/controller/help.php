@@ -18,18 +18,18 @@ class Controller_Help extends Controller_System_Page
         } else {
             $this->template->content = View::factory('help/' . $local . '/index');
         }
-    }
-    public function action_feedbackmessage()
-    {
-        $header = 'Feedback message from ' . $this->request->param('feedback_name');
-        $message = '<b>Messsage: </b> ' . $this->request->param('feedback_message') . '<br/>' .
-            '<b>Email: </b>' . $this->request->param('feedback_email');
-        try {
-            $email = Email::factory($header, $message, 'text/html')
-                ->to('support@cbay.com.cy')
-                ->from('support@cbay.com.cy', 'CBAY.COM.CY')
-                ->send();
-        } catch (Exception $e) {
+        if ($art == 'feedbackmessage') {
+            $header = 'Feedback message from ' . $this->request->param('feedback_name');
+            $message = '<b>Messsage: </b> ' . $this->request->param('feedback_message') . '<br/>' .
+                '<b>Email: </b>' . $this->request->param('feedback_email');
+            try {
+                $email = Email::factory($header, $message, 'text/html')
+                    ->to('support@cbay.com.cy')
+                    ->from('support@cbay.com.cy', 'CBAY.COM.CY')
+                    ->send();
+            } catch (Exception $e) {
+
+            }
 
         }
     }

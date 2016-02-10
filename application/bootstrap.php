@@ -156,6 +156,7 @@ require APPPATH . 'sphinxapi' . EXT;
 
 //if ( ! Route::cache() )
 //{
+
 Route::set('help', 'help/<article>', array(
     'article' => '[A-Za-z0-9_-]+'
 ))
@@ -163,6 +164,7 @@ Route::set('help', 'help/<article>', array(
         'controller' => 'help',
         'action' => 'index',
     ));
+
 Route::set('about', 'about/<article>', array(
     'article' => '[A-Za-z0-9_-]+'
 ))
