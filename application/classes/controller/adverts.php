@@ -131,6 +131,8 @@ class Controller_Adverts extends Controller_System_Page
         $data = array();
         foreach ($ids as $id) {
             $advert = ORM::factory('advert', $id);
+            $advert->finished = date("Y-m-d", time() + 108000) . " 23:59:00";
+            $advert->update();
             $advert->set_status(Model_Advert::STATUS_PUBLISHED);
             $data[] = $advert;
         }

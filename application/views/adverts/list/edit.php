@@ -50,7 +50,7 @@
                 <?php echo HTML::anchor('/advert/edit/' . $advert->id, "<i class='icon-pencil'></i> " . __('button.edit') . "&nbsp;", array(
                     'class' => 'btn  inline-block'
                 )); ?>&nbsp;
-                <?php if ($advert->is_deactivated()): ?>
+                <?php if ($advert->is_deactivated() || $advert->finished()): ?>
                     <?php echo HTML::anchor('/adverts/publish/' . $advert->id, "<i class='icon-lock'></i> " . __('advert.title.activate') . "&nbsp;", array(
                         'class' => 'advert_activate btn'
                     )); ?>&nbsp;

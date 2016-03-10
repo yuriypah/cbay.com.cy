@@ -8,7 +8,6 @@ class Controller_Form_Profile extends Controller_System_Form {
 	{
 		$data = Input::post( 'profile' );
 		$profile = $this->ctx->user->profile;
-
 		try
 		{
 			Database::instance()->begin();
@@ -19,6 +18,7 @@ class Controller_Form_Profile extends Controller_System_Form {
 			Observer::notify( 'user_profile_update' , $profile );
 
 			$this->json['data'] = $profile->as_array();
+
 			$this->json['status'] = TRUE;
 			
 			Database::instance()->commit();

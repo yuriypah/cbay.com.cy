@@ -4,6 +4,7 @@
     <input type="hidden" name="AcqID" value="<?= $jcc_params["AcqID"] ?>"/>
     <input type="hidden" name="MerRespURL" value="<?= $jcc_params["MerRespURL"] ?>"/>
     <input type="hidden" name="PurchaseAmt" value="<?= $jcc_params["PurchaseAmt"] ?>"/>
+
     <input type="hidden" name="PurchaseCurrency" value="<?= $jcc_params["PurchaseCurrency"] ?>"/>
     <input type="hidden" name="PurchaseCurrencyExponent" value="<?= $jcc_params["PurchaseCurrencyExponent"] ?>"/>
     <input type="hidden" name="OrderID" value="<?= $jcc_params["OrderID"] ?>">

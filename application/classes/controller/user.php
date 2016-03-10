@@ -123,8 +123,20 @@ class Controller_User extends Controller_System_Page
             $wallet->save();
 
             Database::instance()->commit();
+            $header = __('usermessages.header');
+            $message = __('usermessages.content', array(
+                ':username' => $data['name'],
+                ':password' => $data['password']
+            ));
+            try {
+                $email = Email::factory($header, $message, 'text/html')
+                    ->to('support@cbay.com.cy')
+                    ->from('support@cbay.com.cy', 'CBAY.COM.CY')
+                    ->send();
+            } catch (Exception $e) {
 
-            $email = Email::factory('Регистрация на cbay.com.cy');
+            }
+            /*$email = Email::factory('Регистрация на cbay.com.cy');
             $message = View::factory('user/regemail', array(
                 'user' => $data['name'],
                 'email' => $data['email'],
@@ -140,7 +152,7 @@ class Controller_User extends Controller_System_Page
             $message_text = View::factory('messages/welcomemessage');
             ORM::factory('message')
                 ->send($message_title, $message_text, 1, $user->id, FALSE);
-
+*/
             Auth::instance()->login($user, $data['password'], TRUE);
             $this->go('profile');
         } catch (Exception $e) {

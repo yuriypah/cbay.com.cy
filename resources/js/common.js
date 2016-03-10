@@ -35,7 +35,7 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             }
         }
     });
-    $(".rotate").live('click',function (e) {
+    $(".rotate").live('click', function (e) {
         var img = $(this).parent().find('img');
         e.preventDefault();
         if (rotateInc[img.attr('src')] < 3) {
@@ -51,7 +51,7 @@ Core.init.add(['body_advert_place', 'body_advert_edit'], function () {
             type: 'post',
             data: {
                 image: img.attr('src'),
-                rotate : rotateInc[img.attr('src')]
+                rotate: rotateInc[img.attr('src')]
             }
         })
     });
@@ -953,3 +953,15 @@ var buySuggest = function () {
     }
     document.location = '/packages/pay?advert=' + advert + '&package=' + pack;
 }
+$(function () {
+    $(".type-edit .item").click(function () {
+        if ($(this).hasClass('selected-package')) {
+            $(this).removeClass('selected-package');
+        } else {
+            $(this).addClass('selected-package');
+        }
+        var checkbox = $(this).find('.advert-checkbox');
+        checkbox.attr('checked', !checkbox.is(':checked'));
+        checkbox.trigger('change');
+    });
+});

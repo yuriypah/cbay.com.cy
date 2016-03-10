@@ -17,7 +17,7 @@ class Controller_Wallet extends Controller_System_Page
     {
         $domain = "https://" . $_SERVER["HTTP_HOST"];
         $data = $this->request->post();
-        $purchaseAmt = str_pad("20.50", 13, "0", STR_PAD_LEFT);
+        $purchaseAmt = str_pad(number_format($data["amountValue"],2), 13, "0", STR_PAD_LEFT);
         $preparedPurchaseAmt = substr($purchaseAmt, 0, 10) . substr($purchaseAmt, 11);
         $params = array();
         $params["action"] = "https://tjccpg.jccsecure.com/EcomPayment/RedirectAuthLink";
@@ -28,7 +28,7 @@ class Controller_Wallet extends Controller_System_Page
         $params["PurchaseAmt"] = $preparedPurchaseAmt;
         $params["PurchaseCurrency"] = 978;
         $params["PurchaseCurrencyExponent"] = 2;
-        $params["OrderID"] = "TestOrder12345";
+        $params["OrderID"] = time() . "_" . $data["amountValue"];
         $params["CaptureFlag"] = "A";
         $params["password"] = "S6m861vR";
         $sign = $params["password"] . $params["MerID"] . $params["AcqID"] .
@@ -61,23 +61,30 @@ class Controller_Wallet extends Controller_System_Page
             "MerID" => "0099405011",
             "password" => "S6m861vR",
             "AcqID" => "402971",
-            "OrderID" => "TestOrder12345"
+            "OrderID" => $data['OrderID']
         );
+        $orderArray = explode("_", $origin["OrderID"]);
         $sign = $origin["password"] . $origin["MerID"] . $origin["AcqID"] . $origin["OrderID"] .
             $returned["jccResponseCode"] . $returned["jccReasonCode"];
         $sha = sha1($sign);
         $resultSign = base64_encode(pack("H*", $sha));
-        if ($resultSign == $returned["jccSignature"]) {
-            $paymentHeader = __("payment.header.error");
-            $paymentContent = __("payment.content.error");
-
+        if ($resultSign == $returned["jccSignature"] && $returned["jccResponseCode"] == 1 && $returned["jccReasonCode"] == 1) {
+            $paymentHeader = "<span style='color:green'>" . __("payment.header.success") . "</span>";
+            $paymentContent = '';
+            $status = 1;
+            // update user balance
+            $user = ORM::factory('user')->where('id', '=', $this->ctx->user->id)->find();
+            $user->amount += $orderArray[1];
+            $user->update();
         } else {
             $paymentHeader = "<span style='color:red'>" . __("payment.header.error") . "</span>";
-            $paymentContent = __("payment.content.error");
+            $paymentContent = __("payment.content.error") . "<Br/><strong>Error: " . $returned["jccReasonDescr"] . "</strong>";
+            $status = 0;
         }
         $this->template->content->paymentText = array(
             "paymentHeader" => $paymentHeader,
-            "paymentContent" => $paymentContent
+            "paymentContent" => $paymentContent,
+            "status" => $status
         );
     }
 }

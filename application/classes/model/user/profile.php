@@ -63,7 +63,7 @@ class Model_User_Profile extends ORM
     public static function format_phone($number)
     {
         // Remove all non-digit characters from the number
-        $number = preg_replace('/\D+/', '', $number);
+       /* $number = preg_replace('/\D+/', '', $number);
 
         $length = strlen($number);
 
@@ -72,7 +72,7 @@ class Model_User_Profile extends ORM
                 $number = preg_replace('/([\d]{2})([\d]{3})([\d]{3})/', '$1 $2-$3', $number);
             default:
                 $number = preg_replace('/([\d]{2})([\d]{3})([\d]+)/', '$1 $2-$3', $number);
-        }
+        }*/
 
         return $number;
     }

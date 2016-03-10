@@ -37,7 +37,7 @@
                         <div id="payment-paypal" class="submit_form"></div>
                         <Br/>
 
-                        <div id="">
+                        <div id="" style="opacity: 0.5">
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
                                   class="paypal_form">
                                 <input type="hidden" name="cmd" value="_xclick">
@@ -47,7 +47,7 @@
                                 <input type="hidden" name="amount" value="5"/>
                                 <input type="hidden" name="currency_code" value="EUR"/>
                                 <input type="hidden" name="custom" value="<?= $wallet->id; ?>">
-                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif"
+                                <input disabled="disabled" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif"
                                        border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
                                      width="1"
@@ -78,15 +78,16 @@
         }
 
         $(".submit_form").click(function () {
-            $(".paypal_form").submit();
+           // $(".paypal_form").submit();
         });
         $(".submit_jcc").click(function () {
             $(".jcc_form").submit();
         });
-        $("input[name=amount_value]").change(function () {
+        $("input[name=amount_value]").keyup(function () {
             $("input[name=amount]").val(this.value);
             prepareJCC();
-        })
+        });
+        prepareJCC();
     });
 
 </script>
