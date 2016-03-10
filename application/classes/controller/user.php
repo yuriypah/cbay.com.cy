@@ -130,7 +130,7 @@ class Controller_User extends Controller_System_Page
             ));
             try {
                 $email = Email::factory($header, $message, 'text/html')
-                    ->to('support@cbay.com.cy')
+                    ->to($data['email'])
                     ->from('support@cbay.com.cy', 'CBAY.COM.CY')
                     ->send();
             } catch (Exception $e) {
