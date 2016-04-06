@@ -1,4 +1,5 @@
-<h2>Здравствуйте, <?php echo $name; ?>!</h2>
-
-
-<p>Для продолжения процедуры восстановления пароля проследуйте по ссылке <?php echo $link; ?></p>
+<?php
+echo __("message.email.forgot.content", array(
+    ':name' => $name,
+    ':link' => $link
+));

@@ -1,4 +1,6 @@
-<h2>Здравствуйте, <?php echo $name; ?>!</h2>
 
-
-<p>Ваш новый пароль <?php echo $password; ?></p>
+<?php
+echo __("message.email.forgotted.content", array(
+    ':name' => $name,
+    ':password' => $password
+));
