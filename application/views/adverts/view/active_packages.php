@@ -1,4 +1,4 @@
-<div class="edit-buybox">
+<!--<div class="edit-buybox">
     <?php
     if ($advert->premium()) {
         echo "<span style='opacity:0.4'>" .
@@ -33,4 +33,4 @@
             HTML::image('resources/images/up.png', array('data-tooltip' => __('package.description.top'), 'class' => 'edit-buybutton')));
     }
     ?>
-</div>
+</div>-->

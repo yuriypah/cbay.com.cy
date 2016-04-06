@@ -17,7 +17,7 @@ class Model_Lang_Part extends ORM {
 		self::LANG_CODE_EN => self::LANG_TITLE_EN,
 		self::LANG_CODE_RU => self::LANG_TITLE_RU,
 		self::LANG_CODE_GR => self::LANG_TITLE_GR,
-        self::LANG_CODE_ZH => self::LANG_TITLE_ZH,
+        /*self::LANG_CODE_ZH => self::LANG_TITLE_ZH,*/
 	);
 	
 	public static function count()

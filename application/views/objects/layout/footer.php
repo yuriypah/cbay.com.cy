@@ -13,11 +13,11 @@
     <p class="about"><?php echo __('mainpage_copyright'); ?></p>
 </div>
 <div class="pull-right">
-    <div class="pay_logos">
+    <!--<div class="pay_logos">
         <img src="/resources/images/jcc_logo.jpg"/>
         &nbsp;&nbsp;
         <img style="vertical-align: 18px" src="/resources/images/paypal_logo.jpg"/>
-    </div>
+    </div>-->
 </div>
     <div class="clearfix"></div>
 </div>

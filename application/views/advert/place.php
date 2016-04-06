@@ -36,7 +36,7 @@ else
     <div class="controls">
 
         <?php
-        echo "<select name='category_id' id='category_id' onchange='category_select()'><option value='0'>-- Выберите категорию --</option>";
+        echo "<select name='category_id' id='category_id' onchange='category_select()'><option value='0'>".__("adverts.choose.category")."</option>";
         foreach ($categories as $key => $value) {
             if (is_array($value)) {
                 echo "<optgroup label='" . $key . "'>";
@@ -189,7 +189,7 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
 
     </div>
 </div>
-<div class="control-group">
+<!--<div class="control-group">
     <label class="control-label" for="language"><?= __('place.label.suggestion') ?></label>
 
     <div class="controls">
@@ -268,7 +268,7 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
             </script>
         <? endif; ?>
     </div>
-</div>
+</div>-->
 <div class="form-actions">
     <button name="action" value="next"
             class="btn btn-success"><?php echo __('place.label.next') . ' ' . HTML::icon('chevron-right'); ?></button>

@@ -109,7 +109,7 @@
         }
 
         if ($ctx->auth->logged_in()) {
-            echo "<div class='nav_b link2'><a href='/wallet'>". $ctx->user->amount . " €</a></div><div class='nav_b sep3'></div>";
+           // echo "<div class='nav_b link2'><a href='/wallet'>". $ctx->user->amount . " €</a></div><div class='nav_b sep3'></div>";
         }
 
 

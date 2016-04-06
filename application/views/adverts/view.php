@@ -53,8 +53,8 @@
         <span><?php echo $advert->published_on(); ?></span>
     </div>
     <? /*if ($shows['this_user']) :*/ ?>
-    <div id="advert-packages">
-        <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
+    <div id="advert-packages">&nbsp;
+        <!-- <?php echo HTML::anchor('packages', __('advert_page.label.sell_faster'), array('class' => 'packages-font')); ?>
         <div class="list-img-pack view more_serv">
 
             <? if (!$advert->premium()) { ?>
@@ -69,7 +69,7 @@
             <? if (!$advert->top()) { ?>
                 <?php echo HTML::anchor('packages/pay?advert=' . $advert->id . '&package=pack4', HTML::image('resources/images/up.png', array('data-tooltip' => __('package.option.title.top')))); ?>
             <? } ?>
-        </div>
+        </div>-->
         <div class="pull-right">
 
 

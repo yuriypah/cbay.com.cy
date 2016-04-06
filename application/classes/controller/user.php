@@ -262,16 +262,26 @@ class Controller_User extends Controller_System_Page
 
                 if ($reflink) {
                     Observer::notify('user_forgot', $user);
+                    /*try {
+                        $email = Email::factory($header, $message, 'text/html')
+                            ->to($data['email'])
+                            ->from('support@cbay.com.cy', 'CBAY.COM.CY')
+                            ->send();
+                    } catch (Exception $e) {
 
-                    Email::factory(__('messages.email.forgot_password.title'))
-                        ->from($this->ctx->config['email']['support'], __('messages.email.name'))
-                        ->to($user->email)
-                        ->message(View::factory('messages/email/forgot', array(
-                            'name' => ucwords($user->profile->name),
-                            'link' => HTML::anchor(URL::site(Route::url('reflink', array('id' => $reflink)), TRUE))
-                        )))
-                        ->send();
+                    }*/
+                    try {
+                        Email::factory(__('messages.email.forgot_password.title'))
+                            ->from($this->ctx->config['email']['support'], __('messages.email.name'))
+                            ->to($user->email)
+                            ->message(View::factory('messages/email/forgot', array(
+                                'name' => ucwords($user->profile->name),
+                                'link' => HTML::anchor(URL::site(Route::url('reflink', array('id' => $reflink)), TRUE))
+                            )))
+                            ->send();
+                    } catch (Exception $e) {
 
+                    }
                     Messages::success(__('messages.email.forgot_password.success', array(':address' => $user->email)));
                 }
 

@@ -277,7 +277,7 @@ $map = array(
                     'action' => 'moderated',
                     'visible' => FALSE
                 ),
-                array(
+                /*array(
                     'label' => __('menu.label.profile.wallet'),
                     'controller' => 'wallet',
                     'pages' => array(
@@ -287,7 +287,7 @@ $map = array(
                             'visible' => false
                         )
                     )
-                ),
+                ),*/
                 array(
                     'label' => __('menu.label.messages.index'),
                     'controller' => 'messages',

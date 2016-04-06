@@ -142,7 +142,7 @@ class I18n_Plural
 			return new I18n_Plural_Zero;
 		}
 		elseif (in_array($prefix, array(
-			'az', 'bm', 'fa', 'ig', 'hu', 'ja', 'kde', 'kea', 'ko', 'my', 'ses', 'sg', 'to',
+			'az', 'bm', 'fa', 'ig', 'hu', 'ja', 'kde', 'kea', 'ko', 'my', 'ses', 'sg', 'to','gr',
 			'tr', 'vi', 'wo', 'yo', 'zh', 'bo', 'dz', 'id', 'jv', 'ka', 'km', 'kn', 'ms', 'th')))
 		{
 			return new I18n_Plural_None;

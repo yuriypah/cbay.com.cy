@@ -7,7 +7,7 @@
 	<?php echo Form::open(Route::url('user', array('action' => 'forgot')), array('method' => 'post', 'class' => 'form-inline')); ?>
 	<?php echo Form::hidden('seturity_token', Security::token()); ?>
 
-		<h3><?php echo __('forgot_page.label.username'); ?>:</h3>
+		<h5><?php echo __('forgot_page.label.username'); ?>:</h5>
 		<?php
 		echo Form::input('username', NULL, array(
 			'maxlength' => 75,
