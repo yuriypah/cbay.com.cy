@@ -43,7 +43,7 @@
 
                 <div id="slogan"><?php  echo __('index_page.text.slogan'); ?></div>
                 <div id="tags"><?php echo __('index_page.text.tags'); ?></div>
-                <div class="digital-nums">
+                <!--<div class="digital-nums">
                     <div class="nums"><?php if ($adverts_count < 100): ?>00<?php endif; ?><?php echo $adverts_count; ?></div>
                     <?php echo HTML::declination($adverts_count,array(
                     		__('index_page.text.ads_counter.0'),
@@ -52,7 +52,7 @@
                     )); ?>
 
                     <div class="clear"></div>
-                </div>
+                </div>-->
 
                 <div id="lands-points">
                     <?php foreach (Model_Map::$cities as $id => $city): ?>

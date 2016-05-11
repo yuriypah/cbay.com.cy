@@ -99,7 +99,7 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
     <div class="controls">
         <?php
         echo Form::textarea('description', Arr::get($data, 'description'), array(
-            'id' => 'description', 'maxlength' => 1500, 'class' => 'span7', 'title' => __('advert.tooltip.description')
+            'id' => 'description', 'maxlength' => 1500, 'class' => 'span7 textarea-place', 'title' => __('advert.tooltip.description')
         ));
         ?>
         <div id="leftchars">Осталось символов: <span>1500</span></div>
@@ -145,7 +145,7 @@ echo Form::input('keywords', Arr::get($data, 'keywords'), array(
     <div class="controls">
         <div class="alert alert-info"><?php echo __('advert.tooltip.images'); ?></div>
         <label class="uploadbutton">
-            <div class="button"><?php echo __('place.button.uploadimages'); ?></div>
+            <div class="button"><span style='opacity: 0.6;margin-left: -3px;vertical-align: -3px' class='icon icon-plus'></span> <?php echo __('place.button.uploadimages'); ?></div>
             <?php
             echo Form::file('file', array(
                 'id' => 'upload', 'multiple' => 'multiple'

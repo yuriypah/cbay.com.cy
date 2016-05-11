@@ -126,6 +126,7 @@ class Controller_User extends Controller_System_Page
             $header = __('usermessages.header');
             $message = __('usermessages.content', array(
                 ':username' => $data['name'],
+                ':email' => $data['email'],
                 ':password' => $data['password']
             ));
             try {

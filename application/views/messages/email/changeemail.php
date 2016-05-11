@@ -1,5 +1,5 @@
 <?php
 echo __("messages.email.changeemail.content", array(
-    ':user' => $name,
+    ':name' => $name,
     ':link' => $link
 ));

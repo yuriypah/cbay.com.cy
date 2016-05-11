@@ -5516,3 +5516,7 @@ input[type=radio] {
     left: 0px;
 
 }
+.textarea-place
+{
+    max-width:530px;
+}

@@ -147,7 +147,7 @@ class Controller_Profile extends Controller_System_Page
         if ($reflink !== NULL) {
             Email::factory(__('messages.email.changeemail.reflink_title'))
                 ->from($this->ctx->config['email']['support'], __('messages.email.name'))
-                ->to($this->ctx->user->email)
+                ->to($data['email']/*$this->ctx->user->email*/)
                 ->message(View::factory('messages/email/changeemail', array(
                     'name' => ucwords($this->ctx->user->profile->name),
                     'link' => HTML::anchor(URL::site(Route::url('reflink', array('id' => $reflink)), TRUE)),

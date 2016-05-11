@@ -74,7 +74,7 @@
         <div class="nav_b sep1"></div>
         <!--------->
         <div class="nav_b link1"><a href="#">
-                <?php echo "<a href='/advert/place'>" . __('menu.label.advert_place') . "</a>"; ?>
+                <?php echo "<a href='/advert/place'><span style='opacity: 0.6;margin-left: -9px;vertical-align: -4px' class='icon icon-plus'></span> " . __('menu.label.advert_place') . "</a>"; ?>
             </a></div>
         <div class="nav_b sep2"></div>
 

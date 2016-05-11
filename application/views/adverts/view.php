@@ -187,19 +187,19 @@
                 'advert' => $advert
             )); ?>
             <div id="advert-statistic">
-                <div class="span4">
+                <!--<div class="span4">
                     <span><h3 class="head"><?php echo __('advert_page.label.start_date') ?> –
                             <strong><?php echo $advert->published_on(); ?></strong></h3></span><span><h3
                             class="head"><?php echo __('advert_page.label.finish_date') ?>
                             &nbsp;<strong><?php echo $advert->finished_on(); ?></strong></h3></span>
-                </div>
+                </div>-->
                 <? if ($shows['this_user']): ?>
-                    <div class="span2">
+                    <!--<div class="span2">
                         <span><h3 class="head"><?php echo __('advert_page.label.shows') ?>:
                                 <strong><?= $shows['all'] ?></strong></h3></span><span><h3
                                 class="head"><?php echo __('advert_page.label.shows_today') ?>:
                                 <strong><?= $shows['today'] ?></strong></h3></span>
-                    </div>
+                    </div>-->
                 <? endif; ?>
             </div>
         </div>

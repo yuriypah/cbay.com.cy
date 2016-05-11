@@ -80,12 +80,13 @@
 
             </div>
             <div class="">
+                <a href="/backend/adverts/approve/<?= $advert->id; ?>"
+                   class="advert_deactivate btn btn-mini btn-success"><?= __('backend.adverts.mark_enabled'); ?></a>
                 <a href="/backend/adverts/block/<?= $advert->id; ?>"
                    class="advert_deactivate btn btn-mini btn-warning"><?= __('backend.adverts.block'); ?></a>
                 <a href="/backend/users/blockuser/<?= $advert->user_id; ?>"
                    class="advert_deactivate btn btn-mini btn-danger"><?= __('backend.adverts.block_user'); ?></a>
-                <a href="/backend/adverts/approve/<?= $advert->id; ?>"
-                   class="advert_deactivate btn btn-mini btn-success"><?= __('backend.adverts.mark_enabled'); ?></a>
+
                 <Br/> <input type='button'
                              style='margin-top: 10px; margin-left: 15%;'
                              data-id='<?php echo $advert->id; ?>'
