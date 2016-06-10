@@ -11,49 +11,82 @@
             cars: [
                 {
                     id: 1,
-                    name: 'BMW X5',
-                    image: '/assets/img/test_cars/bmv_x5.jpg',
+                    name: 'NISSAN NOTE',
+                    image: '/assets/img/cars/note/1.jpg',
                     images: [
                         {
-                            src: '/assets/img/test_cars/bmv_x5.jpg'
+                            src: '/assets/img/cars/note/1.jpg'
                         },
-                        {
-                            src: '/assets/img/test_cars/bmv_x5.jpg'
-                        },
-                        {
-                            src: '/assets/img/test_cars/bmv_x5.jpg'
-                        },
-                        {
-                            src: '/assets/img/test_cars/bmv_x5.jpg'
-                        }],
-                    description: 'This car have been everything completely.. When you going to choose a car.',
+
+                    ],
+                    description: 'Great way and chipiest! For a little family',
                     rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
                     category: [1],
-                    price: 1390
+                    price: 30,
+                    prices: [
+                        {
+                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                        },
+                        {
+                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ]
                 },
                 {
                     id: 2,
-                    name: 'BMW A320',
-                    image: '/assets/img/test_cars/bmv_320.jpg',
+                    name: 'NISSAN LATIO',
+                    image: '/assets/img/cars/latio/ttn_169291848.jpg',
                     images: [
                         {
-                            src: '/assets/img/test_cars/bmv_320.jpg'
+                            src: '/assets/img/cars/latio/ttn_169291848.jpg'
                         },
-                        {
-                            src: '/assets/img/test_cars/bmv_320.jpg'
-                        },
-                        {
-                            src: '/assets/img/test_cars/bmv_320.jpg'
-                        },
-                        {
-                            src: '/assets/img/test_cars/bmv_320.jpg'
-                        }],
-                    description: 'This car have been everything completely.. When you going to choose a car.',
-                    rating: 4,
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
                     category: [1],
-                    price: 1090
+                    price: 35,
+                    prices: [
+                        {
+                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                        },
+                        {
+                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: 'NISSAN SIENTA',
+                    image: '/assets/img/cars/sienta/toyota-sienta-05.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/sienta/toyota-sienta-05.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1],
+                    price: 35,
+                    prices: [
+                        {
+                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                        },
+                        {
+                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ]
                 }
             ],
             properties: [
@@ -100,9 +133,9 @@
                 {
                     id: 6,
                     name: 'Liked',
-                    value: '69',
-                    shortValue: '69',
-                    shortDescription: 'Liked users : 69',
+                    value: '0',
+                    shortValue: '0',
+                    shortDescription: 'Liked users : 0',
                     iconClass: 'glyphicon glyphicon-thumbs-up'
                 }
             ]

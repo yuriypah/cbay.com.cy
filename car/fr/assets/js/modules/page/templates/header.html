@@ -1,5 +1,4 @@
 <script type="text/html">
-
     <div class="container">
         <div class="row">
             <div class="col-md-5">
@@ -10,12 +9,12 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <span class="currency-help hidden-xs hidden-sm">Currency:</span>
+                <span class="currency-help hidden-xs hidden-sm hide">Currency:</span>
                 <ul class="nav nav-tabs header-main-nav currency-ul">
-                    <li class="active"><a data-currency="eur" class="currency_link eur" href="#"><span class="currency-icons glyphicon glyphicon-euro"></span></a>
+                    <li class="active hide"><a data-currency="eur" class="currency_link eur" href="#"><span class="currency-icons glyphicon glyphicon-euro"></span></a>
                     </li>
-                    <li class=""><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
-                    <li class=""><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <li class="hide"><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
+                    <li class="hide"><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
                     <% if(app.isAuth == 0) { %>
                     <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span>
                         Login</a></li>
@@ -26,13 +25,12 @@
                                               aria-haspopup="true" aria-expanded="false" href="#"><span
                             class="glyphicon glyphicon-globe"></span> <%=app.user.name%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="" href="#orders"><span class="glyphicon glyphicon-align-justify"></span> My orders</a>
-                            <li><a class="logout" href="#"><span class="glyphicon glyphicon-cog"></span> Change profile</a>
-                            <li><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a>
+                            <li><a class="" href="#orders"> My orders</a>
+                            <li><a class="logout" href="#"> Profile</a>
+                            <li><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
                             </li>
                         </ul>
                     </li>
-
                     <% } %>
 
                     </li>
@@ -42,7 +40,6 @@
                         <ul class="dropdown-menu">
                             <li class="active"><a href="#">English (default)</a></li>
                             <li class=""><a href="#">Greek</a></li>
-                            <li class=""><a href="#">Chinese</a></li>
                             <li class=""><a href="#">Russian</a></li>
                         </ul>
                     </li>

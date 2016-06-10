@@ -33,6 +33,7 @@ define([
         },
         checkout: function (e) {
             e.preventDefault();
+
             $.post('/checkout', {
                 carId: app.order.car.id,
                 userId: app.user.id,

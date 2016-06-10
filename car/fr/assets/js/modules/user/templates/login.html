@@ -1,23 +1,31 @@
 <script type="text/html">
     <form class="login-form">
-        <h4 class="text-center">Customer login:</h4>
-        <strong>Email:</strong><br/>
 
-        <div class="form-group">
-            <div class="input-group">
-                <input type="text" class="form-control email" placeholder="Email" >
+        <img class="button-fb fblink" src="/assets/img/fb.png" onclick=""/>
+        <div class="login-or">
+            <span>or</span>
+        </div>
+        <div class="auth-native-form">
+            <img class="" src="/assets/img/rentcar.png"/>
+            Email:<br/>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control email" placeholder="Email">
    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-envelope"></span>
                     </span>
+                </div>
             </div>
-        </div>
-        <strong>Password:</strong><br/>
+            Password:<br/>
 
-        <div class="form-group">
-            <input type="password" class="form-control pass">
+            <div class="form-group">
+                <input type="password" class="form-control pass">
+            </div>
+            <div class="error"></div>
+            <button class="btn btn-success login-submit">Log In</button>
+            <a href="#" class="pull-right forgotten-link">Forgotten your password?</a>
         </div>
-        <div class="error"></div>
-        <button class="btn btn-darkblue login-submit">Login</button>
+
     </form>
 
 </script>

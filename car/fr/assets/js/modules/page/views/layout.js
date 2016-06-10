@@ -20,6 +20,7 @@ define([
         },
         onRender: function () {
             app.vent.trigger('layoutRendered');
+
         }
     });
 });

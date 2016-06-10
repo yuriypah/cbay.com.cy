@@ -27,7 +27,8 @@ define([
             'loginHolder': '.login',
             'logoutHolder': '.logout',
             'registerHolder': '.register',
-            'currency_link': '.currency_link'
+            'currency_link': '.currency_link',
+            'submit' : '.submit'
         },
         events: {
             'click @ui.advanced_search_holder': 'showAdvanced',
@@ -35,7 +36,11 @@ define([
             'click @ui.logoutHolder': 'logout',
             'click @ui.registerHolder': 'register',
             'keydown @ui.start_calendar,@ui.end_calendar,@ui.start_timer,@ui.end_timer': 'stopKey',
-            'click @ui.currency_link': 'changeCurrency'
+            'click @ui.currency_link': 'changeCurrency',
+            'click @ui.submit' : 'submit'
+        },
+        submit : function() {
+            $.fancybox.showLoading();
         },
         changeCurrency: function (e) {
             e.preventDefault();
@@ -60,6 +65,7 @@ define([
         logout: function (e) {
             e.preventDefault();
             app.User.logout();
+
         },
         showAdvanced: function (e) {
             e.preventDefault();

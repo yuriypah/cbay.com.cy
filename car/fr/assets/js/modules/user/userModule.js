@@ -40,10 +40,14 @@ define([
                 }
             });
         };
-        User.logout = function() {
+        User.logout = function () {
+            try {
+                FB.logout();
+            } catch (e) {
+            }
             $.ajax({
                 url: '/auth',
-                type : 'post',
+                type: 'post',
                 beforeSend: function () {
                     app.vent.trigger('Loading', true);
                 },
