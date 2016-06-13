@@ -13,8 +13,9 @@ define([
     'modules/page/views/footer',
     'modules/page/views/order',
     'modules/page/views/checkout',
-    'modules/user/views/orders'
-], function (app, backbone, marionette, jquery, layout, header, content, catalog, footer, orderView, checkoutView, ordersView) {
+    'modules/user/views/orders',
+    'modules/page/views/agreement'
+], function (app, backbone, marionette, jquery, layout, header, content, catalog, footer, orderView, checkoutView, ordersView, agreementView) {
     "use strict";
     app.module("page", function (page) {
         page.layout = new layout();
@@ -32,7 +33,8 @@ define([
                     'catalog/:id': 'catalog',
                     'catalog/:id/confirmation': 'confirmationOrder',
                     'checkout': 'checkout',
-                    'orders': 'orders'
+                    'orders': 'orders',
+                    'agreement' : 'agreement'
                 },
                 index: function () {
                     $("body").scrollTop(0)
@@ -43,6 +45,14 @@ define([
                         })); // show content
                     })
                     page.layout.getRegion('footer').show(new footer()); // show footer
+                },
+                agreement : function() {
+                    $("body").scrollTop(0)
+                    page.layout.getRegion('header').show(new header()); // show header
+                    page.layout.getRegion('content').show(new agreementView({
+
+                    }));
+                    page.layout.getRegion('footer').show(new footer()); // show f
                 },
                 catalog: function (id) {
                     $("body").scrollTop(0)

@@ -41,6 +41,9 @@ define([
         },
         submit : function() {
             $.fancybox.showLoading();
+            setTimeout(function() {
+                $.fancybox("<h3>Search result</h3> No items is matched. Please try again");
+            },1000)
         },
         changeCurrency: function (e) {
             e.preventDefault();

@@ -6,6 +6,14 @@
                 {
                     id: 1,
                     name: 'Popular cars'
+                },
+                {
+                    id: 2,
+                    name: 'Comfortable cars'
+                },
+                {
+                    id: 3,
+                    name: 'Cheap cars'
                 }
             ],
             cars: [
@@ -17,74 +25,546 @@
                         {
                             src: '/assets/img/cars/note/1.jpg'
                         },
+                        {
+                            src: '/assets/img/cars/note/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/10.jpg'
+                        },
 
                     ],
                     description: 'Great way and chipiest! For a little family',
                     rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
-                    category: [1],
+                    category: [1, 3],
                     price: 30,
                     prices: [
                         {
-                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                            "1": {"1": 30, "3": 25, "8": 18, "15": 16}
                         },
                         {
-                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                            "2": {"1": 35, "3": 27, "8": 25, "15": 23}
                         },
                         {
-                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                            "3": {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "4": {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ]
+                },
+                {
+                    id: 11,
+                    name: 'NISSAN NOTE',
+                    image: '/assets/img/cars/note/2.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/note/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/10.jpg'
+                        },
+
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 3],
+                    price: 30,
+                    prices: [
+                        {
+                            "1": {"1": 30, "3": 25, "8": 18, "15": 16}
+                        },
+                        {
+                            "2": {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "3": {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "4": {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ]
+                },
+                {
+                    id: 12,
+                    name: 'NISSAN NOTE',
+                    image: '/assets/img/cars/note/3.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/note/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/note/10.jpg'
+                        },
+
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 3],
+                    price: 30,
+                    prices: [
+                        {
+                            "1": {"1": 30, "3": 25, "8": 18, "15": 16}
+                        },
+                        {
+                            "2": {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "3": {"1": 35, "3": 27, "8": 25, "15": 23}
+                        },
+                        {
+                            "4": {"1": 35, "3": 30, "8": 27, "15": 25}
                         }
                     ]
                 },
                 {
                     id: 2,
                     name: 'NISSAN LATIO',
-                    image: '/assets/img/cars/latio/ttn_169291848.jpg',
+                    image: '/assets/img/cars/latio/9.jpg',
                     images: [
                         {
-                            src: '/assets/img/cars/latio/ttn_169291848.jpg'
+                            src: '/assets/img/cars/latio/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/9.jpg'
                         },
                     ],
                     description: 'Great way and chipiest! For a little family',
                     rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
-                    category: [1],
+                    category: [1, 3],
                     price: 35,
                     prices: [
                         {
-                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                            "1": {"1": 35, "3": 30, "8": 25, "15": 20}
                         },
                         {
-                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                            "2": {"1": 45, "3": 40, "8": 35, "15": 30}
                         },
                         {
-                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                            "3": {"1": 45, "3": 40, "8": 35, "15": 30}
+                        },
+                        {
+                            "4": {"1": 55, "3": 45, "8": 40, "15": 35}
+                        }
+                    ]
+                },
+                {
+                    id: 22,
+                    name: 'NISSAN LATIO',
+                    image: '/assets/img/cars/latio/2.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/latio/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/latio/9.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 3],
+                    price: 35,
+                    prices: [
+                        {
+                            "1": {"1": 35, "3": 30, "8": 25, "15": 20}
+                        },
+                        {
+                            "2": {"1": 45, "3": 40, "8": 35, "15": 30}
+                        },
+                        {
+                            "3": {"1": 45, "3": 40, "8": 35, "15": 30}
+                        },
+                        {
+                            "4": {"1": 55, "3": 45, "8": 40, "15": 35}
                         }
                     ]
                 },
                 {
                     id: 3,
-                    name: 'NISSAN SIENTA',
-                    image: '/assets/img/cars/sienta/toyota-sienta-05.jpg',
+                    name: 'TOYOTA SIENTA',
+                    image: '/assets/img/cars/sienta/1.jpg',
                     images: [
                         {
-                            src: '/assets/img/cars/sienta/toyota-sienta-05.jpg'
+                            src: '/assets/img/cars/sienta/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/sienta/8.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 4,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 2],
+                    price: 55,
+                    prices: [
+                        {
+                            "1": {"1": 55, "3": 50, "8": 45, "15": 40}
+                        },
+                        {
+                            "2": {"1": 65, "3": 60, "8": 55, "15": 53}
+                        },
+                        {
+                            "3": {"1": 65, "3": 60, "8": 55, "15": 53}
+                        },
+                        {
+                            "4": {"1": 70, "3": 65, "8": 60, "15": 55}
+                        }
+                    ]
+                },
+                {
+                    id: 4,
+                    name: 'NISSAN JUKE',
+                    image: '/assets/img/cars/juke/4.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/juke/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/10.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/11.jpg'
                         },
                     ],
                     description: 'Great way and chipiest! For a little family',
                     rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
-                    category: [1],
-                    price: 35,
+                    category: [1, 2],
+                    price: 50,
                     prices: [
                         {
-                            "1" : {"1": 30, "3": 25, "8": 18, "15": 16}
+                            "1": {"1": 50, "3": 40, "8": 35, "15": 30}
                         },
                         {
-                            "2" : {"1": 35, "3": 27, "8": 25, "15": 23}
+                            "2": {"1": 60, "3": 55, "8": 50, "15": 45}
                         },
                         {
-                            "3" : {"1": 35, "3": 30, "8": 27, "15": 25}
+                            "3": {"1": 60, "3": 55, "8": 50, "15": 45}
+                        },
+                        {
+                            "4": {"1": 75, "3": 60, "8": 55, "15": 50}
+                        }
+                    ]
+                },
+                {
+                    id: 44,
+                    name: 'NISSAN JUKE',
+                    image: '/assets/img/cars/juke/5.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/juke/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/10.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/juke/11.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 2],
+                    price: 50,
+                    prices: [
+                        {
+                            "1": {"1": 50, "3": 40, "8": 35, "15": 30}
+                        },
+                        {
+                            "2": {"1": 60, "3": 55, "8": 50, "15": 45}
+                        },
+                        {
+                            "3": {"1": 60, "3": 55, "8": 50, "15": 45}
+                        },
+                        {
+                            "4": {"1": 75, "3": 60, "8": 55, "15": 50}
+                        }
+                    ]
+                },
+                {
+                    id: 5,
+                    name: 'NISSAN MICRA',
+                    image: '/assets/img/cars/march/7.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/march/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/march/8.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 4,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 3],
+                    price: 27,
+                    prices: [
+                        {
+                            "1": {"1": 27, "3": 25, "8": 17, "15": 15}
+                        },
+                        {
+                            "2": {"1": 35, "3": 30, "8": 23, "15": 20}
+                        },
+                        {
+                            "3": {"1": 35, "3": 30, "8": 23, "15": 20}
+                        },
+                        {
+                            "4": {"1": 35, "3": 30, "8": 25, "15": 23}
+                        }
+                    ]
+                },
+                {
+                    id: 6,
+                    name: 'NISSAN SERENA',
+                    image: '/assets/img/cars/serena/6.jpg',
+                    images: [
+                        {
+                            src: '/assets/img/cars/serena/1.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/2.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/3.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/4.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/5.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/6.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/7.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/8.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/9.jpg'
+                        },
+                        {
+                            src: '/assets/img/cars/serena/10.jpg'
+                        },
+                    ],
+                    description: 'Great way and chipiest! For a little family',
+                    rating: 5,
+                    properties: [1, 2, 3, 4, 5, 6],
+                    category: [1, 2],
+                    price: 50,
+                    prices: [
+                        {
+                            "1": {"1": 50, "3": 40, "8": 35, "15": 30}
+                        },
+                        {
+                            "2": {"1": 60, "3": 55, "8": 50, "15": 45}
+                        },
+                        {
+                            "3": {"1": 60, "3": 55, "8": 50, "15": 45}
+                        },
+                        {
+                            "4": {"1": 75, "3": 60, "8": 55, "15": 50}
                         }
                     ]
                 }
@@ -137,6 +617,32 @@
                     shortValue: '0',
                     shortDescription: 'Liked users : 0',
                     iconClass: 'glyphicon glyphicon-thumbs-up'
+                }
+            ],
+            priceSeasons: [
+                {
+                    "id": 1,
+                    "name": "Low season (1 Nov - 1 Apr)",
+                    "start": "2016/11/01",
+                    "end": "2017/04/01"
+                },
+                {
+                    "id": 2,
+                    "name": "Medium season (1 Apr - 1 Jul)",
+                    "start": "2016/04/01",
+                    "end": "2016/07/01"
+                },
+                {
+                    "id": 3,
+                    "name": "Medium season (1 Oct - 1 Nov)",
+                    "start": "2016/10/01",
+                    "end": "2016/11/01"
+                },
+                {
+                    "id": 4,
+                    "name": "High season (1 Jul - 1 Oct)",
+                    "start": "2016/07/01",
+                    "end": "2016/10/01"
                 }
             ]
         };

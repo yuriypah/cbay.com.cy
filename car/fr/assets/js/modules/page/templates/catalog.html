@@ -20,9 +20,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="fotorama" data-nav="thumbs">
-                    <% for(var i = 0; i < car.images.length; i++) { %>
-                    <img src="<%=car.images[i].src%>"/>
-                    <% } %>
+                    <% _.each(car.images, function(item_image) { %>
+                    <img src="<%=item_image.src%>"/>
+                    <% }); %>
                 </div>
             </div>
             <div class="col-md-4">
