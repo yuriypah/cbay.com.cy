@@ -18,14 +18,7 @@ define([
             require(['page']);
             require(['user']);
         });
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=205933253138876";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '205933253138876',
@@ -47,21 +40,9 @@ define([
                 }
             });
             FB.Event.subscribe('auth.statusChange',  function(response){
-                FB.getLoginStatus(function(response) {
-                    if (response.status === 'connected') {
-                        FB.api('/me', function (response) {
-                            app.isAuth = true;
-                            app.user = {
-                                id: response.id,
-                                name: response.name
-                            };
-                            $.fancybox.close();
-                            $.fancybox.hideLoading();
-                            app.vent.trigger('Page:renderHeader');
-                        });
-                    }
-                });
+               // console.log(response);
             });
+
         };
 
 
