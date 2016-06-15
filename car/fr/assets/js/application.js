@@ -40,7 +40,20 @@ define([
                 }
             });
             FB.Event.subscribe('auth.statusChange',  function(response){
-               // console.log(response);
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        FB.api('/me', function (response) {
+                            app.isAuth = true;
+                            app.user = {
+                                id: response.id,
+                                name: response.name
+                            };
+                            $.fancybox.close();
+                            $.fancybox.hideLoading();
+                            app.vent.trigger('Page:renderHeader');
+                        });
+                    }
+                });
             });
 
         };
