@@ -2,7 +2,7 @@
 <html xmlns="https://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title><?php echo $ctx->page->meta_title; ?></title>
+        <title><?php echo $ctx->page->title; ?></title>
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
         <meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
