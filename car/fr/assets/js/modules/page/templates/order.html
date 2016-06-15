@@ -86,13 +86,24 @@
                                     <h4>Select a Payment Method:</h4>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 hide">
                                             <a href="#" class="thumbnail active choose_pay">
                                                 <img src="/assets/img/jcc_logo_small.jpg">
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#" class="thumbnail choose_pay">
+                                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
+                                                  class="paypal_form">
+                                                <input type="hidden" name="cmd" value="_xclick">
+                                                <input type="hidden" name="business" value="gosup3@gmail.com">
+                                                <input type="hidden" name="no_shipping" value="1">
+                                                <input type="hidden" name="item_name" value="RENTCAR.CBAY.COM.CY"/>
+                                                <input type="hidden" name="amount" value="<%=app.order.price %>"/>
+                                                <input type="hidden" name="currency_code" value="EUR"/>
+                                            </form>
+                                                <input type="hidden" name="currency_code" value="EUR">
+                                                </form>
+                                            <a href="#" class="thumbnail paypal_case choose_pay">
                                                 <img class="paypal" src="/assets/img/paypal_logo2.png">
                                             </a>
                                         </div>

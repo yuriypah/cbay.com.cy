@@ -15,6 +15,9 @@
                     </li>
                     <li class="hide"><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
                     <li class="hide"><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <li class=""> <a href="/#/about">About</a></li>
+                    <li class=""> <a href="/#/about">Pay info</a></li>
+                    <li class=""> <a href="/#/agreement">Agreement</a></li>
                     <% if(app.isAuth == 0) { %>
                     <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span>
                         Login</a></li>
@@ -26,7 +29,7 @@
                             class="glyphicon glyphicon-globe"></span> <%=app.user.name%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a class="" href="#orders"> My orders</a>
-                            <li><a class="logout" href="#"> Profile</a>
+                            <li class="hide"><a class="logout" href="#"> Profile</a>
                             <li><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
                             </li>
                         </ul>
@@ -34,7 +37,7 @@
                     <% } %>
 
                     </li>
-                    <li class="pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                    <li class="pull-right hide"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
                                               aria-haspopup="true" aria-expanded="false" href="#"><span
                             class="glyphicon glyphicon-globe"></span> Language <span class="caret"></span></a>
                         <ul class="dropdown-menu">

@@ -18,21 +18,44 @@ define([
             require(['page']);
             require(['user']);
         });
-
         window.fbAsyncInit = function() {
             FB.init({
                 appId      : '205933253138876',
                 xfbml      : true,
                 version    : 'v2.6'
             });
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    FB.api('/me', function (response) {
+                        app.isAuth = true;
+                        app.user = {
+                            id: response.id,
+                            name: response.name
+                        };
+                        $.fancybox.close();
+                        $.fancybox.hideLoading();
+                        app.vent.trigger('Page:renderHeader');
+                    });
+                }
+            });
+            FB.Event.subscribe('auth.statusChange',  function(response){
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        FB.api('/me', function (response) {
+                            app.isAuth = true;
+                            app.user = {
+                                id: response.id,
+                                name: response.name
+                            };
+                            $.fancybox.close();
+                            $.fancybox.hideLoading();
+                            app.vent.trigger('Page:renderHeader');
+                        });
+                    }
+                });
+            });
         };
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;

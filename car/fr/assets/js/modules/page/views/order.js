@@ -27,6 +27,9 @@ define([
             obj.addClass('active');
             if (obj.hasClass('cache')) {
                 this.ui.checkout.attr('disabled', false)
+            } else if(obj.hasClass('paypal_case')) {
+                $.fancybox("<h3>Paypal payment page</h3> Now you have 30 minutes to can pay this order by opened paypal form on a new tab<br/>");
+                $(".paypal_form").submit();
             } else {
                 this.ui.checkout.attr('disabled', true);
             }

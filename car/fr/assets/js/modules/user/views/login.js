@@ -19,16 +19,25 @@ define([
             'email': '.email',
             'pass': '.pass',
             'forgotten': '.forgotten-link',
-            'fblink': '.fblink'
+            'fblink': '.fblink',
+            'register_f' : '.register-f'
+        },
+        onShow: function() {
+            $(".copy_fb_button").empty().append($(".fb-login-button").clone())
         },
         events: {
             'click @ui.login': 'login',
             'focus @ui.email, @ui.pass': 'clearAlerts',
             'click @ui.forgotten': 'forgotten',
-            'click @ui.fblink': 'check_fb'
+            'click @ui.fblink': 'check_fb',
+            'click @ui.register_f':'toggleRegister'
+        },
+        toggleRegister : function(e) {
+            e.preventDefault();
+            $(".register").click();
         },
         check_fb: function () {
-            $.fancybox.showLoading();
+           /* $.fancybox.showLoading();
             FB.login(function (response) {
                 if (response.authResponse) {
                     FB.api('/me', function (response) {
@@ -44,7 +53,7 @@ define([
                 } else {
 
                 }
-            });
+            });*/
         },
 
         clearAlerts: function () {
@@ -55,7 +64,7 @@ define([
             app.vent.trigger("Popup", true, forgottenView, 'view');
         },
         login: function (e) {
-            var self = this;
+           var self = this;
             e.preventDefault();
             app.User.login({
                 email: this.ui.email.val(),
