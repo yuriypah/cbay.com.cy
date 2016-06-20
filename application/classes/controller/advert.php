@@ -108,36 +108,41 @@ class Controller_Advert extends Controller_System_Page
         }
 
         $this->session->set('advert_place_data', $data);
-
         if (Arr::get($data, 'action') == 'reset') { // Удаляем данные из сессии
             $this->session->delete('advert_place_data');
             $this->go_back();
         }
+
         $validation = Validation::factory($data)
             ->rules('title', array(
                 array('not_empty')
             ))
-            /*->rules('amount', array(
-                array('not_empty'),
-                array('numeric'),
-            ))*/
+
             ->rules('phone', array(
                 array('phone', array(':value', Model_User_Profile::PHONE_LENGTH)),
                 array('not_empty'),
             ))
-            ->rules('city_id', array(
-                array('not_empty'),
-                array('numeric'),
-                array('regex', array(':value', '/[^0]/'))
-            ))
+            ->rules('city_id',
+                array(array('not_empty'), array('numeric'), array('regex', array(':value', '/[^0]/')))
+            )
             ->rules('package_id', array(
                 array('not_empty'),
                 array('array_key_exists', array(':value', Model_Package::$packages))
-            ))
+            ));
 //                         ->rules('keywords', array(
 //                                 array('not_empty')
 //                         ))
-            ->rule('token', 'Security::check', array(':value'));
+        if ($data['category_id'] != 20) {
+            $validation->rules('amount',
+                array(array('not_empty'), array('numeric'), array('regex', array(':value', '/[^0]/')))
+            );
+        } else {
+            $validation->rules('amount', array(
+                array('not_empty'),
+                array('array_key_exists', array(':value', array('0',0)))
+            ));
+        }
+            $validation->rule('token', 'Security::check', array(':value'));
 
         if (!$this->ctx->auth->logged_in()) {
             $validation

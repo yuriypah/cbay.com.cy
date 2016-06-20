@@ -6,9 +6,18 @@
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
         <meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/fav_new.png" type="image/x-icon" />
 
+
+        <meta property="og:title" content="CBAY.COM.CY">
+        <meta property="og:description" content="Classifieds ads for free in Cyprus">
+        <meta property="og:image" content="/resources/images/logo4.png">
+        <meta property="og:url" content="http://www.cbay.com.cy">
+        <meta property="og:site_name" content="cbay.com.cy">
+
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/resources/images/logo4.png">
         <script type="text/javascript">
             var resources_path = "/<?php echo $resources_path; ?>";
             var directory = "<?php echo Request::current()->directory(); ?>";

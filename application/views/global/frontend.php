@@ -4,11 +4,22 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title><?php echo  $ctx->page->title; ?></title>
 		<meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="<?php echo $ctx->page->meta_keywords ?>" />
 		<meta name="description" content="<?php echo $ctx->page->meta_description ?>" />
         <link href='https://fonts.googleapis.com/css?family=Russo+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'/>
 		<link rel="icon" href="/fav_new.png" type="image/x-icon" />
 
+        <meta property="og:title" content="CBAY.COM.CY">
+        <meta property="og:description" content="Classifieds ads for free in Cyprus">
+        <meta property="og:image" content="/resources/images/logo4.png">
+        <meta property="og:url" content="http://www.cbay.com.cy">
+        <meta property="og:site_name" content="cbay.com.cy">
+
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/resources/images/logo4.png">
+
+        
 		<script type="text/javascript">
 			var resources_path = "/<?php echo $resources_path; ?>";
 			var directory = "<?php echo Request::current()->directory(); ?>";

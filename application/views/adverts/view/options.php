@@ -29,6 +29,26 @@
         <li>
             <?php echo HTML::anchor('#', __('advert_page.label.print'), array('class' => 'add-to-print', 'onclick' => 'window.print();return false')); ?>
         </li>
+        <li style="margin-right:0" class="pull-right">
+            <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+            <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+            <div class="ya-share2" data-services="vkontakte,facebook,gplus,twitter"></div>
+
+            <style>
+                .ya-share2 a{
+                    padding-left:0px !important;
+                }
+                .ya-share2 li {
+                    margin-right:5px !important;
+                }
+            </style>
+        </li>
+        <li class="pull-right" style="margin-right:0">
+            <input type="text" class="link_sel" value="https://cbay.com.cy/advert/<?=$advert->id?>" style="width:200px;height:15px"/>
+            <script>
+                $(".link_sel").select();
+            </script>
+        </li>
 		<!--<li class="pull-right">
 			<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki"></div> 

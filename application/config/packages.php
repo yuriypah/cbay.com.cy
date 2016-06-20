@@ -2,7 +2,7 @@
 $packs = HTML::getPacks();
 return array(
     'pack1' => array(
-        new Model_Package_Option_Show(1, 30)
+        new Model_Package_Option_Show(1, 60)
     ),
     'pack5' => array(
         new Model_Package_Option_Premium(5, $packs->pack_prestige->days, $packs->pack_prestige->price)
