@@ -117,10 +117,10 @@ class Controller_Advert extends Controller_System_Page
             ->rules('title', array(
                 array('not_empty')
             ))
-            ->rules('amount', array(
+            /*->rules('amount', array(
                 array('not_empty'),
                 array('numeric'),
-            ))
+            ))*/
             ->rules('phone', array(
                 array('phone', array(':value', Model_User_Profile::PHONE_LENGTH)),
                 array('not_empty'),
@@ -473,9 +473,18 @@ class Controller_Advert extends Controller_System_Page
                     )));
             }
         }
+        try { // send notify to admin
+            $email = Email::factory('Новое объявление', "Далее: <a href='http://cbay.com.cy/backend/adverts'>http://cbay.com.cy/backend/adverts</a>", 'text/html')
+                ->to('admin@cbay.com.cy')
+                ->from('support@cbay.com.cy', 'CBAY.COM.CY')
+                ->send();
+        } catch (Exception $e) {
+
+        }
         $this->go(Route::url('default', array(
             'controller' => 'advert', 'action' => $new_advert ? 'finish' : 'update'
         )));
+
     }
 
     public function action_finish()
