@@ -20,6 +20,9 @@ define([
             'click @ui.choose_pay': 'choose_pay',
             'click @ui.checkout': 'checkout'
         },
+        initialize : function() {
+
+        },
         choose_pay: function (e) {
             e.preventDefault();
             var obj = $(e.currentTarget);
@@ -27,7 +30,7 @@ define([
             obj.addClass('active');
             if (obj.hasClass('cache')) {
                 this.ui.checkout.attr('disabled', false)
-            } else if(obj.hasClass('paypal_case')) {
+            } else if (obj.hasClass('paypal_case')) {
                 $.fancybox("<h3>Paypal payment page</h3> Now you have 30 minutes to can pay this order by opened paypal form on a new tab<br/>");
                 $(".paypal_form").submit();
             } else {
@@ -44,7 +47,7 @@ define([
                 endDate: moment(app.searchParams.endDate).unix(),
                 startTime: moment(app.searchParams.startTime).format('HH:mm'),
                 endTime: moment(app.searchParams.endTime).format('HH:mm'),
-                price : app.order.price
+                price: app.order.price
             }, function () {
                 var router = new app.page.router();
                 router.navigate('#checkout', {trigger: true});
@@ -79,7 +82,55 @@ define([
                 endDate: moment(app.searchParams.endDate).format('LL') + ', ' + moment(app.searchParams.endTime).format('HH:mm')
             };
             return {
-                dates: dates
+                dates: dates,
+                deposit_variants: function () {
+                    var arr = [];
+                    switch (app.order.car.name) {
+                        case "NISSAN NOTE":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €300 (Accident Excess: €800)'},
+                                {'id':2, 'value':'Deposit: €300 with insurance ADW (Accident Excess: €400): ' + (app.order.days*2) + '€'},
+                                {'id':3, 'value':'Deposit: €300, with ADW+ (No excess): ' + (app.order.days*3) + '€'}
+                            ];
+                            break;
+                        case "NISSAN LATIO":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €300 (Accident Excess: €1000)'},
+                                {'id':2, 'value':'Deposit: €300 with insurance ADW (Accident Excess: €500): ' + (app.order.days*3) + '€'},
+                                {'id':3, 'value':'Deposit: €300, with ADW+ (No excess): ' + (app.order.days*4) + '€'}
+                            ];
+                            break;
+                        case "NISSAN SIENTA":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €500 (Accident Excess: €1000)'},
+                                {'id':2, 'value':'Deposit: €500 with insurance ADW (Accident Excess: €500): €' + (app.order.days*4)},
+                                {'id':3, 'value':'Deposit: €500, with ADW+ (No excess): €' + (app.order.days*5)}
+                            ];
+                            break;
+                        case "NISSAN JUKE":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €500 (Accident Excess: €1000)'},
+                                {'id':2, 'value':'Deposit: €500 with insurance ADW (Accident Excess: €500): €' + (app.order.days*3)},
+                                {'id':3, 'value':'Deposit: €500, with ADW+ (No excess): €' + (app.order.days*4)}
+                            ];
+                            break;
+                        case "NISSAN MICRA":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €200 (Accident Excess: €800)'},
+                                {'id':2, 'value':'Deposit: €200 with insurance ADW (Accident Excess: €400): €' + (app.order.days*2)},
+                                {'id':3, 'value':'Deposit: €200, with ADW+ (No excess): €' + (app.order.days*3)}
+                            ];
+                            break;
+                        case "NISSAN SERENA":
+                            arr = [
+                                {'id':1, 'value':'Deposit: €600 (Accident Excess: €1000)'},
+                                {'id':2, 'value':'Deposit: €600 with insurance ADW (Accident Excess: €500): €' + (app.order.days*4)},
+                                {'id':3, 'value':'Deposit: €600, with ADW+ (No excess): €' + (app.order.days*5)}
+                            ];
+                            break;
+                    }
+                    return arr;
+                }
             }
         }
     });
