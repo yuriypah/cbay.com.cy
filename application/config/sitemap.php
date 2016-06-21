@@ -5,6 +5,10 @@ $map = array(
     'label' => __('Index'),
     'pages' => array(
         array(
+            'action' => 'mailer',
+            'visible' => false,
+        ),
+        array(
             'label' => __('menu.label.index'),
             'visible' => FALSE
         ),
@@ -357,6 +361,7 @@ $map = array(
                     'visible' => FALSE,
                     'auto_render' => FALSE
                 )
+
             )
         ),
         array(

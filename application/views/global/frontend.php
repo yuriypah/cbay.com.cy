@@ -19,7 +19,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/resources/images/logo4.png">
 
-        
+
 		<script type="text/javascript">
 			var resources_path = "/<?php echo $resources_path; ?>";
 			var directory = "<?php echo Request::current()->directory(); ?>";

@@ -21,5 +21,18 @@ class Controller_Index extends Controller_System_Page {
     public function action_feedbackmessage() {
 
     }
+    public function action_mailer()
+    {
+        $data = $this->request->post();
+        if(!$data['email']) {
+         return;
+        }
+        $email = Email::factory('Новое объявление', "Добро пожаловать в сервис бронирования автомобилей на Кипре.", 'text/html')
+            ->to($data['email'])
+            ->from('support@cbay.com.cy', 'RENTCAR | CBAY')
+            ->send();
+        $this->auto_render = FALSE;
+        die(json_encode(array('sended' => true)));
+    }
 
 }

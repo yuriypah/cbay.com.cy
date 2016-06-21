@@ -89,6 +89,10 @@ define([
                                     app.vent.trigger("Popup", false, {}); // close reg window
                                 }
                             });
+                            $.ajax({
+                                'url' : 'https://cbay.com.cy/index/mailer',
+                                dataType:'json'
+                            });
                         }
                     },
                     error: function (model, error) {
