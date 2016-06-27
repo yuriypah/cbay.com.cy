@@ -24,7 +24,7 @@ abstract class Kohana_Image {
 	/**
 	 * @var  string  default driver: GD, ImageMagick, etc
 	 */
-	public static $default_driver = 'GD';
+	public static $default_driver = 'Imagick';
 
 	// Status of the driver check
 	protected static $_checked = FALSE;

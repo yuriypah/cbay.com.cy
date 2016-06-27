@@ -381,14 +381,14 @@ class ORM extends Kohana_ORM
                 chmod($file, 0777);
 
                 $image = Image::factory($file);
-                $watermark_path = DOCROOT."/resources/images/logo4.png";
+                $watermark_path = DOCROOT."/resources/images/wtm.png";
                 $watermark = Image::factory($watermark_path);
                 $image->watermark($watermark, 30, 30, 50);
                 if (!empty($_params['width']) AND !empty($_params['height'])) {
-                    $image->resize($_params['width'], $_params['height'], $_params['master']);
-                    $image->crop($_params['width'], $_params['height']);
-                }
 
+                }
+                $image->resize(510,400, $_params['master']);
+                $image->crop(510, 400);
                 $image->save();
             }
 
