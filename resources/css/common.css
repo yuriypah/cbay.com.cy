@@ -3035,17 +3035,15 @@ body {
 }
 
 #logo_text {
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 10px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #707070;
-    width: 190px;
+    width: 243px;
     line-height: 12px;
     position: absolute;
-    top: 0px;
-    left: 300px;
-    margin-left: 75px;
-    margin-top: 20px;
+    top: -17px;
+    left: 218px;
 }
 
 #buttons {

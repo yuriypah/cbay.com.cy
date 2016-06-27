@@ -456,9 +456,9 @@ var remove_separator = function (cont) {
 var inner = [];
 var tmpAdvertTitle = "";
 /* DEMO::*/
-function get_child(sel) {
+function get_child(sel) { console.log(sel);
     var idFnew = sel.id;
-    if (idFnew == "option_option_15") {
+    if (idFnew == "option_option_15" || idFnew == "option_15") {
         tmpAdvertTitle = $("#option_15 :selected").text() + " " + $("#option_option_15 :selected").text()
 
     }
