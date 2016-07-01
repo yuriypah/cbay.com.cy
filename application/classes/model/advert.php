@@ -576,7 +576,7 @@ class Model_Advert extends ORM
         }
 
         if ($this->_part instanceof Model_Advert_Part) {
-            return $this->_part;
+           // return $this->_part;
         }
 
         return $this->_part = ORM::factory('advert_part')

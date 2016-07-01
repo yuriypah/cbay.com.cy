@@ -42,13 +42,14 @@
             dataType: 'json',
             data: {'option_id': opt_id}
         }).done(function (data) {
+
             $.fancybox("<h1>Языковые параметры</h1>" +
             "<table class='table'>" +
 
             "<tr><td><img src='/resources/images/lang-ru.png'/></td><td><input value='" + data.langs.ru + "' name='var_ru' type='text'/></td></tr>" +
-            "<tr><td><img src='/resources/images/lang-en.png'/></td><td><input value='" + data.langs.en + "' name='var_en' type='text'/></td></tr>" +
-            "<tr><td><img src='/resources/images/lang-gr.png'/></td><td><input value='" + data.langs.gr + "'  name='var_gr' type='text'/></td></tr>" +
-            "<tr><td><img src='/resources/images/lang-zh.png'/></td><td><input value='" + (data.langs.zh!= undefined ? data.langs.zh : '') + "'  name='var_zh' type='text'/></td></tr>" +
+            "<tr><td><img src='/resources/images/lang-en.png'/></td><td><input value='" + (data.langs.en ? data.langs.en : '') + "' name='var_en' type='text'/></td></tr>" +
+            "<tr><td><img src='/resources/images/lang-gr.png'/></td><td><input value='" + (data.langs.gr ? data.langs.gr : '') + "'  name='var_gr' type='text'/></td></tr>" +
+
             "</table><input type='button' value='Сохранить изменения' class='btn btn-default save_opt_langs'/><Br/>" +
             "<div class='translater'></div>");
             Translate.translatePanel('.translater');
@@ -62,8 +63,7 @@
                         'langs': {
                             'ru': $("input[name=var_ru]").val(),
                             'en': $("input[name=var_en]").val(),
-                            'gr': $("input[name=var_gr]").val(),
-                            'zh': $("input[name=var_zh]").val()
+                            'gr': $("input[name=var_gr]").val()
                         }
                     }
                 }).done(function (data) {

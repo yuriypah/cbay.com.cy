@@ -174,6 +174,17 @@
             <div id="advert-description">
                 <h3 class="head"><?php echo __('advert_page.label.description'); ?></h3>
                 <?php echo $advert->part()->description; ?>
+                <br/><hr/>
+                <div class="originText">
+                    <?php echo $advert->part($advert->user->profile->default_locale)->description; ?>
+                </div>
+
+                <button class="btn btn-default btn-sm originTextHolder">Original Text</button>
+                <script>
+                    $(".originTextHolder").click(function() {
+                        $(".originText").slideToggle();
+                    })
+                </script>
             </div>
         <?php endif; ?>
         <h4 id="advert-number"><?php echo __('advert_page.label.number', array(':num' => $advert->id)); ?></h4>

@@ -37,16 +37,12 @@ class Model_Advert_Part extends ORM
             ->where('advert_id', '=', $id)
             ->where('locale', '=', 'gr')
             ->execute();
-        DB::update('advert_parts')
-            ->set($data['zh'])
-            ->where('advert_id', '=', $id)
-            ->where('locale', '=', 'zh')
-            ->execute();
+
     }
 
     public function add_item(ORM $advert, $data, $lang = NULL)
     {
-        $locales = array('ru', 'en', 'gr', 'zh');
+        $locales = array('ru', 'en', 'gr');
 
         if (!is_array($data)) {
             throw new Kohana_Exception('Data variable mast be an array');
@@ -100,7 +96,7 @@ class Model_Advert_Part extends ORM
 
     public function update_item(ORM $advert, $data, $lang = NULL)
     {
-        $locales = array('ru', 'en', 'gr', 'zh');
+        $locales = array('ru', 'en', 'gr');
         if (!is_array($data)) {
             throw new Kohana_Exception('Data variable mast be an array');
         }

@@ -456,9 +456,30 @@ var remove_separator = function (cont) {
 var inner = [];
 var tmpAdvertTitle = "";
 /* DEMO::*/
-function get_child(sel) { console.log(sel);
+function showSelectInteract(sel) {
+    $("#categoryoptions .control-group").each(function (i) {
+        var nextSelect = ($(sel).parents('.control-group'));
+
+        if ((nextSelect.index() + 1) == i) {
+            $(this).removeClass('hide');
+            if ($(this).find('select').length > 0) {
+                $(this).addClass('select-row');
+            }
+            else if ($(this).find('input').length > 0) {
+                showSelectInteract($(this).find('input'));
+                return;
+            }
+        }
+    });
+
+}
+function get_child(sel) {
+    showSelectInteract(sel);
     var idFnew = sel.id;
-    if (idFnew == "option_option_15" || idFnew == "option_15") {
+    if(idFnew == "option_15") {
+        tmpAdvertTitle = $("#option_15 :selected").text();
+    }
+    if (idFnew == "option_option_15") {
         tmpAdvertTitle = $("#option_15 :selected").text() + " " + $("#option_option_15 :selected").text()
 
     }
@@ -470,10 +491,12 @@ function get_child(sel) { console.log(sel);
             $("#period").show();
     }
     $('#option_' + idFnew).parents('.control-group').remove();
-    if (inner[sel.value] == null) {
-        $("#option_" + idFnew + ",#option_option_" + idFnew).remove();
+    $('#option_option_' + idFnew).parents('.control-group').remove();
+    /*if (inner[sel.value] == null) {
+        $("#option_" + idFnew).remove();
+        $("#option_" + idFnew).remove();
         return;
-    }
+    }*/
     var of = option_switch(inner[sel.value], idFnew, inner[sel.value].values[0].option_id);
     if ($(sel).parents('.control-group').length > 0) {
         $(sel).parents('.control-group').after(of);
@@ -487,18 +510,19 @@ function get_child(sel) { console.log(sel);
         } else {
             $(sel).after(ch);
         }
-        ch.animate({'opacity': '0.5'}, 200, function () {
-            ch.animate({'opacity': '1'}, 200, function () {
 
-            });
-        });
     }
+    $("#categoryoptions .control-group").each(function() {
+        if($(this).find('select').length > 0) {
+            $(this).addClass('select-row');
+        }
+    })
 
 }
 
 /* DEMO::*/
 function category_select(one_category_id) {
-
+    $("#title").val("");
     $('#categoryoptions').empty();
     if (one_category_id == null) {
         var category_id = $('#category_id').val();
@@ -519,6 +543,7 @@ function category_select(one_category_id) {
         if (data.options[options_id].parent_id != null) return;
         var of = option_switch(data.options[options_id], options_id);
 
+
         //для селекта периода возле цены ->>/
         if (options_id == 170) {
             $('#period').append(of);
@@ -526,6 +551,9 @@ function category_select(one_category_id) {
             //->>end/
             $('#categoryoptions').append(of);
         }
+        $("#categoryoptions .control-group").addClass('hide');
+        $("#categoryoptions .control-group:first").removeClass('hide');
+        $("#categoryoptions .control-group:first").addClass('select-row');
     });
     if (typeof cat_options != "undefined" && cat_options != '') {
         var cat_options_array = JSON.parse(cat_options);

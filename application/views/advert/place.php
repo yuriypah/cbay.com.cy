@@ -30,7 +30,7 @@ else
 
 <?php // if($action == 'place'): ?>
 
-<div class="control-group <?php echo Arr::path($messages_array, 'errors.category_id') ? 'error' : ''; ?>">
+<div class="choose-category-row control-group <?php echo Arr::path($messages_array, 'errors.category_id') ? 'error' : ''; ?>">
     <label class="control-label" for="title"><?php echo __('place.label.category'); ?></label>
 
     <div class="controls">

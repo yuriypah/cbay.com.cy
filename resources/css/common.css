@@ -3042,8 +3042,8 @@ body {
     width: 243px;
     line-height: 12px;
     position: absolute;
-    top: -17px;
-    left: 218px;
+    top: 3px;
+    left: 297px;
 }
 
 #buttons {
@@ -5517,4 +5517,18 @@ input[type=radio] {
 .textarea-place
 {
     max-width:530px;
+}
+.choose-category-row, .select-row {
+    background: #ddd;
+}
+.choose-category-row select, .select-row select {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.originText {
+    padding:10px;
+    background:#ddd;
+    display:none;
 }

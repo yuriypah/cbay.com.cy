@@ -119,7 +119,7 @@
                 "<th><img src='/resources/images/lang-ru.png'/></th>" +
                 "<th><img src='/resources/images/lang-en.png'/></th>" +
                 "<th><img src='/resources/images/lang-gr.png'/></th>" +
-                "<th><img src='/resources/images/lang-zh.png'/></th>" +
+
                 "</tr>" +
 
                 "<tr>" +
@@ -127,7 +127,7 @@
                 "<td><textarea class='ru_title'>" + data.langs.ru.title + "</textarea></td>" +
                 "<td><textarea class='en_title'>" + data.langs.en.title + "</textarea></td>" +
                 "<td><textarea class='gr_title'>" + data.langs.gr.title + "</textarea></td>" +
-                "<td><textarea class='zh_title'>" + data.langs.zh.title + "</textarea></td>" +
+
                 "</tr>" +
 
                 "<tr>" +
@@ -135,16 +135,9 @@
                 "<td><textarea class='ru_description'>" + data.langs.ru.description + "</textarea></td>" +
                 "<td ><textarea class='en_description'>" + data.langs.en.description + "</textarea></td>" +
                 "<td><textarea class='gr_description'>" + data.langs.gr.description + "</textarea></td>" +
-                "<td><textarea class='zh_description'>" + data.langs.zh.title + "</textarea></td>" +
+
                 "</tr>" +
 
-                "<tr>" +
-                "<td><b>Ключевые слова</b></td>" +
-                "<td><textarea class='ru_keywords'>" + data.langs.ru.keywords + "</textarea></td>" +
-                "<td ><textarea class='en_keywords'>" + data.langs.en.keywords + "</textarea></td>" +
-                "<td><textarea class='gr_keywords'>" + data.langs.gr.keywords + "</textarea></td>" +
-                "<td><textarea class='zh_keywords'>" + data.langs.zh.title + "</textarea></td>" +
-                "</tr>" +
 
                 "</table><input type='button' value='Сохранить изменения' class='btn btn-default save_advert_langs'/><br/>" +
                 "<div class='translater'></div>");
@@ -176,11 +169,6 @@
                                     'title': $('.gr_title').val(),
                                     'description': $('.gr_description').val(),
                                     'keywords': $('.gr_keywords').val()
-                                },
-                                'zh': {
-                                    'title': $('.zh_title').val(),
-                                    'description': $('.zh_description').val(),
-                                    'keywords': $('.zh_keywords').val()
                                 }
                             }
                         }
