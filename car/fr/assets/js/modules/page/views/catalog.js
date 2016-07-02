@@ -45,8 +45,10 @@ define([
                 car: data,
                 days: function () {
                     var days = (moment(app.searchParams.endDate).unix() - moment(app.searchParams.startDate).unix()) / 3600 / 24;
+
                     if (Math.ceil(days) > 0) {
                         return Math.ceil(days);
+
                     } else {
                         return "<span style='color:red'>Wrong dates!</span>";
                     }
@@ -65,21 +67,31 @@ define([
                     searchedEndDate.setTime(app.searchParams.endDate);
                     for (var time = searchedStartDate.getTime(); time < searchedEndDate.getTime(); time += 86400000) {
                         for (var i = 0; i < priceSeasons.length; i++) {
+
                             var start = new Date(priceSeasons[i].start).getTime(),
                                 end = new Date(priceSeasons[i].end).getTime();
+
                             if (time >= start && time <= end) {
                                 var priceBySeason = data.prices[i];
                                 if (Math.ceil(days) >= 1 && Math.ceil(days) <= 3) {
-                                    price  += priceBySeason[2]["1"];
+                                    for(var i in priceBySeason) {
+                                        price  += priceBySeason[i]["1"];
+                                    }
                                 }
                                 else if (Math.ceil(days) >= 3 && Math.ceil(days) <= 8) {
-                                    price  += priceBySeason[2]["3"];
+                                    for(var i in priceBySeason) {
+                                        price  += priceBySeason[i]["3"];
+                                    }
                                 }
                                 else if (Math.ceil(days) >= 8 && Math.ceil(days) <= 15) {
-                                    price  += priceBySeason[2]["8"];
+                                    for(var i in priceBySeason) {
+                                        price  += priceBySeason[i]["8"];
+                                    }
                                 }
                                 else if (Math.ceil(days) >= 15) {
-                                    price  += priceBySeason[2]["15"];
+                                    for(var i in priceBySeason) {
+                                        price  += priceBySeason[i]["15"];
+                                    }
                                 }
                             }
                         }
