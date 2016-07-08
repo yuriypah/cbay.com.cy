@@ -644,6 +644,68 @@
                     "start": "2016/07/01",
                     "end": "2016/10/01"
                 }
+            ],
+            AddItems : [
+                {
+                    id : 1,
+                    name : 'Baby seats or booster',
+                    price : 3,
+                    deposit : 0
+                },
+                {
+                    id : 2,
+                    name : 'GPS Navigator',
+                    price : 5,
+                    deposit : 100
+                },
+                {
+                    id : 3,
+                    name : 'Car Video Recorder',
+                    price : 5,
+                    deposit : 50
+                },
+                {
+                    id : 4,
+                    name : 'Wi-Fi',
+                    price : 7,
+                    deposit : 50
+                },
+                {
+                    id : 5,
+                    name : 'Camera "Xiaomi"',
+                    price : 5,
+                    deposit : 50
+                },
+                {
+                    id : 6,
+                    name : 'Walky-Talky (radio)',
+                    price : 3,
+                    deposit : 0
+                },
+                {
+                    id : 7,
+                    name : 'Converter',
+                    price : 1,
+                    deposit : 0
+                },
+                {
+                    id : 8,
+                    name : 'Refrigerator',
+                    price : 3,
+                    deposit : 0
+                },
+                {
+                    id : 9,
+                    name : 'Usb-Adapter',
+                    price : 1,
+                    deposit : 0
+                },
+                {
+                    id : 10,
+                    name : 'Telephone Holder',
+                    price : 1,
+                    deposit : 0
+                },
             ]
         };
         var orderModel = new mongoose.Schema({
@@ -664,7 +726,9 @@
             return response.send(staticData);
         });
         app.get('/catalog/:id/confirmation', function (request, response) {
-            return response.send({});
+            return response.send({
+                AddItems : staticData.AddItems
+            });
         });
         app.post('/checkout', function (request, response) {
             var order = new ordersSchema({

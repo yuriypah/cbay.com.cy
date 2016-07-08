@@ -104,8 +104,10 @@
                 </map>
             </div>
             <div id="footer-index" class="footer">
+
                 <p class="text"><?php echo __('index_page.text.footer'); ?></p>
                 <?php Block::run('footer_block'); ?>
+
             </div>
         </div>
     </body>

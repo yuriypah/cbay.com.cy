@@ -74,9 +74,11 @@ define([
                             $('.login').click();
                             router.navigate('#catalog/' + id);
                         } else {
-                            $.get('/catalog/' + app.order.car.id + '/confirmation', function () {
+                            $.get('/catalog/' + app.order.car.id + '/confirmation', function (data) {
                                 page.layout.getRegion('header').show(new header()); // show header
-                                app.page.layout.getRegion('content').show(new orderView());
+                                app.page.layout.getRegion('content').show(new orderView({
+                                    data : data
+                                }));
                                 page.layout.getRegion('footer').show(new footer()); // show footer
                             });
                         }
@@ -102,10 +104,13 @@ define([
                     } else {
                         page.layout.getRegion('header').show(new header()); // show header
                         $.get('/orders', function (data) {
+
                             app.page.layout.getRegion('content').show(new ordersView({
                                 orders: data.orders,
                                 cars : data.cars
+
                             }));
+
                         });
                         page.layout.getRegion('footer').show(new footer()); // show footer
                     }

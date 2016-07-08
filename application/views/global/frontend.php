@@ -44,23 +44,23 @@
 		<div id="header" class="wrapper">
 			<?php Block::run('header_block'); ?>
 		</div>
-		
+
 		<?php Block::run('header_menu'); ?>
-		
+
 		<div class="wrapper">
 
 			<?php Block::run('wrapper_top'); ?>
-			
+
 			<div id="container">
 				<div id="container-content" class="<?php if($left_sidebar === TRUE): ?>leftSidebar<?php endif; ?> <?php if($right_sidebar === TRUE): ?>rightSidebar<?php endif; ?>">
-					
+
 					<?php Block::run('content_top'); ?>
 
 					<?php echo $content; ?>
 					<?php if(isset($pagination)): ?>
 					<?php  echo $pagination; ?>
 					<?php endif; ?>
-					
+
 					<?php Block::run('content_bottom'); ?>
 				</div>
 			</div>
@@ -81,13 +81,14 @@
 			<?php endif; ?>
 
 			<div class="clear"></div>
-			
+
 			<?php Block::run('wrapper_bottom'); ?>
 			<div id="footer">
 				<?php Block::run('footer_block'); ?>
+
 			</div>
 		</div>
-		
+
 		<?php Observer::notify('page_layout_bottom'); ?>
         <?php // ProfilerToolbar::render(true); ?>
 	</body>

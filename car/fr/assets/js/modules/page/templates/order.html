@@ -99,7 +99,7 @@
                                     </table>
                                 </td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td><strong>Deposit & Additional insurance</strong></td>
                                 <td>
                                     Please choose item from this variants:
@@ -109,7 +109,7 @@
                                         <%})%>
                                     </select>
                                 </td>
-                            <tr>
+                            <tr>-->
                                 <td><h3>Total:</h3>
                                     <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
 
@@ -118,7 +118,7 @@
                                     <% if(app.order.price > 0) { %>
                                     <h3 class="pull-right order-totalPrice nobile"><span style='font-size:16px'
                                                                                          class="currency-icons glyphicon glyphicon-euro"></span>
-                                        <%=app.order.price %></h3>
+                                        <span class="totalPrice">0</span></h3>
                                     <% } else { %>
                                     <h3 class="pull-right order-totalPrice ">
                                         <span style="color:red">Invalid dates</span>

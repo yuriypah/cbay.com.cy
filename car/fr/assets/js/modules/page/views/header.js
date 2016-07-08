@@ -88,7 +88,11 @@ define([
                 startTime: this.ui.start_timer.data('DateTimePicker').date(),
                 endTime: this.ui.end_timer.data('DateTimePicker').date()
             };
-            app.vent.trigger("Search:changed");
+            $.fancybox.showLoading();
+            setTimeout(function() {
+                app.vent.trigger("Search:changed");
+                $.fancybox.hideLoading();
+            },1500)
         },
         onShow: function () {
             var self = this;
