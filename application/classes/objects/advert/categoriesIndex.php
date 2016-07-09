@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Objects_Advert_CategoriesIndex extends Model_Object {
+class Objects_Advert_Categoriesindex extends Model_Object {
 	
 	protected function _execute()
 	{
