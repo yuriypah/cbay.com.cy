@@ -5,7 +5,7 @@
         $i++;
         $children = $row->children();
         $link = URL::query(array('c' => $row->id));
-        $categoryWithIcons = array(2, 1, 6, 8, 7, 3, 4, 5, 20, 19, 25);
+        $categoryWithIcons = array(2, 1, 6, 8, 7, 3, 4, 5, 20, 19, 25,88);
         ?>
         <dl>
             <dt>
