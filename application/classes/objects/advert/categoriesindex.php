@@ -10,4 +10,4 @@ class Objects_Advert_Categoriesindex extends Model_Object {
 
         parent::_execute();
     }
-} 
+}
