@@ -1,4 +1,4 @@
-<div id="advert-categories-map">
+<div id="advert-categories-map" class="indexPage">
     <?php $i = 0; ?>
     <?php foreach ($data as $row): ?>
         <?php

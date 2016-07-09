@@ -14,6 +14,9 @@ return array(
 				'header_menu' => array(
 					'name' => 'Layout_HeaderMenu'
 				),
+                'wrapper_bottom' => array(
+                    'name' => 'Advert_CategoriesIndex'
+                ),
 			)
 		),
 		'advert' => array(

@@ -17,6 +17,10 @@ class Controller_Index extends Controller_System_Page {
         $this->scripts[] = 'libs/jquery.gradienttext.js';
 
         $this->ctx->page->qwe = 'asdasd';
+        $this->blocks['wrapper_bottom'] = array(
+            'name' => 'Advert_Related',
+
+        );
     }
     public function action_feedbackmessage() {
 

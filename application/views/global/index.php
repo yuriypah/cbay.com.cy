@@ -106,6 +106,7 @@
             <div id="footer-index" class="footer">
 
                 <p class="text"><?php echo __('index_page.text.footer'); ?></p>
+                <?php echo Block::run('wrapper_bottom'); ?>
                 <?php Block::run('footer_block'); ?>
 
             </div>
