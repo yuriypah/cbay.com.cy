@@ -15,7 +15,7 @@
                     </li>
                     <li class="hide"><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
                     <li class="hide"><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
-                    <% if(app.user.name == "admin") { %>
+                    <% if((app.user || {}).name == "admin") { %>
                     <li class=""> <a style="color:green" href="/#/adminorders">Admin orders page</a></li>
                     <% } %>
                     <li class=""> <a href="/#/about">About</a></li>
