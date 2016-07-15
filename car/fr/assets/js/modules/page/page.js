@@ -14,8 +14,10 @@ define([
     'modules/page/views/order',
     'modules/page/views/checkout',
     'modules/user/views/orders',
-    'modules/page/views/agreement'
-], function (app, backbone, marionette, jquery, layout, header, content, catalog, footer, orderView, checkoutView, ordersView, agreementView) {
+    'modules/page/views/agreement',
+    'modules/page/views/about',
+    'modules/user/views/adminorders',
+], function (app, backbone, marionette, jquery, layout, header, content, catalog, footer, orderView, checkoutView, ordersView, agreementView, aboutView, adminordersView) {
     "use strict";
     app.module("page", function (page) {
         page.layout = new layout();
@@ -34,7 +36,9 @@ define([
                     'catalog/:id/confirmation': 'confirmationOrder',
                     'checkout': 'checkout',
                     'orders': 'orders',
-                    'agreement' : 'agreement'
+                    'agreement' : 'agreement',
+                    'about' : 'about',
+                    'adminorders' : 'adminorders'
                 },
                 index: function () {
                     $("body").scrollTop(0)
@@ -50,6 +54,14 @@ define([
                     $("body").scrollTop(0)
                     page.layout.getRegion('header').show(new header()); // show header
                     page.layout.getRegion('content').show(new agreementView({
+
+                    }));
+                    page.layout.getRegion('footer').show(new footer()); // show f
+                },
+                about : function() {
+                    $("body").scrollTop(0)
+                    page.layout.getRegion('header').show(new header()); // show header
+                    page.layout.getRegion('content').show(new aboutView({
 
                     }));
                     page.layout.getRegion('footer').show(new footer()); // show f
@@ -107,8 +119,27 @@ define([
 
                             app.page.layout.getRegion('content').show(new ordersView({
                                 orders: data.orders,
-                                cars : data.cars
+                                cars : data.cars,
+                                additionalOptions : data.additionalOptions
+                            }));
 
+                        });
+                        page.layout.getRegion('footer').show(new footer()); // show footer
+                    }
+                },
+                adminorders: function () {
+                    var router = new self.router();
+                    if (!app.isAuth) {
+                        router.navigate('', {trigger: true});
+                    } else {
+                        page.layout.getRegion('header').show(new header()); // show header
+                        $.get('/adminorders', function (data) {
+
+                            app.page.layout.getRegion('content').show(new adminordersView({
+                                users:data.users,
+                                orders: data.orders,
+                                cars : data.cars,
+                                additionalOptions : data.additionalOptions
                             }));
 
                         });

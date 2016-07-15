@@ -58,7 +58,7 @@
                     rating: 5,
                     properties: [1, 2, 3, 4, 5, 6],
                     category: [1, 3],
-                    price: 30,
+                    price: 16,
                     prices: [
                         {
                             "1": {"1": 30, "3": 25, "8": 18, "15": 16}
@@ -71,6 +71,14 @@
                         },
                         {
                             "4": {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ],
+                    deposit: [
+                        {
+                            id: 1,
+                            description: '',
+                            deposit: 300,
+                            excess: 800
                         }
                     ]
                 },
@@ -129,6 +137,14 @@
                         {
                             "4": {"1": 35, "3": 30, "8": 27, "15": 25}
                         }
+                    ],
+                    deposit: [
+                        {
+                            id: 1,
+                            description: '',
+                            deposit: 300,
+                            excess: 800
+                        }
                     ]
                 },
                 {
@@ -185,6 +201,14 @@
                         },
                         {
                             "4": {"1": 35, "3": 30, "8": 27, "15": 25}
+                        }
+                    ],
+                    deposit: [
+                        {
+                            id: 1,
+                            description: '',
+                            deposit: 300,
+                            excess: 800
                         }
                     ]
                 },
@@ -645,66 +669,66 @@
                     "end": "2016/10/01"
                 }
             ],
-            AddItems : [
+            AddItems: [
                 {
-                    id : 1,
-                    name : 'Baby seats or booster',
-                    price : 3,
-                    deposit : 0
+                    id: 1,
+                    name: 'Baby seats or booster',
+                    price: 3,
+                    deposit: 0
                 },
                 {
-                    id : 2,
-                    name : 'GPS Navigator',
-                    price : 5,
-                    deposit : 100
+                    id: 2,
+                    name: 'GPS Navigator',
+                    price: 5,
+                    deposit: 100
                 },
                 {
-                    id : 3,
-                    name : 'Car Video Recorder',
-                    price : 5,
-                    deposit : 50
+                    id: 3,
+                    name: 'Car Video Recorder',
+                    price: 5,
+                    deposit: 50
                 },
                 {
-                    id : 4,
-                    name : 'Wi-Fi',
-                    price : 7,
-                    deposit : 50
+                    id: 4,
+                    name: 'Wi-Fi',
+                    price: 7,
+                    deposit: 50
                 },
                 {
-                    id : 5,
-                    name : 'Camera "Xiaomi"',
-                    price : 5,
-                    deposit : 50
+                    id: 5,
+                    name: 'Camera "Xiaomi"',
+                    price: 5,
+                    deposit: 50
                 },
                 {
-                    id : 6,
-                    name : 'Walky-Talky (radio)',
-                    price : 3,
-                    deposit : 0
+                    id: 6,
+                    name: 'Walky-Talky (radio)',
+                    price: 3,
+                    deposit: 0
                 },
                 {
-                    id : 7,
-                    name : 'Converter',
-                    price : 1,
-                    deposit : 0
+                    id: 7,
+                    name: 'Converter',
+                    price: 1,
+                    deposit: 0
                 },
                 {
-                    id : 8,
-                    name : 'Refrigerator',
-                    price : 3,
-                    deposit : 0
+                    id: 8,
+                    name: 'Refrigerator',
+                    price: 3,
+                    deposit: 0
                 },
                 {
-                    id : 9,
-                    name : 'Usb-Adapter',
-                    price : 1,
-                    deposit : 0
+                    id: 9,
+                    name: 'Usb-Adapter',
+                    price: 1,
+                    deposit: 0
                 },
                 {
-                    id : 10,
-                    name : 'Telephone Holder',
-                    price : 1,
-                    deposit : 0
+                    id: 10,
+                    name: 'Telephone Holder',
+                    price: 1,
+                    deposit: 0
                 },
             ]
         };
@@ -716,6 +740,8 @@
             start_time: String,
             end_time: String,
             price: String,
+            deposit: String,
+            additional: [],
             date: String
         })
         var ordersSchema = mongoose.model('order', orderModel);
@@ -727,7 +753,7 @@
         });
         app.get('/catalog/:id/confirmation', function (request, response) {
             return response.send({
-                AddItems : staticData.AddItems
+                AddItems: staticData.AddItems
             });
         });
         app.post('/checkout', function (request, response) {
@@ -739,6 +765,8 @@
                 start_time: request.body.startTime,
                 end_time: request.body.endTime,
                 price: request.body.price,
+                deposit: request.body.deposit,
+                additional: request.body.additional,
                 date: +new Date
             })
             order.save();
@@ -750,15 +778,48 @@
                 for (var i = 0; i < user.length; i++) {
                     if (md5(user[i].email) == localData.a) {
                         ordersSchema.find({user_id: user[i]._id}, function (err, orders) {
-                            response.send({
-                                orders: orders,
-                                cars: staticData.cars
-                            });
+                            if (orders.length > 0) {
+                                response.send({
+                                    orders: orders,
+                                    cars: staticData.cars,
+                                    additionalOptions: staticData.AddItems
+                                });
+                            }
                         })
                     }
                 }
 
             });
+        });
+        app.get('/adminorders', function (request, response) {
+            var localData = cookie.parse(request.headers.cookie || '');
+            return UsersSchema.find(null, function (err, user) {
+                for (var i = 0; i < user.length; i++) {
+
+                    ordersSchema.find(null, function (err, orders) {
+                        if (orders.length > 0) {
+                            response.send({
+                                users: user,
+                                orders: orders,
+                                cars: staticData.cars,
+                                additionalOptions: staticData.AddItems
+                            });
+                        }
+                    })
+
+                }
+
+            });
+        });
+        app.post('/search', function (request, response) {
+            return UsersSchema.find(null, function (err, user) {
+                ordersSchema.find(null, function (err, orders) {
+                    response.send({
+                        orders: orders
+                    });
+                })
+            });
+
         });
         app.post('/order_delete', function (request, response) {
             ordersSchema.find({_id: request.body.id}).remove().exec();

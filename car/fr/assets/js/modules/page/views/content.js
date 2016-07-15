@@ -17,6 +17,11 @@ define([
             return {
                 objects: self.options.data
             };
+        },
+        onShow : function() {
+            $(".js-hello").animate({'opacity':'1.0'},1000, function() {
+                $(".image-hello").animate({'opacity':'1.0'},1000);
+            });
         }
     });
 

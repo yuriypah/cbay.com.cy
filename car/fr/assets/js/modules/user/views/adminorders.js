@@ -6,7 +6,7 @@ define([
     'backbone',
     'marionette',
     'jquery',
-    'text!modules/user/templates/orders.html',
+    'text!modules/user/templates/adminorders.html',
     'moment'
 ], function (app, backbone, marionette, $, tpl, moment) {
     "use strict";
@@ -34,6 +34,16 @@ define([
         templateHelpers: function () {
             var self = this;
             return {
+                user : function(id) {
+                   var str = "";
+                    for(var i = 0; i < self.options.users.length; i++) {
+                        if(self.options.users[i]._id == id) {
+                            str +=  "<span style='color:green'>"+self.options.users[i].name + "</span>, email: <span style='color:green'>" +
+                            self.options.users[i].email + "</span>, Phone number: <span style='color:green'>" + self.options.users[i].phone + "</span>"
+                        }
+                    }
+                  return str
+                },
                 orders: this.options.orders,
                 cars: this.options.cars,
                 additional : function() {

@@ -15,8 +15,11 @@
                     </li>
                     <li class="hide"><a data-currency="usd" href="#" class="currency_link usd"><span class="currency-icons glyphicon glyphicon-usd"></span></a></li>
                     <li class="hide"><a data-currency="rub" href="#" class="currency_link rub"><span class="currency-icons glyphicon glyphicon-ruble"></span></a></li>
+                    <% if(app.user.name == "admin") { %>
+                    <li class=""> <a style="color:green" href="/#/adminorders">Admin orders page</a></li>
+                    <% } %>
                     <li class=""> <a href="/#/about">About</a></li>
-                    <li class=""> <a href="/#/payment">Payment information</a></li>
+
                     <li class=""> <a href="/#/agreement">Privacy policy</a></li>
                     <% if(app.isAuth == 0) { %>
                     <li class="pull-right"><a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span>
@@ -28,7 +31,7 @@
                                               aria-haspopup="true" aria-expanded="false" href="#"><span
                             class="glyphicon glyphicon-globe"></span> <%=app.user.name%> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="" href="#orders"> My orders</a>
+                            <li><a class="" href="/#/orders"> My orders</a>
                             <li class="hide"><a class="logout" href="#"> Profile</a>
                             <li><a class="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
                             </li>
@@ -56,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div class='col-md-5'>
-                        <h4 class="headers"><span class="glyphicon glyphicon-play"></span> Pickup location:</h4>
+                        <h5 class="headers"><span class="glyphicon glyphicon-play"></span> Pickup location:</h5>
 
                         <div class="form-group">
                             <div class='input-group'>
@@ -95,7 +98,7 @@
 
                     <!--return -->
                     <div class='col-md-5'>
-                        <h4 class="headers"><span class="glyphicon glyphicon-stop"></span> Return location:</h4>
+                        <h5 class="headers"><span class="glyphicon glyphicon-stop"></span> Return location:</h5>
 
                         <div class="form-group">
                             <div class='input-group'>

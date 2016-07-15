@@ -16,6 +16,7 @@ define([
             app.user = data.userData;
             require(["bootstrap"]);
             require(['page']);
+            require(['price']);
             require(['user']);
         });
 

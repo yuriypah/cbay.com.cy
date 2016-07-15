@@ -28,7 +28,7 @@ define([
             'logoutHolder': '.logout',
             'registerHolder': '.register',
             'currency_link': '.currency_link',
-            'submit' : '.submit'
+            'submit': '.submit'
         },
         events: {
             'click @ui.advanced_search_holder': 'showAdvanced',
@@ -37,13 +37,37 @@ define([
             'click @ui.registerHolder': 'register',
             'keydown @ui.start_calendar,@ui.end_calendar,@ui.start_timer,@ui.end_timer': 'stopKey',
             'click @ui.currency_link': 'changeCurrency',
-            'click @ui.submit' : 'submit'
+            'click @ui.submit': 'submit'
         },
-        submit : function() {
+        submit: function () {
+
             $.fancybox.showLoading();
-            setTimeout(function() {
-                $.fancybox("<h3>Search result</h3> No items is matched. Please try again");
-            },1000)
+            $.post('/search', {
+
+                startDate: moment(app.searchParams.startDate).unix(),
+                endDate: moment(app.searchParams.endDate).unix(),
+                startTime: moment(app.searchParams.startTime).format('HH:mm'),
+                endTime: moment(app.searchParams.endTime).format('HH:mm'),
+
+            }, function (data) {
+                var countBookedCars = 0;
+                for (var i = moment(app.searchParams.startDate).unix(); i <= moment(app.searchParams.endDate).unix(); i += 86400) {
+                    for (var j = 0; j < data.orders.length; j++) {
+                        if (i >= data.orders[j].start_date && i <= data.orders[j].end_date) {
+                            $(".car-item[data-id=" + data.orders[j].car_id + "]").parent().parent().hide();
+                            countBookedCars++;
+                        } else {
+                            $(".car-item[data-id=" + data.orders[j].car_id + "]").parent().parent().show();
+
+                        }
+                    }
+                }
+
+                $(".text-hello, .image-hello").remove();
+                $(".h1-hello").html("Search results: <span style='color:green'>Available " + ($(".car-item").length - countBookedCars) + " cars</span>");
+                $.fancybox.hideLoading();
+            });
+
         },
         changeCurrency: function (e) {
             e.preventDefault();
@@ -88,11 +112,7 @@ define([
                 startTime: this.ui.start_timer.data('DateTimePicker').date(),
                 endTime: this.ui.end_timer.data('DateTimePicker').date()
             };
-            $.fancybox.showLoading();
-            setTimeout(function() {
-                app.vent.trigger("Search:changed");
-                $.fancybox.hideLoading();
-            },1500)
+            app.vent.trigger("Search:changed");
         },
         onShow: function () {
             var self = this;

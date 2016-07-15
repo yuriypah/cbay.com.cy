@@ -13,11 +13,18 @@ define([
     return marionette.ItemView.extend({
         template: tpl,
         dopPrice: 0,
+        additionalDepositPrice : 0,
+        selectedAdditional : [],
         ui: {
             'choose_pay': '.choose_pay',
             'checkout': '.checkout',
             'checkboxes': '.add_options input[type=checkbox]',
-            'total' : '.totalPrice'
+            'total' : '.totalPrice',
+            'days' : '.countOfDays',
+            'rentACar':'.rentACar',
+            'additionalOptions':'.additionalOptions',
+            'additionalDeposit':'.additionalDeposit',
+            'allDeposits' : '.allDeposits'
         },
         events: {
             'click @ui.choose_pay': 'choose_pay',
@@ -29,22 +36,32 @@ define([
         },
         chooseOptions: function () {
             this.dopPrice = 0;
-            var self = this, dopPrice = 0, rentalPrice = app.order.price;
+            var self = this, dopPrice = 0, depositPrice = 0, rentalPrice = app.order.price, selectedAdditional = [];
             this.ui.checkboxes.each(function () {
                 if (this.checked) {
                     for (var i = 0; i < self.options.data.AddItems.length; i++) {
                         if (this.id == "ad_" + self.options.data.AddItems[i].id) {
+                            selectedAdditional.push({
+                                id : self.options.data.AddItems[i].id
+                            })
                             dopPrice += (self.options.data.AddItems[i].price * app.order.days);
                             if (self.options.data.AddItems[i].deposit > 0) {
-                                dopPrice += self.options.data.AddItems[i].deposit
+                                depositPrice += self.options.data.AddItems[i].deposit
                             }
                         }
                     }
                 }
             });
+            this.selectedAdditional = selectedAdditional;
+            this.additionalDepositPrice = depositPrice;
             this.dopPrice = dopPrice;
             var price = (app.request("app:order:price:update") + dopPrice);
             this.ui.total.html(price);
+            this.ui.days.html(app.order.days);
+            this.ui.rentACar.html(app.order.price);
+            this.ui.additionalOptions.html(dopPrice);
+            this.ui.additionalDeposit.html(depositPrice);
+            this.ui.allDeposits.html(app.order.car.deposit[0].deposit + depositPrice);
         },
         choose_pay: function (e) {
             e.preventDefault();
@@ -62,7 +79,7 @@ define([
         },
         checkout: function (e) {
             e.preventDefault();
-
+            var price = (app.request("app:order:price:update"));
             $.post('/checkout', {
                 carId: app.order.car.id,
                 userId: app.user.id,
@@ -70,7 +87,9 @@ define([
                 endDate: moment(app.searchParams.endDate).unix(),
                 startTime: moment(app.searchParams.startTime).format('HH:mm'),
                 endTime: moment(app.searchParams.endTime).format('HH:mm'),
-                price: app.order.price
+                price: (price + this.dopPrice),
+                deposit : (app.order.car.deposit[0].deposit + this.additionalDepositPrice),
+                additional : this.selectedAdditional
             }, function () {
                 var router = new app.page.router();
                 router.navigate('#checkout', {trigger: true});
@@ -86,6 +105,9 @@ define([
             app.vent.on("Search:changed", function () {
                 var price = (app.request("app:order:price:update"));
                 this.ui.total.html(price + this.dopPrice);
+                this.ui.days.html(app.order.days);
+                this.ui.rentACar.html(app.order.price);
+                this.ui.allDeposits.html(app.order.car.deposit[0].deposit);
                 this.chooseOptions();
                /* var days = (moment(app.searchParams.endDate).unix() - moment(app.searchParams.startDate).unix()) / 3600 / 24;
                 if (Math.ceil(days) > 0) {

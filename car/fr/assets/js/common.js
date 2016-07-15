@@ -54,6 +54,7 @@ require.config({
         'text': ['vendor/requirejs-text/text'],
         'app': 'application',
         'page': 'modules/page/page',
+        'price':'modules/price/price',
         'user' : 'modules/user/userModule'
 
     },

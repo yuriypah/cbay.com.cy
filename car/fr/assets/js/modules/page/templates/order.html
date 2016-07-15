@@ -1,194 +1,232 @@
 <script type="text/html">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active"><a href="#/catalog/<%=app.order.car.id%>"><%=app.order.car.name%></a></li>
-                    <li class="active"><a href="#/catalog/<%=app.order.car.id%>/confirmation"><%=app._('order.confirmation.header')%></a>
-                    </li>
-                </ol>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#/catalog/<%=app.order.car.id%>"><%=app.order.car.name%></a></li>
+                <li class="active"><a href="#/catalog/<%=app.order.car.id%>/confirmation"><%=app._('order.confirmation.header')%></a>
+                </li>
+            </ol>
         </div>
     </div>
-    <div class="container">
-        <div class="row-fluid">
-            <div class="col-md-12">
-                <h1><%=app.order.car.name%> | <%=app._('order.confirmation.header')%></h1>
-            </div>
+</div>
+<div class="container">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <h1><%=app.order.car.name%> | <%=app._('order.confirmation.header')%></h1>
         </div>
     </div>
-    <div class="container">
-        <div class="row-fluid">
-            <div class="col-md-24">
-                <div class="panel panel-success">
-                    <div class="panel-heading">Order details</div>
-                    <div class="panel-body">
-                        <table class="table ">
-                            <tr>
-                                <td rowspan="10" width="200">
-                                    <a href="#" class="thumbnail">
-                                        <img width="200" src="<%=app.order.car.image%>"/>
-                                    </a><br/>
+</div>
+<div class="container">
+    <div class="row-fluid">
+        <div class="col-md-24">
+            <div class="panel panel-success">
+                <div class="panel-heading">Order details</div>
+                <div class="panel-body">
+                    <table class="table ">
+                        <tr>
+                            <td rowspan="10" width="200">
+                                <a href="#" class="thumbnail">
+                                    <img width="200" src="<%=app.order.car.image%>"/>
+                                </a><br/>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Renter name:</strong></td>
-                                <td><%=app.user.name%></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Car:</strong></td>
-                                <td><%=app.order.car.name%></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Start:</strong></td>
-                                <td><%=dates.startDate%></td>
-                            </tr>
-                            <tr>
-                                <td><strong>End:</strong></td>
-                                <td><%=dates.endDate%></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Count of days:</strong></td>
-                                <td><%=app.order.days%></td>
-                            </tr>
-                            <tr>
-                                <td><strong>General information:</strong></td>
-                                <td>
-                                    <p>
-                                        Receipt and return of the rented vehicle at the address: Paphos, Cyprus.<BR/>
-                                        To rent a car you must have a passport of international standard, as well as a driver's license<Br/>
-                                        In case of payment by credit card on your account will be frozen deposit. At the end of the rental car funds will be unfrozen
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Addictional driver:</strong></td>
-                                <td>
-                                    <table class="table table-stripped add_options">
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" id="ad_1"/> <label for="ad_1" class=""><strong>Baby seats or booster</strong> (€3/day)</label><br/>
-                                                <input type="checkbox" id="ad_2"/> <label for="ad_2" class=""><strong>GPS Navigator</strong> (€5/day)</label>
-                                                <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
-                                                    +Deposit: €100
-                                                </i><br/>
-                                                <input type="checkbox" id="ad_3"/> <label for="ad_3" class=""><strong>Car Video Recorder</strong> (€5/day)</label>
-                                                <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
-                                                    +Deposit: €50
-                                                </i><br/>
-                                                <input type="checkbox" id="ad_4"/> <label for="ad_4" class=""><strong>Wi-Fi</strong> (€7/day)</label>
-                                                <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
-                                                    +Deposit: €50
-                                                </i><br/>
-                                                <input type="checkbox" id="ad_5"/> <label for="ad_5" class=""><strong>Camera "Xiaomi"</strong> (€5/day)</label>
-                                                <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
-                                                    +Deposit: €50
-                                                </i>
-                                            </td>
-                                            <td>
-                                                <input type="checkbox" id="ad_6"/> <label for="ad_6" class=""><strong>Walky-Talky (radio)</strong> (€3/day)</label><br/>
-                                                <input type="checkbox" id="ad_7"/> <label for="ad_7" class=""><strong>Converter</strong> ($1/day)</label><br/>
-                                                <input type="checkbox" id="ad_8"/> <label for="ad_8" class=""><strong>Refrigerator</strong> (€3/day)</label><br/>
-                                                <input type="checkbox" id="ad_9"/> <label for="ad_9" class=""><strong>Usb-Adapter</strong> (€1/day)</label><br/>
-                                                <input type="checkbox" id="ad_10"/> <label for="ad_10" class=""><strong>Telephone Holder </strong>(€1/day)</label><br/>
-                                            </td>
-                                        </tr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Renter name:</strong></td>
+                            <td><%=app.user.name%></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Car:</strong></td>
+                            <td><%=app.order.car.name%></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start:</strong></td>
+                            <td><%=dates.startDate%></td>
+                        </tr>
+                        <tr>
+                            <td><strong>End:</strong></td>
+                            <td><%=dates.endDate%></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Count of days:</strong></td>
+                            <td><span class="countOfDays"><%=app.order.days%></span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>General information:</strong></td>
+                            <td>
+                                <p>
+                                    Receipt and return of the rented vehicle at the address: Paphos, Cyprus.<BR/>
+                                    To rent a car you must have a passport of international standard, as well as a
+                                    driver's license<Br/>
+                                    In case of payment by credit card on your account will be frozen deposit. At the end
+                                    of the rental car funds will be unfrozen
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Addictional options:</strong></td>
+                            <td>
+                                <table class="table table-stripped add_options">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="ad_1"/> <label for="ad_1" class=""><strong>Baby
+                                            seats or booster</strong> (€3/day)</label><br/>
+                                            <input type="checkbox" id="ad_2"/> <label for="ad_2" class=""><strong>GPS
+                                            Navigator</strong> (€5/day)</label>
+                                            <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                                +Deposit: €100
+                                            </i><br/>
+                                            <input type="checkbox" id="ad_3"/> <label for="ad_3" class=""><strong>Car
+                                            Video Recorder</strong> (€5/day)</label>
+                                            <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                                +Deposit: €50
+                                            </i><br/>
+                                            <input type="checkbox" id="ad_4"/> <label for="ad_4"
+                                                                                      class=""><strong>Wi-Fi</strong>
+                                            (€7/day)</label>
+                                            <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                                +Deposit: €50
+                                            </i><br/>
+                                            <input type="checkbox" id="ad_5"/> <label for="ad_5" class=""><strong>Camera
+                                            "Xiaomi"</strong> (€5/day)</label>
+                                            <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                                +Deposit: €50
+                                            </i>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="ad_6"/> <label for="ad_6" class=""><strong>Walky-Talky
+                                            (radio)</strong> (€3/day)</label><br/>
+                                            <input type="checkbox" id="ad_7"/> <label for="ad_7" class=""><strong>Converter</strong>
+                                            ($1/day)</label><br/>
+                                            <input type="checkbox" id="ad_8"/> <label for="ad_8" class=""><strong>Refrigerator</strong>
+                                            (€3/day)</label><br/>
+                                            <input type="checkbox" id="ad_9"/> <label for="ad_9" class=""><strong>Usb-Adapter</strong>
+                                            (€1/day)</label><br/>
+                                            <input type="checkbox" id="ad_10"/> <label for="ad_10" class=""><strong>Telephone
+                                            Holder </strong>(€1/day)</label><br/>
+                                        </td>
+                                    </tr>
 
-                                    </table>
-                                </td>
-                            </tr>
-                            <!--<tr>
-                                <td><strong>Deposit & Additional insurance</strong></td>
-                                <td>
-                                    Please choose item from this variants:
-                                    <select class="deposit_variants" onchange="app.vent.trigger('order:setDeposit')">
-                                        <% _.each(deposit_variants(), function(item) {%>
-                                        <option value="<%=item.id%>"><%=item.value%></option>
-                                        <%})%>
-                                    </select>
-                                </td>
-                            <tr>-->
-                                <td><h3>Total:</h3>
-                                    <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--<tr>
+                            <td><strong>Deposit & Additional insurance</strong></td>
+                            <td>
+                                Please choose item from this variants:
+                                <select class="deposit_variants" onchange="app.vent.trigger('order:setDeposit')">
+                                    <% _.each(deposit_variants(), function(item) {%>
+                                    <option value="<%=item.id%>"><%=item.value%></option>
+                                    <%})%>
+                                </select>
+                            </td>
+                        <tr>-->
+                        <tr>
+                            <td><strong>Invoice details:</strong>
+                                <div class="invoice_details" style="margin-left:15px">
+                                    <div class="item">Rent a Car:</div>
+                                    <div class="item">Car deposit:</div>
+                                    <div class="item">Additional options:</div>
+                                    <div class="item">Additional deposit:</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>&nbsp;</div>
+                                <div class="invoice_details pull-right">
+                                    <div class="item"><strong>€<span class="rentACar"><%=app.order.price%></span></strong> (€<%=app.order.priceOneDay%>/day)</div>
+                                    <div class="item"><strong>€<span class="Deposit"><%=app.order.car.deposit[0].deposit%></span></strong></div>
+                                    <div class="item"><strong>€<span class="additionalOptions">0</span></strong></div>
+                                    <div class="item"><strong>€<span class="additionalDeposit">0</span></strong></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
 
-                                    </i></td>
-                                <td>
-                                    <% if(app.order.price > 0) { %>
-                                    <h3 class="pull-right order-totalPrice nobile"><span style='font-size:16px'
-                                                                                         class="currency-icons glyphicon glyphicon-euro"></span>
-                                        <span class="totalPrice">0</span></h3>
-                                    <% } else { %>
-                                    <h3 class="pull-right order-totalPrice ">
-                                        <span style="color:red">Invalid dates</span>
-                                    </h3>
-                                    <% } %>
+                        <td>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="payment_variants" colspan="4">
-                                    <h4>Select a Payment Method:</h4>
+                            <h3>Total:</h3>
+                            <i class="text-gray"><span class="glyphicon glyphicon-info-sign"></span>
+                                While the Vehicle isn`t returned, the invoiced amount will be charged:  <strong>€<span class="allDeposits"><%=app.order.car.deposit[0].deposit%></span></strong>
+                            </i></td>
+                        <td>
+                            <% if(app.order.price > 0) { %>
 
-                                    <div class="row">
-                                        <div class="col-md-4 hide">
-                                            <a href="#" class="thumbnail active choose_pay">
-                                                <img src="/assets/img/jcc_logo_small.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
-                                                  class="paypal_form">
-                                                <input type="hidden" name="cmd" value="_xclick">
-                                                <input type="hidden" name="business" value="gosup3@gmail.com">
-                                                <input type="hidden" name="no_shipping" value="1">
-                                                <input type="hidden" name="item_name" value="RENTCAR.CBAY.COM.CY"/>
-                                                <input type="hidden" name="amount" value="<%=app.order.price %>"/>
-                                                <input type="hidden" name="currency_code" value="EUR"/>
-                                            </form>
-                                                <input type="hidden" name="currency_code" value="EUR">
-                                                </form>
-                                            <a href="#" class="thumbnail paypal_case choose_pay">
-                                                <img class="paypal" src="/assets/img/paypal_logo2.png">
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="thumbnail cache choose_pay">
-                                                <h4><p>I will pay in the office when I get behind the car</p></h4>
-                                            </a>
+                            <h3 class="pull-right order-totalPrice nobile"><span style='font-size:16px'
+                                                                                 class="currency-icons glyphicon glyphicon-euro"></span>
+                                <span class="totalPrice">0</span></h3>
+                            <% } else { %>
+                            <h3 class="pull-right order-totalPrice ">
+                                <span style="color:red">Invalid dates</span>
+                            </h3>
+                            <% } %>
+
+                        </td>
+                        </tr>
+                        <tr>
+                            <td class="payment_variants" colspan="4">
+                                <h4>Select a Payment Method:</h4>
+
+                                <div class="row">
+                                    <div class="col-md-4 hide">
+                                        <a href="#" class="thumbnail active choose_pay">
+                                            <img src="/assets/img/jcc_logo_small.jpg">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+                                              target="_blank"
+                                              class="paypal_form">
+                                            <input type="hidden" name="cmd" value="_xclick">
+                                            <input type="hidden" name="business" value="gosup3@gmail.com">
+                                            <input type="hidden" name="no_shipping" value="1">
+                                            <input type="hidden" name="item_name" value="RENTCAR.CBAY.COM.CY"/>
+                                            <input type="hidden" name="amount" value="<%=app.order.price %>"/>
+                                            <input type="hidden" name="currency_code" value="EUR"/>
+                                        </form>
+                                        <input type="hidden" name="currency_code" value="EUR">
+                                        </form>
+                                        <a href="#" class="thumbnail paypal_case choose_pay">
+                                            <img class="paypal" src="/assets/img/paypal_logo2.png">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#" class="thumbnail cache choose_pay">
+                                            <h4><p>I will pay in the office when I get behind the car</p></h4>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-warning">Sorry! Credit cards temporarily
+                                            unavailable. Yoy can checkout this order without pay
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="alert alert-warning">Sorry! Credit cards temporarily
-                                                unavailable. Yoy can checkout this order without pay
-                                            </div>
-                                        </div>
+                                </div>
+                            </Td>
+                        </Tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button disabled="disabled" class="btn btn-success pull-right checkout">
+                                            Checkout
+                                            <span class="glyphicon glyphicon-menu-right"></span>
+                                        </button>
                                     </div>
-                                </Td>
-                            </Tr>
-                            <tr>
-                                <td colspan="4">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button disabled="disabled" class="btn btn-success pull-right checkout">
-                                                Checkout
-                                                <span class="glyphicon glyphicon-menu-right"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
 
 
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
 
 </script>

@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li class="active"><a href="#orders">My orders</a>
+                    <li class="active"><a href="#orders">All orders</a>
                     </li>
                 </ol>
             </div>
@@ -14,7 +14,7 @@
         <div class="row-fluid">
             <div class="col-md-24">
                 <div class="panel panel-success">
-                    <div class="panel-heading">My orders</div>
+                    <div class="panel-heading">All orders</div>
                     <div class="panel-body">
                         <% if(orders.length > 0) { %>
                         <table class="table orders">
@@ -28,6 +28,7 @@
                                 </td>
                                 <td>
                                     <ul class="list-group">
+                                        <li class="list-group-item"><strong>User:</strong> <%=user(order.user_id)%></li>
                                         <li class="list-group-item"><strong>Start:</strong> <%=getDate(order.start_date, order.start_time)%></li>
                                         <li class="list-group-item"><strong>End:</strong> <%=getDate(order.end_date, order.end_time)%></li>
                                         <% if(order.additional.length > 0) { %>
